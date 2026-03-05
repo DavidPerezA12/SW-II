@@ -7,10 +7,20 @@
 - 
 
 ## Temática
-API REST para gestionar una base de datos de videojuegos, plataformas y reseñas.
+Diseño e implementación de una API REST en Node.js con MongoDB para gestionar videojuegos y sus reseñas.
+La API integrará información externa desde RAWG (JSON) y almacenará los datos integrados en la base de datos.
 
-La API permitirá:
-- Consultar videojuegos
-- Filtrar por plataforma o género
-- Añadir reseñas
-- Obtener información externa de videojuegos mediante la API RAWG.
+## API externa
+- RAWG Video Games Database API (JSON): https://api.rawg.io/docs/
+Requiere API key (configurar `RAWG_API_KEY` en `.env`).
+
+## Recursos principales (mínimo 3)
+- games (colección grande: ≥1000 documentos)
+- platforms
+- reviews (relacionada con games)
+
+## Requisitos previstos
+- CRUD completo sobre los recursos.
+- Paginación y filtrado en `GET /games`.
+- Carga automática de datos mediante scripts npm (seed).
+- Respuestas en JSON y al menos una ruta en XML con XSD (se implementará en entregas posteriores).
