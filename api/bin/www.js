@@ -2,14 +2,14 @@
  * Module dependencies.
  */
 
-require('dotenv').config()
+require('dotenv').config();
 var app = require('../app');
-// var debug = require('debug')('mylibrary:server');
+var debug = require('debug')('api-videogames:server');
 var http = require('http');
 
 // Conexión a MongoDB
 require('../db/conn').connectToDatabase();
-
+  
 /**
  * Get port from environment and store in Express.
  */
@@ -84,6 +84,7 @@ function onError(error) {
  */
 
 function onListening() {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
