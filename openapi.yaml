@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  title: 
+  description: 
+  version: 
+servers:
+  - url: 
+    description: Development server
+paths:
+components:
