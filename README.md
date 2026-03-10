@@ -61,15 +61,15 @@ Requiere API key (configurar `RAWG_API_KEY` en `.env`).
 3. Dentro de la carpeta `api` ejecuta:
 
 - Instalar dependencias:
-
-- ```bash
+  
+  ```bash
    npm install
-   ```
+  ```
 
 - Ejecutar servidor:
-
-   ```bash
+  
+  ```bash
     npm start
-    ```
+  ```
 
 ## 📂 Estructura del proyecto
