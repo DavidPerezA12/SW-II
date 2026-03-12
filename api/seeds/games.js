@@ -1,8 +1,10 @@
+// API DATOS --> MONGO
 const mongodb = require('../db/conn');
 const rawg = require('../services/rawg');
+const fs = require("fs");
 
 const seedGames = async () => {
-
+    // Añade los Juegos a mongo
     // Conexión a Mongo
     await mongodb.connectToDatabase();
     const db = mongodb.getDb();
@@ -17,7 +19,17 @@ const seedGames = async () => {
 
     
     await db.collection("videogames").insertMany(totalGames); //ESTA LINEA NO AÑADE A MONGO
-    console.log("Seed: RAWG TotalGames");
+    console.log("RAWG TotalGames a Mongo");
+
+
+    // ---------------
+    // Añade los juegos a ../datasets/videogames.json
+    fs.writeFileSync(
+        "./datasets/videogames.json",
+        JSON.stringify(totalGames, null, 2)
+    );
+
+    console.log("videogames.json creado");
 
     process.exit();
 };

@@ -12,8 +12,9 @@ router.get('/', async (req, res) => {
         // const games = await rawg.getGames();
 
         // OBTIENE LOS DATOS DE MONGO
-        const dbConnect = mongodb.getDb();
-        console.log("Games:", dbConnect);
+        const database = mongodb.getDb();
+        const games = await database.collection("videogames");
+        console.log("Games:", games);
         res.json(games);
     } catch (err) {
         res.status(500).json({ message: 'Error fetching games', error: err });
