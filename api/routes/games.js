@@ -2,18 +2,18 @@
 const express = require('express');
 const router = express.Router();
 const mongodb = require(`../db/conn`);
-const rawg  = require(`../services/rawg`);
+//const rawg  = require(`../services/rawg`);
 
 // Obtener todos los juegos
 router.get('/', async (req, res) => {
     try {
         
         // OBTIENE LOS DATOS DE LA API DIRECTO
-        // const games = await rawg.getGames();
+        //const games = await rawg.getGames();
 
         // OBTIENE LOS DATOS DE MONGO
         const database = mongodb.getDb();
-        const games = await database.collection("videogames");
+        const games = await database.collection("videogames").find({}).toArray(); //Devuelva todos sino find({id: "123"})
         console.log("Games:", games);
         res.json(games);
     } catch (err) {
