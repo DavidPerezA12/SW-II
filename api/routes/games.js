@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const dbo = require('../db/conn');
+const mongodb = require(`../db/conn`);
 
 // Obtener todos los juegos
 router.get('/', async (req, res) => {
     try {
-        const dbConnect = dbo.getDb();
+        const dbConnect = mongodb.getDb();
         const games = await dbConnect.collection('games').find({}).toArray();
         res.json(games);
     } catch (err) {

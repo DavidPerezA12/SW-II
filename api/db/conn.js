@@ -23,5 +23,5 @@ getDb = () => {
 
 module.exports = {
     connectToDatabase,
-    dbConnection
+    getDb
 };
