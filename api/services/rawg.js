@@ -6,13 +6,13 @@ require("dotenv").config();
 const RAWG_URL_BASE = "https://api.rawg.io/api";
 
 // Obtener 2 juegos de RAWG (PRUEBA)
-const getGames = async (page = 1) => {
+const getGames = async (page = 1, page_size = 4) => {
     try {
         const response = await axios.get(`${RAWG_URL_BASE}/games`, {
             params: {
                 key: process.env.RAWG_API_KEY,
                 page: page,
-                page_size: 2
+                page_size: page_size
             }
         });
 
