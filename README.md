@@ -7,7 +7,7 @@
   - [🧑‍🤝‍🧑 Miembros del grupo](#-miembros-del-grupo)
   - [📖 Descripción](#-descripción)
   - [✨ Funcionalidades](#-funcionalidades)
-    - [Requisitos previstos](#requisitos-previstos)
+    - [Endpoints disponibles](#endpoints-disponibles)
   - [🛠️ Tecnologías utilizadas](#️-tecnologías-utilizadas)
     - [APIs externa](#apis-externa)
   - [▶️ Ejecución](#️-ejecución)
@@ -21,25 +21,41 @@
 
 ## 📖 Descripción
 
-Diseño e implementación de una API REST en Node.js con MongoDB para gestionar videojuegos(RAWG) y sus reseñas(WikiData).
+Diseño e implementación de una API REST en Node.js, Express y MongoDB para gestionar videojuegos(RAWG) y sus reseñas(WikiData).
 
-La API integrará información externa desde RAWG (JSON) y almacenará los datos integrados en la base de datos.
+El objetivo del proyecto es aprender cómo diseñar y desarrollar servicios web, incluyendo:
+
+- Consumo de APIs externas
+- Almacenamiento de datos en una base de datos NoSQL
+- Creación de endpoints REST
+- Documentación del servicio mediante OpenAPI(yaml).
 
 ## ✨ Funcionalidades
 
-- games (colección grande: ≥1000 documentos)
-- platforms
-- reviews (relacionada con games)
+La API REST permitirá gestionar los siguientes recursos:
 
-### Requisitos previstos
+- Obtener información de videojuegos desde la API externa **RAWG** (formato JSON).
+- Obtener información adicional o reseñas desde **WikiData / MediaWiki** (formato XML).
+- Almacenar los datos obtenidos en un archivo JSON local (carpeta `/api/datasets`) para generar un **dataset inicial del proyecto**.
+- Utilizar este dataset para **inicializar la base de datos MongoDB** mediante un script `npm run seed`.
+- Almacenar y gestionar los datos en **MongoDB**.
+- Realizar operaciones **CRUD** sobre la información almacenada en MongoDB.
+- Permitir **paginación y filtrado** en las consultas de videojuegos.
 
-- CRUD completo sobre los recursos.
-- Paginación y filtrado en `GET /games`.
-- Carga automática de datos mediante scripts npm (seed).
-- Respuestas en JSON y al menos una ruta en XML con XSD (se implementará en entregas posteriores).
+### Endpoints disponibles
+
+- **GET /games** → Obtener la lista de videojuegos.
 
 ## 🛠️ Tecnologías utilizadas
 
+- Node.js
+- Express
+- MongoDB
+- Axios (para consumir APIs externas)
+- dotenv (para gestionar variables de entorno)
+- OpenAPI (para documentar la API)
+- xml2js (para convertir XML a JSON)
+  
 ### APIs externa
 
 - RAWG Video Games Database API (JSON): <https://api.rawg.io/docs/>
@@ -60,16 +76,28 @@ Requiere API key (configurar `RAWG_API_KEY` en `.env`).
 
 3. Dentro de la carpeta `api` ejecuta:
 
-- Instalar dependencias:
+- 1. Instalar dependencias:
   
   ```bash
    npm install
   ```
 
-- Ejecutar servidor:
+- 2. Inicializar la base de datos con el dataset:
+  
+  ```bash
+    npm run seed
+  ```
+
+- 3. Ejecutar servidor:
   
   ```bash
     npm start
   ```
 
 ## 📂 Estructura del proyecto
+  
+  ```bash
+SW-II/
+├── api/
+
+  ```

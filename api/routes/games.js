@@ -8,10 +8,10 @@ const mongodb = require(`../db/conn`);
 router.get('/', async (req, res) => {
     try {
         
-        // OBTIENE LOS DATOS DE LA API DIRECTO
+        // Rawg API -> Web Backend = Prueba. NO SE USA PORQUE se usa MongoDB
         //const games = await rawg.getGames();
 
-        // OBTIENE LOS DATOS DE MONGO
+        // MongoDB -> Web Backend
         const database = mongodb.getDb();
         const games = await database.collection("videogames").find({}).toArray(); //Devuelva todos sino find({id: "123"})
         console.log("Games:", games);
