@@ -44,8 +44,10 @@ La API REST permitirá gestionar los siguientes recursos:
 
 ### Endpoints disponibles
 
-- **GET /games** → Obtener la lista de videojuegos.
-
+- **/** → Página de bienvenida con información sobre la API. "[http://localhost:3001/]"
+- **GET /games** → Obtener la lista de videojuegos.  "[http://localhost:3001/games]"
+- **GET /games/:name** → Obtener detalles de un videojuego por su nombre. "[http://localhost:3001/games/:name]"
+  
 ## 🛠️ Tecnologías utilizadas
 
 - Node.js
