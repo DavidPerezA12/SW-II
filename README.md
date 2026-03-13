@@ -47,9 +47,25 @@ La API REST permitirá gestionar los siguientes recursos:
 - **/** → Página de bienvenida con información sobre la API. [http://localhost:3001/]
 - **/games**
   - **GET /games** → Obtener la lista de videojuegos.  [http://localhost:3001/games]
-    - **GET /games?=...** Soporta queries de strings para filtrar como nombre, plataforma, etc. [http://localhost:3001/games?slug=the-witcher&platforms.platform.slug=playstation4]
-      - Nota: Para filtrar los juegos es necesario conocer la estructura del documento JSON (Ver en [http://localhost:3001/games] o en dataset generado en [/api/datasets/videogames.json]).
-      - Nota: Al usar [http://localhost:3001/games?slug=the-witcher] devuelve todos los juegos que contengan "the-witcher" en su slug.
+    - **Query params**:
+      - `?search=the witcher` → Todos los juegos de "the witcher".
+      - `?platform=pc` → Todos los juegos para PC.
+      - `?genre=action` → Filtrar por género.
+      - `?minRating=4.5` → Filtrar por valoración mínima
+      - `?page=2&&limit=2` → Paginación con número de página y límite de resultados por página.
+      - `?limit=10` → Limitar el número de resultados a 10.
+      - `?sort=rating` → Ordenar por valoración ascendente.
+      - `?sort=-name` → Ordenar por nombre descendente.
+    - 
+
+
+
+
+
+
+
+
+
 
   - **GET /games/:slug** → Obtener detalles de un videojuego por su nombre. [http://localhost:3001/games/:slug]
   - **POST ...**

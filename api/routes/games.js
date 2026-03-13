@@ -14,27 +14,67 @@ router.get('/', async (req, res) => {
         // MongoDB -> Web Backend
         const database = mongodb.getDb();
         
+        // Filtros disponibles
+        const {search, platform, genre, minRating,page,limit,sort} = req.query;
+        const filter = {};
         
-        // Por si hay un filtro (?= ...)
-        console.log("Games:", req.query);
-        // SOLO  FUNCIONAN LOS FILTROS CON strings -> Ej: /games?platforms.platform.slug=playstation4
-        if (req.query) { 
-            const filter = { ...req.query };
-            // Para que el filtro se use si contiene este valor -> /games?slug=the-witcher -> todos los juegos que contengan "the-witcher" en su nombre
-            // Se pueden anidar varios filtros -> /games?slug=the-witcher&platforms.platform.slug=playstation4
-            for (const key in filter) { 
-                const value = filter[key];
-                if (typeof value === "string") {
-                    filter[key] = { $regex: value, $options: "i" };
-                }
-            }
-            console.log("Filter applied:", filter);
-            const games = await database.collection("videogames").find(filter).toArray();  //Devuelva los juegos filtrados con la característica en común
-            res.json(games);
-        } else {
-            const games = await database.collection("videogames").find({}).toArray(); //Devuelva todos
-            res.json(games);
+        //?search=the witcher
+        if (search){
+            filter.$or = [
+                { name: { $regex: search, $options: "i" } },
+                { slug: { $regex: search, $options: "i" } }
+            ];
         }
+
+        //?platform=pc
+        if (platform) {
+            filter["platforms.platform.slug"] = platform;
+        }
+
+        //?genre=shooter
+        if (genre){
+            filter["genres.slug"] = genre;
+        }
+
+        //?minRating=4.5
+        if(minRating){
+            filter["rating"] = { $gte: Number(minRating) };
+        }
+
+        //?limit=2
+        let limitNumber;
+        if(limit){
+            limitNumber = parseInt(limit);
+        } else {
+            limitNumber = 50;
+        }
+
+        //?page=2&&limit=2
+        let pageOption;
+        if(page){
+            pageOption = Number(page);
+        } else {
+            pageOption = 1;
+        }
+
+        //games?sort=rating /games?sort=-name
+        let sortOption = {};
+        if(sort){
+            if(sort.startsWith("-")){
+                sortOption = {[sort.slice(1)] : -1}; //sort= -name // sort.slice(1)= name
+            }else{
+                sortOption = {[sort] : 1};
+            }
+        }
+        const games = await database
+            .collection("videogames")
+            .find(filter)
+            .skip((pageOption - 1) * limitNumber)
+            .limit(limitNumber)
+            .sort(sortOption)
+            .toArray();
+        
+        res.status(200).json(games);
     } catch (err) {
         res.status(500).json({ message: 'Error fetching games', error: err });
     }
