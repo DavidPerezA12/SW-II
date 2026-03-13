@@ -44,9 +44,20 @@ La API REST permitirá gestionar los siguientes recursos:
 
 ### Endpoints disponibles
 
-- **/** → Página de bienvenida con información sobre la API. "[http://localhost:3001/]"
-- **GET /games** → Obtener la lista de videojuegos.  "[http://localhost:3001/games]"
-- **GET /games/:name** → Obtener detalles de un videojuego por su nombre. "[http://localhost:3001/games/:name]"
+- **/** → Página de bienvenida con información sobre la API. [http://localhost:3001/]
+- **/games**
+  - **GET /games** → Obtener la lista de videojuegos.  [http://localhost:3001/games]
+    - **GET /games?=...** Soporta queries de strings para filtrar como nombre, plataforma, etc. [http://localhost:3001/games?slug=the-witcher&platforms.platform.slug=playstation4]
+      - Nota: Para filtrar los juegos es necesario conocer la estructura del documento JSON (Ver en [http://localhost:3001/games] o en dataset generado en [/api/datasets/videogames.json]).
+      - Nota: Al usar [http://localhost:3001/games?slug=the-witcher] devuelve todos los juegos que contengan "the-witcher" en su slug.
+
+  - **GET /games/:slug** → Obtener detalles de un videojuego por su nombre. [http://localhost:3001/games/:slug]
+  - **POST ...**
+  - **PUT ...**
+  - **DELETE ...**
+- **/...**
+  - **GET ...**
+  
   
 ## 🛠️ Tecnologías utilizadas
 
@@ -60,8 +71,9 @@ La API REST permitirá gestionar los siguientes recursos:
   
 ### APIs externa
 
-- RAWG Video Games Database API (JSON): <https://api.rawg.io/docs/>
-- MediaWiki API (WikiData) (XML): <https://www.wikidata.org/w/api.php>
+- RAWG Video Games Database API (JSON): [https://api.rawg.io/docs/]
+  - Documentación: [https://api.rawg.io/docs/]
+- MediaWiki API (WikiData) (XML): [https://www.wikidata.org/w/api.php]
 
 Requiere API key (configurar `RAWG_API_KEY` en `.env`).
 

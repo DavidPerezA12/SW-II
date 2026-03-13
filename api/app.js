@@ -18,6 +18,8 @@ app.use(express.urlencoded({ extended: false })); // Middleware para parsear URL
 app.use(cookieParser());
 app.use(logger('dev'));
 
+
+// Rutas
 const index = require('./routes/index');
 app.use('/', index);
 

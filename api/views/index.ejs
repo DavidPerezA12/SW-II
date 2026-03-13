@@ -8,8 +8,18 @@
     <p>Bienvenido a la API de Videojuegos. Aquí puedes encontrar información sobre los videojuegos disponibles en nuestra base de datos.</p>
     <h2>Endpoints disponibles:</h2>
     <ul>
-        <li><strong>GET /games</strong>: Obtiene una lista de todos los videojuegos. <a href="/games">Ver juegos</a> </li> 
-        <li><strong>GET /games/:name</strong>: Obtiene los datos del videojuego en función de su nombre <a href="/games/The Witcher 3: Wild Hunt">The Witcher 3: Wild Hunt</a>  </li>
+        <h1> /games</h1>
+            <li><strong>GET /games</strong>: Obtiene una lista de todos los videojuegos. <a href="/games">Ver juegos</a> </li>
+                <ul>
+                    <li><strong>GET /games?platform=PLATFORM_NAME</strong>: Filtra los videojuegos por plataforma. <a href="/games?platforms.platform.slug=pc">Filtrar por PC</a> </li>
+                    <li><strong>GET /games?slug=SLUG&platforms.platform.slug=PLATFORM_SLUG</strong>: Filtra los videojuegos por nombre y plataforma. <a href="/games?slug=the-witcher&platforms.platform.slug=playstation4">Todos los juegos de The witcher jugables en Playstation 4</a> </li>
+                </ul>
+            <li><strong>GET /games/:slug</strong>: Obtiene los datos del videojuego en concreto en función de su nombre <a href="/games/the-witcher-3-wild-hunt">The Witcher 3: Wild Hunt</a>  </li>
+        <h1> /....</h1>
+            <li></li>
+            <li></li>
+        </ul>
+        
     </ul>
 </body>
 </html>
