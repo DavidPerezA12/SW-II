@@ -22,18 +22,15 @@ const seedGames = async () => {
 
         fs.writeFileSync(
             "./datasets/videogames.json",
-            JSON.stringify(totalGames, null, 2)
+            JSON.stringify(totalGames, null)
         );
-
-        console.log("Dataset JSON creado");
-
     }
 
     //  JSON -> MongoDB
     await db.collection("videogames").deleteMany({});
     await db.collection("videogames").insertMany(totalGames);
 
-    console.log("Datos cargados en MongoDB");
+    console.log("Datos de videogames cargados en MongoDB");
 
     process.exit();
 };

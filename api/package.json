@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www",
-    "seed": "node ./seeds/games"
+    "seed:games": "node ./seeds/games",
+    "seed:developers": "node ./seeds/developers",
+    "seed": "npm run seed:games && npm run seed:developers"
   },
   "keywords": [],
   "author": "",

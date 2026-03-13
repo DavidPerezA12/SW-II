@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
         if(limit){
             limitNumber = parseInt(limit);
         } else {
-            limitNumber = 50;
+            limitNumber = 1000;
         }
 
         //?page=2&&limit=2
@@ -74,7 +74,11 @@ router.get('/', async (req, res) => {
             .sort(sortOption)
             .toArray();
         
-        res.status(200).json(games);
+        console.log("Games found:", games.length);
+        res.status(200).json({
+            data_length: games.length,
+            data:games
+        });
     } catch (err) {
         res.status(500).json({ message: 'Error fetching games', error: err });
     }
