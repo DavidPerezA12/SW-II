@@ -44,7 +44,7 @@ La API REST permitirá gestionar los siguientes recursos:
 
 ### Endpoints disponibles
 
-- **/** → Página de bienvenida con información sobre la API. [http://localhost:3001/]
+- **/** → Página de bienvenida con información sobre la API y sus endpoints. [http://localhost:3001/]
 - **/games**
   - **GET /games** → Obtener la lista de videojuegos.  [http://localhost:3001/games]
     - **Query params**:
@@ -56,25 +56,11 @@ La API REST permitirá gestionar los siguientes recursos:
       - `?limit=10` → Limitar el número de resultados a 10.
       - `?sort=rating` → Ordenar por valoración ascendente.
       - `?sort=-name` → Ordenar por nombre descendente.
-    - 
-
-
-
-
-
-
-
-
-
-
   - **GET /games/:slug** → Obtener detalles de un videojuego por su nombre. [http://localhost:3001/games/:slug]
-  - **POST ...**
-  - **PUT ...**
-  - **DELETE ...**
-- **/...**
-  - **GET ...**
-  
-  
+- **/developers**
+  - **GET /developers** → Obtener la lista de desarrolladores. [http://localhost:3001/developers]
+  - **GET /developers/:slug** → Obtener detalles de un desarrollador por su slug. [http://localhost:3001/developers/valve-software]
+
 ## 🛠️ Tecnologías utilizadas
 
 - Node.js

@@ -26,6 +26,8 @@ app.use('/', index);
 const games = require('./routes/games');
 app.use('/games', games);
 
+const developers = require('./routes/developers');
+app.use('/developers', developers);
 
 // Error 404 y reenvia al controlador de errores
 app.use(function(req, res, next) {

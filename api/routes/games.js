@@ -74,13 +74,12 @@ router.get('/', async (req, res) => {
             .sort(sortOption)
             .toArray();
         
-        console.log("Games found:", games.length);
         res.status(200).json({
-            data_length: games.length,
-            data:games
+            videogames_length: games.length,
+            videogames:games
         });
-    } catch (err) {
-        res.status(500).json({ message: 'Error fetching games', error: err });
+    } catch (e) {
+        res.status(500).json({ message: 'Error fetching games', error: e });
     }
 });
 
@@ -95,8 +94,8 @@ router.get('/:slug', async (req, res) => {
         } else {
             res.json(game_name);
         }
-    } catch (err) {
-        res.status(500).json({ message: 'Error fetching game by name', error: err });
+    } catch (e) {
+        res.status(500).json({ message: 'Error fetching game by name', error: e });
     }
 });
 
