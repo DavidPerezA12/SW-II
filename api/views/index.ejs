@@ -8,8 +8,10 @@
 
     <p>Bienvenido a la API de videojuegos. Esta API permite consultar información
     sobre videojuegos almacenados en la base de datos.</p>
+    <p> API AWG → /games y /developers</p>
 
     <h2>Endpoints disponibles:</h2>
+    <h2>NOTA: PONER GET, POST, PUT Y DELETE</h2>
 
     <h3>/games</h3>
         <ul>
@@ -21,6 +23,10 @@
                 <li>
                     <strong>GET /games?search=the-witcher</strong> → Buscar videojuegos  
                     <a href="/games?search=the-witcher">Buscar los juegos que contengan The Witcher</a>
+                </li>
+                <li>
+                    <strong>GET /games?id=3328</strong> → Obtener un videojuego específico por su ID  
+                    <a href="/games?id=3328">Buscar el juego con ID 3328</a>
                 </li>
                 <li>
                     <strong>GET /games?platform=pc</strong> → Filtrar por plataforma  
@@ -40,7 +46,7 @@
                 </li>
                 <li>
                     <strong>GET /games?page=2&&limit=2</strong> → Paginación (Página 2 con 2 videojuegos por página)
-                    <a href="/games?page=2&&limit=2">Paginación: Página 2 con 2 videojuegos por página</a>
+                    <a href="/games?page=2&limit=2">Paginación: Página 2 con 2 videojuegos por página</a>
                 </li>
                 <li>
                     <strong>GET /games?sort=-rating</strong> → Videjuegos ordenados en función de la característica indicada
@@ -59,9 +65,31 @@
                 <strong> GET /developers</strong> → Obtener todos los desarrolladores
                 <a href="/developers">Ver desarrolladores</a> 
             </li>
+            <ul>
+                <li>
+                    <strong> -------------------------GET /developers?search=valve</strong> → Buscar desarrolladores
+                    <a href="/developers?search=valve">Buscar desarrolladores que contengan "valve"</a> 
+                </li>
+                <li>
+                    <strong> GET /developers?gameID=3328</strong> → Filtrar por ID de juego
+                    <a href="/developers?gameID=3328">Filtrar por desarrolladores asociados al juego con ID 3328</a> 
+                </li>
+                 <li>
+                    <strong> -------------------------GET /developers?limit=10</strong> → Limitar resultados a 10 desarrolladores
+                    <a href="/developers?limit=10">Limitar resultados a 10 desarrolladores</a> 
+                </li>
+                 <li>
+                    <strong> -------------------------GET /developers?page=2&&limit=2</strong> → Paginación (Página 2 con 2 desarrolladores por página)
+                    <a href="/developers?page=2&limit=2">Paginación: Página 2 con 2 desarrolladores por página</a> 
+                </li>
+                 <li>
+                    <strong> -------------------------GET /developers?sort=games_count</strong> → Ordenar por número de juegos asociados
+                    <a href="/developers?sort=games_count">Ordenar por número de juegos asociados de menor a mayor</a> 
+                </li>
+            </ul>
             <li>
                 <strong> GET /developers/:slug </strong> → Obtener un desarrollador en específico
-                <a href="/developers/valve-software">Ver Valve Software </a> 
+                <a href="/developers/valve-software">Ver Valve Software y que juegos ha desarrollado</a> 
             </li>
         </ul>
 

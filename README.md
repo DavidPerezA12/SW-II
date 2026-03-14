@@ -48,6 +48,7 @@ La API REST permitirá gestionar los siguientes recursos:
 - **/games**
   - **GET /games** → Obtener la lista de videojuegos.  [http://localhost:3001/games]
     - **Query params**:
+      - `?id=1234` → Obtener un juego específico por su ID.
       - `?search=the witcher` → Todos los juegos de "the witcher".
       - `?platform=pc` → Todos los juegos para PC.
       - `?genre=action` → Filtrar por género.
@@ -57,8 +58,15 @@ La API REST permitirá gestionar los siguientes recursos:
       - `?sort=rating` → Ordenar por valoración ascendente.
       - `?sort=-name` → Ordenar por nombre descendente.
   - **GET /games/:slug** → Obtener detalles de un videojuego por su nombre. [http://localhost:3001/games/:slug]
+  
 - **/developers**
   - **GET /developers** → Obtener la lista de desarrolladores. [http://localhost:3001/developers]
+    - **Query params**:
+      - `?search=valve` → Todos los desarrolladores que contengan "valve" en su nombre.
+      - `?gameID=4200` → Desarrolladores asociados a un juego específico.
+      - `?page=2&&limit=2` → Paginación con número de página y límite de resultados por página.
+      - `?limit=10` → Limitar el número de resultados a 10.
+      - `?sort=games_count` → Ordenar por número de juegos ascendente.
   - **GET /developers/:slug** → Obtener detalles de un desarrollador por su slug. [http://localhost:3001/developers/valve-software]
 
 ## 🛠️ Tecnologías utilizadas

@@ -15,9 +15,16 @@ router.get('/', async (req, res) => {
         const database = mongodb.getDb();
         
         // Filtros disponibles
-        const {search, platform, genre, minRating,page,limit,sort} = req.query;
+        const {id, search, platform, genre, minRating,page,limit,sort} = req.query;
         const filter = {};
         
+        //?id=1234
+        if (id){
+            console.log("ID recibido:", id);
+            const id_game = Number(id);
+            filter.id = id_game;
+        }
+
         //?search=the witcher
         if (search){
             filter.$or = [
@@ -74,9 +81,11 @@ router.get('/', async (req, res) => {
             .sort(sortOption)
             .toArray();
         
+        const games_witout__id = games.map(({_id, ...game}) => game);
+        
         res.status(200).json({
-            videogames_length: games.length,
-            videogames:games
+            videogames_length: games_witout__id.length,
+            videogames:games_witout__id
         });
     } catch (e) {
         res.status(500).json({ message: 'Error fetching games', error: e });
