@@ -12,27 +12,54 @@
     <h2>Endpoints disponibles</h2>
 
     <h3>/games</h3>
-    <ul>
-        <li>
-            <strong>GET /games</strong> → Obtener todos los videojuegos  
-            <a href="/games">Ver juegos</a>
-        </li>
+        <ul>
+            <li>
+                <strong>GET /games</strong> → Obtener todos los videojuegos  
+                <a href="/games">Ver juegos</a>
+            </li>
+            <ul>
+                <li>
+                    <strong>GET /games?search=the-witcher</strong> → Buscar videojuegos  
+                    <a href="/games?search=the-witcher">Buscar los juegos que contengan The Witcher</a>
+                </li>
+                <li>
+                    <strong>GET /games?platform=pc</strong> → Filtrar por plataforma  
+                    <a href="/games?platform=pc">Filtrar por PC</a>
+                </li>
+                <li>
+                    <strong>GET /games?genre=action</strong> → Filtrar por género  
+                    <a href="/games?genre=action">Filtrar por juegos de acción</a>
+                </li>
+                <li>
+                    <strong>GET /games?minRating=4.5</strong> → Filtrar por calificación (Sobre 5)  
+                    <a href="/games?minRating=4.5">Filtrar calificación minima de 4.5</a>
+                </li>
+                <li>
+                    <strong>GET /games?limit=20</strong> → Limite de 20 videojuegos
+                    <a href="/games?limit=20">Lista de 20 videojuegos</a>
+                </li>
+                <li>
+                    <strong>GET /games?page=2&&limit=2</strong> → Paginación (Página 2 con 2 videojuegos por página)
+                    <a href="/games?page=2&&limit=2">Paginación: Página 2 con 2 videojuegos por página</a>
+                </li>
+                <li>
+                    <strong>GET /games?sort=-rating</strong> → Videjuegos ordenados en función de la característica indicada
+                    <a href="/games?sort=-rating">Juegos ordenados de mayor a menor en función de su calificación</a>
+                </li>
+            </ul>
+            <li>
+                <strong>GET /games/:slug</strong> → Obtener un videojuego específico  
+                <a href="/games/the-witcher-3-wild-hunt">The Witcher 3</a>
+            </li>
+        </ul>
 
-        <li>
-            <strong>GET /games?platform=pc</strong> → Filtrar por plataforma  
-            <a href="/games?platform=pc">Filtrar por PC</a>
-        </li>
-
-        <li>
-            <strong>GET /games?search=the-witcher</strong> → Buscar videojuegos  
-            <a href="/games?search=the-witcher">Buscar Witcher</a>
-        </li>
-
-        <li>
-            <strong>GET /games/:slug</strong> → Obtener un videojuego específico  
-            <a href="/games/the-witcher-3-wild-hunt">The Witcher 3</a>
-        </li>
-    </ul>
+    <h3>/developers</h3>
+        <ul>
+            <li>
+                <strong> GET /developers</strong> → Obtener todos los desarrolladores
+                <a href="/developers">Ver desarrolladores</a> 
+            </li>
+        </ul>
 
 </body>
 </html>
