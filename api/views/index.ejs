@@ -8,7 +8,7 @@
 
     <p>Bienvenido a la API de videojuegos. Esta API permite consultar información
     sobre videojuegos almacenados en la base de datos.</p>
-    <p> API AWG → /games y /developers</p>
+    <p> API AWG → recursos /games y /developers</p>
 
     <h2>Endpoints disponibles:</h2>
     <h2>NOTA: PONER GET, POST, PUT Y DELETE</h2>
@@ -57,6 +57,20 @@
                 <strong>GET /games/:slug</strong> → Obtener un videojuego específico  
                 <a href="/games/the-witcher-3-wild-hunt">The Witcher 3: Wild Hunt</a>
             </li>
+            <li>
+                <strong>PUT /games/:id</strong> → Actualizar un videojuego específico.
+                <a href="https://www.postman.com/">Usar Postman</a>
+                    <ul>Añadir un JSON al body para los datos del videojuego</ul>
+            </li>
+            <li>
+                <strong>POST /games</strong> → Crear un videojuego específico.
+                <a href="https://www.postman.com/">Usar Postman</a>
+                    <ul>Añadir un JSON al body para los datos que se quieran cambiar o añadir al videojuego</ul>
+            </li>
+            <li>
+                <strong>DELETE /games/:id </strong> → Eliminar un videojuego específico
+                <a href="https://www.postman.com/">Usar Postman</a>
+            </li>
         </ul>
 
     <h3>/developers</h3>
@@ -67,24 +81,24 @@
             </li>
             <ul>
                 <li>
-                    <strong> -------------------------GET /developers?search=valve</strong> → Buscar desarrolladores
-                    <a href="/developers?search=valve">Buscar desarrolladores que contengan "valve"</a> 
+                    <strong>GET /developers?search=Electronic Arts</strong> → Buscar desarrolladores
+                    <a href="/developers?search=Electronic Arts">Buscar desarrolladores que contengan "Electronic Arts"</a> 
                 </li>
                 <li>
                     <strong> GET /developers?gameID=3328</strong> → Filtrar por ID de juego
                     <a href="/developers?gameID=3328">Filtrar por desarrolladores asociados al juego con ID 3328</a> 
                 </li>
                  <li>
-                    <strong> -------------------------GET /developers?limit=10</strong> → Limitar resultados a 10 desarrolladores
-                    <a href="/developers?limit=10">Limitar resultados a 10 desarrolladores</a> 
+                    <strong> GET /developers?limit=50</strong> → Limitar resultados a 50 desarrolladores
+                    <a href="/developers?limit=50">Limitar resultados a 50 desarrolladores</a> 
                 </li>
                  <li>
-                    <strong> -------------------------GET /developers?page=2&&limit=2</strong> → Paginación (Página 2 con 2 desarrolladores por página)
-                    <a href="/developers?page=2&limit=2">Paginación: Página 2 con 2 desarrolladores por página</a> 
+                    <strong> GET /developers?page=2&&limit=20</strong> → Paginación (Página 2 con 2 desarrolladores por página)
+                    <a href="/developers?page=2&limit=20">Paginación: Página 2 con 20 desarrolladores por página</a> 
                 </li>
                  <li>
-                    <strong> -------------------------GET /developers?sort=games_count</strong> → Ordenar por número de juegos asociados
-                    <a href="/developers?sort=games_count">Ordenar por número de juegos asociados de menor a mayor</a> 
+                    <strong> GET /developers?sort=-games_count</strong> → Ordenar por número de juegos asociados
+                    <a href="/developers?sort=-games_count">Ordenar por número de juegos asociados de mayor a menor</a> 
                 </li>
             </ul>
             <li>

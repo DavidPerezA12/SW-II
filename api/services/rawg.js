@@ -46,13 +46,13 @@ const getDevelopers = async () => {
 
         let allDevelopers = [];
 
-        for (let page = 1; page <= 5; page++) {
+        for (let page = 1; page <= 15; page++) {
 
             const response = await axios.get(`${RAWG_URL_BASE}/developers`, {
                 params: {
                     key: process.env.RAWG_API_KEY,
                     page: page,
-                    page_size: 20
+                    page_size: 36
                 }
             });
 

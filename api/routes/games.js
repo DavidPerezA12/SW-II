@@ -108,5 +108,93 @@ router.get('/:slug', async (req, res) => {
     }
 });
 
+// Crear un videojuego
+router.post('/',async (req,res) => {
+    const database = mongodb.getDb();
+    try {
+        const newGame = req.body;
+        console.log(newGame);
+
+        if(!newGame.id){
+            res.status(200).json({message: "Id required"});
+        }
+
+        const game_exist = await database.collection("videogames").findOne({id: newGame.id});
+        if(game_exist){
+            return res.status(400).json({
+                message: "Game already exists"
+            });
+        }
+
+        const result = await database
+            .collection("videogames")
+            .insertOne(newGame)
+
+        res.status(201).json({
+            message: "Game created succesfully",
+            id: result.id
+        })
+    } catch (e) {
+        res
+    }
+})
+
+// Actualizar un videojuego
+router.put('/:id', async (req,res) => {
+    const database = mongodb.getDb();
+    try {
+        const number_id = Number(req.params.id);
+        const newData = req.body;
+
+        const game_exist = await database
+            .collection("videogames")
+            .findOne({ id: number_id });
+
+        if (!game_exist) {
+            return res.status(404).json({
+                message: "Game not found"
+            });
+        }
+
+        await database
+            .collection("videogames")
+            .updateOne(
+                { id: number_id },
+                { $set: newData }
+            );
+
+        res.status(200).json({
+            message: "Game updated successfully",
+            id: number_id
+        });
+
+        
+    } catch (e) {
+        res.status(500).json({
+            message: "Error updating game",
+            error: e
+        });
+    }
+})
+
+// Eliminar un juego por id permanentemente
+router.delete('/:id', async (req, res) => {
+    const database = mongodb.getDb();
+    try {
+        const number_id = Number(req.params.id);
+        const game_delete = await database.collection('videogames').findOne({ id: number_id });
+        if (!game_delete) {
+            res.status(404).json({ message: 'Game not found' });
+        }
+        console.log("Game to delete:", game_delete);
+
+        await database.collection('videogames').deleteOne(game_delete);
+
+        res.status(200).json({ message: `Game ${game_delete.name} deleted successfully` });
+    } catch (e) {
+        res.status(500).json({ message: 'Error deleting game', error: e });
+    }
+});
+
 
 module.exports = router;

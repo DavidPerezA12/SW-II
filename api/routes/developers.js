@@ -9,14 +9,50 @@ router.get('/', async (req,res) => {
     try {
         const database = mongodb.getDb();
 
-        const {gameID} = req.query;
+        const {search, limit, page, sort, gameID } = req.query;
+
+        const filter = {};
         
-        const developers = await database
-            .collection("developers")
-            .find({})
+        //?search=cd-projekt
+        if (search){
+            filter.$or = [
+                { name: { $regex: search, $options: "i" } },
+                { slug: { $regex: search, $options: "i" } }
+            ];
+        }
+
+        //?limit=10
+        let limitNumber;
+        if(limit){
+            limitNumber = parseInt(limit);
+        } else {
+            limitNumber = 1000;
+        }
+
+        //?page=2&&limit=10
+        let pageOption;
+        if(page){
+            pageOption = Number(page);
+        } else {
+            pageOption = 1;
+        }
+
+        //games?sort=rating /games?sort=-name
+        let sortOption = {};
+        if(sort){
+            if(sort.startsWith("-")){
+                sortOption = {[sort.slice(1)] : -1}; //sort= -name // sort.slice(1)= name
+            }else{
+                sortOption = {[sort] : 1};
+            }
+        }
+
+        const developers = await database.collection('developers')
+            .find(filter)
+            .sort(sortOption)
+            .skip((pageOption - 1) * limitNumber)
+            .limit(limitNumber)
             .toArray();
-        
-        
         
         //?gameID=3498
         if(gameID){

@@ -3,18 +3,16 @@ const rawg = require('../services/rawg');
 const fs = require("fs");
 
 const seedDevelopers = async () => {
-    await mongodb.connectToDatabase();
-    const db = mongodb.getDb();
 
     let totalDevelopers = [];
 
-    // Si el dataset ya existe usa los games del JSON
+    // Si el dataset ya existe usa los games del JSON para cargarlos después en MongoDB
     if (fs.existsSync("./datasets/developers.json")) {
 
         const data = fs.readFileSync("./datasets/developers.json");
         totalDevelopers = JSON.parse(data);
     
-    // Si el dataset no existe: pasa los games de RAWG al JSON
+    // Si el dataset no existe: pasa los games de RAWG al JSON para cargarlo después en MongoDB
     } else {
 
         const developers = await rawg.getDevelopers();
@@ -28,6 +26,9 @@ const seedDevelopers = async () => {
     }
 
     //  JSON -> MongoDB
+    await mongodb.connectToDatabase();
+    const db = mongodb.getDb();
+    
     await db.collection("developers").deleteMany({});
     await db.collection("developers").insertMany(totalDevelopers);
 
