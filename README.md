@@ -53,7 +53,7 @@ La API REST permitirá gestionar los siguientes recursos:
       - `?platform=pc` → Todos los juegos para PC.
       - `?genre=action` → Filtrar por género.
       - `?minRating=4.5` → Filtrar por valoración mínima
-      - `?page=2&&limit=2` → Paginación con número de página y límite de resultados por página.
+      - `?page=2&limit=2` → Paginación con número de página y límite de resultados por página.
       - `?limit=10` → Limitar el número de resultados a 10.
       - `?sort=rating` → Ordenar por valoración ascendente.
       - `?sort=-name` → Ordenar por nombre descendente.
