@@ -8,7 +8,8 @@
     "seed:games": "node ./seeds/games",
     "seed:developers": "node ./seeds/developers",
     "seed:countries": "node ./seeds/countries",
-    "seed": "npm run seed:games && npm run seed:developers && npm run seed:countries"
+    "seed:reviews": "node ./seeds/reviews",
+    "seed": "npm run seed:games && npm run seed:developers && npm run seed:countries && npm run seed:reviews"
   },
   "keywords": [],
   "author": "",
