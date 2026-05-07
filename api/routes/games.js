@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         const database = mongodb.getDb();
         
         // Filtros disponibles
-        const {id, search, platform, genre, minRating,page,limit,sort} = req.query;
+        const {id, search, platform, genre, store, minRating,page,limit,sort} = req.query;
         const filter = {};
         
         //?id=1234
@@ -35,12 +35,17 @@ router.get('/', async (req, res) => {
 
         //?platform=pc
         if (platform) {
-            filter["platforms.platform.slug"] = platform;
+            filter.platforms = { $regex: new RegExp(`^${platform}$`, "i") };
         }
 
         //?genre=shooter
-        if (genre){
-            filter["genres.slug"] = genre;
+        if (genre) {
+            filter.genres = { $regex: new RegExp(`^${genre}$`, "i") };
+        }
+
+        //?store=steam
+        if (store) {
+            filter.stores = { $regex: new RegExp(`^${store}$`, "i") };
         }
 
         //?minRating=4.5
