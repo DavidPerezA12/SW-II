@@ -93,13 +93,13 @@ router.get('/', async (req, res) => {
 });
 
 // Obtener el juego por nombre (Solo 1)
-router.get('/:slug', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const database = mongodb.getDb();
-    const game_name = await database.collection('videogames').findOne({slug: req.params.slug});
+    const game_name = await database.collection('videogames').findOne({id: Number(req.params.id)});
     console.log("Game found:", game_name);
     try {
         if (game_name.length == 0) {
-            res.status(404).json({message:`El videojuego ${req.params.slug} no se encuentra en la base de datos`});
+            res.status(404).json({message:`El videojuego ${req.params.id} no se encuentra en la base de datos`});
         } else {
             res.json(game_name);
         }
@@ -109,35 +109,73 @@ router.get('/:slug', async (req, res) => {
 });
 
 // Crear un videojuego
-router.post('/',async (req,res) => {
-    const database = mongodb.getDb();
-    try {
-        const newGame = req.body;
-        console.log(newGame);
+router.post('/', async (req, res) => {
 
-        if(!newGame.id){
-            res.status(200).json({message: "Id required"});
+    const database = mongodb.getDb();
+
+    try {
+
+        const newGame = req.body;
+
+        const requiredFields = [
+            "id",
+            "name",
+            "platforms",
+            "genres",
+            "stores"
+        ];
+
+        const missingFields = requiredFields.filter(field => {
+            return !newGame[field];
+        });
+
+        if (missingFields.length > 0) {
+            return res.status(400).json({
+                message: "Missing required fields",
+                missingFields
+            });
         }
 
-        const game_exist = await database.collection("videogames").findOne({id: newGame.id});
-        if(game_exist){
+        // Validar arrays vacíos
+        if (
+            !Array.isArray(newGame.platforms) || newGame.platforms.length === 0 ||
+            !Array.isArray(newGame.genres) || newGame.genres.length === 0 ||
+            !Array.isArray(newGame.stores) || newGame.stores.length === 0
+        ) {
             return res.status(400).json({
+                message: "Platforms, genres and stores must be non-empty arrays"
+            });
+        }
+
+        // Verificar si existe
+        const gameExist = await database
+            .collection("videogames")
+            .findOne({ id: newGame.id });
+
+        if (gameExist) {
+            return res.status(409).json({
                 message: "Game already exists"
             });
         }
 
         const result = await database
             .collection("videogames")
-            .insertOne(newGame)
+            .insertOne(newGame);
 
-        res.status(201).json({
-            message: "Game created succesfully",
-            id: result.id
-        })
-    } catch (e) {
-        res
+        return res.status(201).json({
+            message: "Game created successfully",
+            insertedId: result.insertedId
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
     }
-})
+});
 
 // Actualizar un videojuego
 router.put('/:id', async (req,res) => {

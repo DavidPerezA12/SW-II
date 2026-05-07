@@ -4,125 +4,192 @@
     <title>Videogames API</title>
 </head>
 <body>
+
     <h1>Videogames API</h1>
 
-    <p>Bienvenido a la API de videojuegos. Esta API permite consultar información
-    sobre videojuegos almacenados en la base de datos.</p>
-    <p> API AWG → recursos /games  y /developers</p>
-    <p> API WIKIDATA -> recursos /country</p>
-    <p> MIS DATOS -> /reviews</p>
+    <p>
+        Bienvenido a la API de videojuegos.
+        Esta API permite consultar información sobre videojuegos,
+        desarrolladores y reseñas.
+    </p>
 
-    <h2>Endpoints disponibles:</h2>
+    <p><strong>RAWG API</strong> → Recursos <code>/games</code> y <code>/developers</code></p>
+    <p><strong>Wikidata</strong> → Recursos <code>/country</code></p>
+    <p><strong>Datos propios</strong> → Recursos <code>/reviews</code></p>
+
+    <h2>Endpoints disponibles</h2>
+
+    <!-- GAMES -->
 
     <h3>/games</h3>
+
+    <ul>
+
+        <li>
+            <strong>✅ GET /games</strong> → Obtener todos los videojuegos
+            <a href="/games">Ver juegos</a>
+        </li>
+
         <ul>
+
             <li>
-                <strong>GET /games</strong> → Obtener todos los videojuegos  
-                <a href="/games">Ver juegos</a>
-            </li>
-            <ul>
-                <li>
-                    <strong>GET /games?search=the-witcher</strong> → Buscar videojuegos  
-                    <a href="/games?search=the-witcher">Buscar los juegos que contengan The Witcher</a>
-                </li>
-                <li>
-                    <strong>GET /games?id=3328</strong> → Obtener un videojuego específico por su ID  
-                    <a href="/games?id=3328">Buscar el juego con ID 3328</a>
-                </li>
-                <li>
-                    <strong>GET /games?platform=pc</strong> → Filtrar por plataforma  
-                    <a href="/games?platform=pc">Filtrar por PC</a>
-                </li>
-                <li>
-                    <strong>GET /games?genre=action</strong> → Filtrar por género  
-                    <a href="/games?genre=action">Filtrar por juegos de acción</a>
-                </li>
-                <li>
-                    <strong>GET /games?minRating=4.5</strong> → Filtrar por calificación (Sobre 5)  
-                    <a href="/games?minRating=4.5">Filtrar calificación minima de 4.5</a>
-                </li>
-                <li>
-                    <strong>GET /games?limit=20</strong> → Limite de 20 videojuegos
-                    <a href="/games?limit=20">Lista de 20 videojuegos</a>
-                </li>
-                <li>
-                    <strong>GET /games?page=2&limit=2</strong> → Paginación (Página 2 con 2 videojuegos por página)
-                    <a href="/games?page=2&limit=2">Paginación: Página 2 con 2 videojuegos por página</a>
-                </li>
-                <li>
-                    <strong>GET /games?sort=-rating</strong> → Videjuegos ordenados en función de la característica indicada
-                    <a href="/games?sort=-rating">Juegos ordenados de mayor a menor en función de su calificación</a>
-                </li>
-            </ul>
-            <li>
-                <strong>GET /games/:slug</strong> → Obtener un videojuego específico  
-                <a href="/games/the-witcher-3-wild-hunt">The Witcher 3: Wild Hunt</a>
-            </li>
-            <li>
-                <strong>PUT /games/:id</strong> → Actualizar un videojuego específico.
-                <a href="https://www.postman.com/">Usar Postman</a>
-                    <ul>Añadir un JSON al body para los datos del videojuego</ul>
+                <strong>✅ GET /games?search=the-witcher</strong> → Buscar videojuegos
+                <a href="/games?search=the-witcher">Buscar “The Witcher”</a>
             </li>
 
             <li>
-                <strong> FALTA, /country es WIKIDATA ------------- GET /games/country</strong> -> Obtener los desarrolladores de cada país
-                <a href="/games/country">Ver desarrolladores por país</a>
+                <strong>GET /games?platform=pc</strong> → Filtrar por plataforma
+                <a href="/games?platform=pc">Filtrar por PC</a>
             </li>
+
             <li>
-                <strong>POST /games</strong> → Crear un videojuego específico.
-                <a href="https://www.postman.com/">Usar Postman</a>
-                    <ul>Añadir un JSON al body para los datos que se quieran cambiar o añadir al videojuego</ul>
+                <strong>GET /games?genre=action</strong> → Filtrar por género
+                <a href="/games?genre=action">Filtrar juegos de acción</a>
             </li>
+
             <li>
-                <strong>DELETE /games/:id </strong> → Eliminar un videojuego específico
-                <a href="https://www.postman.com/">Usar Postman</a>
+                <strong>✅ GET /games?minRating=4.5</strong> → Filtrar por rating mínimo
+                <a href="/games?minRating=4.5">Rating mínimo 4.5</a>
             </li>
+
+            <li>
+                <strong>✅ GET /games?limit=20</strong> → Limitar resultados
+                <a href="/games?limit=20">20 videojuegos</a>
+            </li>
+
+            <li>
+                <strong>✅ GET /games?page=2&limit=2</strong> → Paginación
+                <a href="/games?page=2&limit=2">Página 2</a>
+            </li>
+
+            <li>
+                <strong>✅ GET /games?sort=-rating</strong> → Ordenar videojuegos
+                <a href="/games?sort=-rating">Ordenar por rating</a>
+            </li>
+
         </ul>
+
+        <li>
+            <strong>✅ GET /games/3328</strong> → Obtener un videojuego específico
+            <a href="/games/3328">Ver juego 3328</a>
+        </li>
+
+        <li>
+            <strong>GET /games/3328/enriched</strong> → Obtener información enriquecida
+            <a href="/games/3328/enriched">Ver juego enriquecido</a>
+        </li>
+
+        <li>
+            <strong>GET /games/3328/country</strong> → Obtener país del desarrollador
+            <a href="/games/3328/country">Ver país del desarrollador</a>
+        </li>
+
+        <li>
+            <strong>GET /games/3328/reviews</strong> → Obtener reviews del videojuego
+            <a href="/games/3328/reviews">Ver reviews</a>
+        </li>
+
+        <li>
+            <strong>✅ POST /games</strong> → Crear videojuego
+            <a href="https://www.postman.com/">Usar Postman</a>
+        </li>
+
+        <li>
+            <strong>✅ PUT /games/3328</strong> → Actualizar videojuego
+            <a href="https://www.postman.com/">Usar Postman</a>
+        </li>
+
+        <li>
+            <strong>✅ DELETE /games/3328</strong> → Eliminar videojuego
+            <a href="https://www.postman.com/">Usar Postman</a>
+        </li>
+
+    </ul>
+
+    <!-- DEVELOPERS -->
 
     <h3>/developers</h3>
+
+    <ul>
+
+        <li>
+            <strong>GET /developers</strong> → Obtener todos los desarrolladores
+            <a href="/developers">Ver desarrolladores</a>
+        </li>
+
         <ul>
+
             <li>
-                <strong> GET /developers</strong> → Obtener todos los desarrolladores
-                <a href="/developers">Ver desarrolladores</a> 
+                <strong>GET /developers?search=electronic-arts</strong> → Buscar desarrolladores
+                <a href="/developers?search=electronic-arts">Buscar Electronic Arts</a>
             </li>
-            <ul>
-                <li>
-                    <strong>GET /developers?search=Electronic Arts</strong> → Buscar desarrolladores
-                    <a href="/developers?search=Electronic Arts">Buscar desarrolladores que contengan "Electronic Arts"</a> 
-                </li>
-                <li>
-                    <strong> GET /developers?gameID=3328</strong> → Filtrar por ID de juego
-                    <a href="/developers?gameID=3328">Filtrar por desarrolladores asociados al juego con ID 3328</a> 
-                </li>
-                 <li>
-                    <strong> GET /developers?limit=50</strong> → Limitar resultados a 50 desarrolladores
-                    <a href="/developers?limit=50">50 desarrolladores</a> 
-                </li>
-                 <li>
-                    <strong> GET /developers?page=2&limit=20</strong> → Paginación (Página 2 con 2 desarrolladores por página)
-                    <a href="/developers?page=2&limit=20">Paginación: Página 2 con 20 desarrolladores por página</a> 
-                </li>
-                 <li>
-                    <strong> GET /developers?sort=-games_count</strong> → Ordenar por número de juegos asociados
-                    <a href="/developers?sort=-games_count">Ordenar por número de juegos asociados de mayor a menor</a> 
-                </li>
-            </ul>
+
             <li>
-                <strong> FALTA, /country es WIKIDATA ------------- GET /developers/country</strong> -> Obtener los desarrolladores de cada país
-                <a href="/developers/country">Ver desarrolladores por país</a>
+                <strong>GET /developers?gameId=3328</strong> → Filtrar por videojuego
+                <a href="/developers?gameId=3328">Desarrolladores del juego 3328</a>
             </li>
+
             <li>
-                <strong> GET /developers/:slug </strong> → Obtener un desarrollador en específico
-                <a href="/developers/valve-software">Ver Valve Software y que juegos ha desarrollado</a> 
+                <strong>GET /developers?limit=20</strong> → Limitar resultados
+                <a href="/developers?limit=20">20 desarrolladores</a>
             </li>
+
+            <li>
+                <strong>GET /developers?page=2&limit=20</strong> → Paginación
+                <a href="/developers?page=2&limit=20">Página 2</a>
+            </li>
+
+            <li>
+                <strong>GET /developers?sort=-games_count</strong> → Ordenar desarrolladores
+                <a href="/developers?sort=-games_count">Ordenar por juegos asociados</a>
+            </li>
+
         </ul>
-    <h3> /reviews -- MIS DATOS </h3>
-        <ul>
-            <li>
-                <strong> GET /reviews </strong> → Obtener todas las reseñas
-                <a href="/reviews">Ver reseñas</a>
-            </li>
-        </ul>
+
+        <li>
+            <strong>GET /developers/354</strong> → Obtener desarrollador específico
+            <a href="/developers/354">Ver desarrollador</a>
+        </li>
+
+        <li>
+            <strong>GET /developers/354/country</strong> → Obtener país del desarrollador
+            <a href="/developers/354/country">Ver país</a>
+        </li>
+
+    </ul>
+
+    <!-- REVIEWS -->
+
+    <h3>/reviews</h3>
+
+    <ul>
+
+        <li>
+            <strong>GET /reviews</strong> → Obtener todas las reseñas
+            <a href="/reviews">Ver reseñas</a>
+        </li>
+
+        <li>
+            <strong>GET /reviews?gameId=3328</strong> → Obtener reseñas de un videojuego
+            <a href="/reviews?gameId=3328">Reviews del juego 3328</a>
+        </li>
+
+        <li>
+            <strong>POST /reviews</strong> → Crear reseña
+            <a href="https://www.postman.com/">Usar Postman</a>
+        </li>
+
+        <li>
+            <strong>PUT /reviews/1</strong> → Actualizar reseña
+            <a href="https://www.postman.com/">Usar Postman</a>
+        </li>
+
+        <li>
+            <strong>DELETE /reviews/1</strong> → Eliminar reseña
+            <a href="https://www.postman.com/">Usar Postman</a>
+        </li>
+
+    </ul>
 
 </body>
 </html>

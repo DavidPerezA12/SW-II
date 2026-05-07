@@ -13,20 +13,37 @@ const RAWG_URL_BASE = "https://api.rawg.io/api";
 */
 const getGames = async () => {
     try {
-
         let allGames = [];
 
         for (let page = 1; page <= 25; page++) {
-
             const response = await axios.get(`${RAWG_URL_BASE}/games`, {
                 params: {
                     key: process.env.RAWG_API_KEY,
-                    page: page,
+                    page,
                     page_size: 40
                 }
             });
 
-            allGames = allGames.concat(response.data.results);
+            const cleanGames = response.data.results.map(game => ({
+                id: game.id,
+                slug: game.slug,
+                name: game.name,
+                released: game.released,
+                background_image: game.background_image,
+                rating: game.rating,
+                metacritic: game.metacritic,
+                playtime: game.playtime,
+
+                platforms: game.platforms?.map(p => p.platform.name) || [],
+
+                genres: game.genres?.map(g => g.name) || [],
+
+                stores: game.stores?.map(s => s.store.name) || [],
+
+                esrb_rating: game.esrb_rating?.name || null
+            }));
+
+            allGames = allGames.concat(cleanGames);
         }
 
         return allGames;
@@ -36,7 +53,6 @@ const getGames = async () => {
         throw error;
     }
 };
-
 
 /*
     Obtener 100 developers de RAWG

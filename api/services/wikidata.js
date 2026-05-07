@@ -36,7 +36,7 @@ LIMIT 10
 
     const result = await parser.parseStringPromise(response.data);
 
-    // 🔥 convertir a formato usable
+    //  convertir a formato usable
     const results = result.sparql.results?.[0]?.result || [];
 
     const parsed = results.map(r => {
