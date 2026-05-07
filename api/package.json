@@ -7,7 +7,8 @@
     "start": "node ./bin/www",
     "seed:games": "node ./seeds/games",
     "seed:developers": "node ./seeds/developers",
-    "seed": "npm run seed:games && npm run seed:developers"
+    "seed:countries": "node ./seeds/countries",
+    "seed": "npm run seed:games && npm run seed:developers && npm run seed:countries"
   },
   "keywords": [],
   "author": "",

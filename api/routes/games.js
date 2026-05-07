@@ -113,6 +113,78 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// GET /games/:id/country
+router.get('/:id/country', async (req, res) => {
+    const database = mongodb.getDb();
+
+    try {
+        const gameId = Number(req.params.id);
+
+        const countries = await database
+            .collection('countries')
+            .find({ gameId })
+            .toArray();
+
+        if (countries.length === 0) {
+            return res.status(404).json({
+                message: `No country information found for game ${gameId}`
+            });
+        }
+
+        return res.json(countries);
+
+    } catch (e) {
+        return res.status(500).json({
+            message: 'Error fetching country information',
+            error: e.message
+        });
+    }
+});
+
+
+// GET /games/:id/enriched
+router.get('/:id/enriched', async (req, res) => {
+    const database = mongodb.getDb();
+
+    try {
+        const gameId = Number(req.params.id);
+
+        const game = await database
+            .collection('videogames')
+            .findOne({ id: gameId });
+
+        if (!game) {
+            return res.status(404).json({
+                message: `El videojuego ${gameId} no se encuentra en la base de datos`
+            });
+        }
+
+        const countries = await database
+            .collection('countries')
+            .find({ gameId })
+            .toArray();
+
+        const reviews = await database
+            .collection('reviews')
+            .find({ gameId })
+            .toArray();
+
+        return res.json({
+            game,
+            wikidata: {
+                countries
+            },
+            reviews
+        });
+
+    } catch (e) {
+        return res.status(500).json({
+            message: 'Error fetching enriched game',
+            error: e.message
+        });
+    }
+});
+
 // Crear un videojuego
 router.post('/', async (req, res) => {
 
