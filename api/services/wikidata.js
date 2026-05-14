@@ -10,7 +10,7 @@ const getCountries = async (gameName) => {
     const safeName = gameName.replace(/"/g, '\\"');
 
     const query = `
-        SELECT ?gameLabel ?developerLabel ?countryLabel WHERE {
+        SELECT ?game ?gameLabel ?developer ?developerLabel ?countryLabel WHERE {
 
             ?game rdfs:label "${safeName}"@en;
                   wdt:P31 wd:Q7889;
@@ -33,14 +33,14 @@ const getCountries = async (gameName) => {
         headers: {
             "User-Agent": "VideogamesAPI/1.0 (student project)"
         },
-        timeout: 10000
+        timeout: 30000
     });
 
     const result = await parser.parseStringPromise(response.data);
 
     const results = result.sparql.results?.[0]?.result || [];
 
-    const parsed = results.map(r => {
+    return results.map(r => {
 
         const getValue = (name) => {
             const found = r.binding.find(
@@ -56,12 +56,12 @@ const getCountries = async (gameName) => {
 
         return {
             game: getValue("gameLabel"),
+            gameId: getValue("game")?.split("/").pop() || null,
             developer: getValue("developerLabel"),
+            developerId: getValue("developer")?.split("/").pop() || null,
             country: getValue("countryLabel")
         };
     });
-
-    return parsed;
 };
 
 module.exports = {

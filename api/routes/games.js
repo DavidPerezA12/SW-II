@@ -185,6 +185,50 @@ router.get('/:id/enriched', async (req, res) => {
     }
 });
 
+// GET /games/:id/reviews
+// Obtener reviews de un videojuego
+router.get('/:id/reviews', async (req, res) => {
+
+    const database = mongodb.getDb();
+
+    try {
+
+        const gameId = Number(req.params.id);
+
+        // Verificar si el juego existe
+        const game = await database
+            .collection('videogames')
+            .findOne({ id: gameId });
+
+        if (!game) {
+
+            return res.status(404).json({
+                message: `El videojuego ${gameId} no se encuentra en la base de datos`
+            });
+        }
+
+        // Buscar reviews
+        const reviews = await database
+            .collection('reviews')
+            .find({ gameId })
+            .toArray();
+
+        return res.status(200).json({
+            gameId,
+            gameName: game.name,
+            reviews_length: reviews.length,
+            reviews
+        });
+
+    } catch (e) {
+
+        return res.status(500).json({
+            message: 'Error fetching game reviews',
+            error: e.message
+        });
+    }
+});
+
 // Crear un videojuego
 router.post('/', async (req, res) => {
 

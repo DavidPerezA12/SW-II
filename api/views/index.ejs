@@ -34,7 +34,7 @@
 
             <li>
                 <strong>✅ GET /games?search=the-witcher</strong> → Buscar videojuegos
-                <a href="/games?search=the-witcher">Buscar “The Witcher”</a>
+                <a href="/games?search=the-witcher">Buscar juegos que contengan “The Witcher”</a>
             </li>
 
             <li>
@@ -76,22 +76,23 @@
 
         <li>
             <strong>✅ GET /games/3328</strong> → Obtener un videojuego específico
-            <a href="/games/3328">Ver juego 3328</a>
+            <a href="/games/3328">Ver juego The Witcher 3: Wild Hunt</a>
         </li>
 
         <li>
-            <strong>GET /games/3328/enriched</strong> → Obtener información enriquecida
+            <strong>✅ GET /games/3328/enriched</strong> → Obtener información enriquecida
             <a href="/games/3328/enriched">Ver juego enriquecido</a>
         </li>
 
         <li>
-            <strong>✅ GET /games/3328/country</strong> → Obtener país del desarrollador
-            <a href="/games/3328/country">Ver país del desarrollador</a>
+            <strong> ✅ GET /games/3328/country</strong> → Obtener país del desarrollador
+            <a href="/games/3328/country">Ver país del desarrollador</a> <br>
+            ESTA RUTA FUNCIONA PERO TIENE QUE ESTAR PROCESADA 100% EN XML NO EN JSON
         </li>
 
         <li>
-            <strong>GET /games/3328/reviews</strong> → Obtener reviews del videojuego
-            <a href="/games/3328/reviews">Ver reviews</a>
+            <strong> ✅ GET /games/3328/reviews</strong> → Obtener reviews del videojuego
+            <a href="/games/3328/reviews">Ver reviews del The Witcher 3: Wild Hunt</a>
         </li>
 
         <li>
@@ -118,47 +119,42 @@
     <ul>
 
         <li>
-            <strong>GET /developers</strong> → Obtener todos los desarrolladores
+            <strong> ✅ GET /developers</strong> → Obtener todos los desarrolladores
             <a href="/developers">Ver desarrolladores</a>
         </li>
 
         <ul>
 
             <li>
-                <strong>GET /developers?search=electronic-arts</strong> → Buscar desarrolladores
-                <a href="/developers?search=electronic-arts">Buscar Electronic Arts</a>
+                <strong> ✅ GET /developers?search=electronic-arts</strong> → Buscar desarrolladores
+                <a href="/developers?search=electronic-arts">Buscar que contengan “Electronic Arts”</a>
             </li>
 
             <li>
-                <strong>GET /developers?gameId=3328</strong> → Filtrar por videojuego
+                <strong>✅ GET /developers?gameId=3328</strong> → Filtrar por videojuego
                 <a href="/developers?gameId=3328">Desarrolladores del juego 3328</a>
             </li>
 
             <li>
-                <strong>GET /developers?limit=20</strong> → Limitar resultados
+                <strong> ✅ GET /developers?limit=20</strong> → Limitar resultados
                 <a href="/developers?limit=20">20 desarrolladores</a>
             </li>
 
             <li>
-                <strong>GET /developers?page=2&limit=20</strong> → Paginación
+                <strong> ✅ GET /developers?page=2&limit=20</strong> → Paginación
                 <a href="/developers?page=2&limit=20">Página 2</a>
             </li>
 
             <li>
-                <strong>GET /developers?sort=-games_count</strong> → Ordenar desarrolladores
+                <strong> ✅ GET /developers?sort=-games_count</strong> → Ordenar desarrolladores
                 <a href="/developers?sort=-games_count">Ordenar por juegos asociados</a>
             </li>
 
         </ul>
 
         <li>
-            <strong>GET /developers/354</strong> → Obtener desarrollador específico
-            <a href="/developers/354">Ver desarrollador</a>
-        </li>
-
-        <li>
-            <strong>GET /developers/354/country</strong> → Obtener país del desarrollador
-            <a href="/developers/354/country">Ver país</a>
+            <strong>✅ GET /developers/9023</strong> → Obtener desarrollador específico
+            <a href="/developers/9023">Ver desarrollador</a>
         </li>
 
     </ul>
@@ -170,13 +166,8 @@
     <ul>
 
         <li>
-            <strong>GET /reviews</strong> → Obtener todas las reseñas
+            <strong>✅ GET /reviews</strong> → Obtener todas las reseñas
             <a href="/reviews">Ver reseñas</a>
-        </li>
-
-        <li>
-            <strong>GET /reviews?gameId=3328</strong> → Obtener reseñas de un videojuego
-            <a href="/reviews?gameId=3328">Reviews del juego 3328</a>
         </li>
 
         <li>
