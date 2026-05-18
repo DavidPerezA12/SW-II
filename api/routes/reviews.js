@@ -168,6 +168,143 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.patch("/:id", async (req, res) => {
+
+    const database = mongodb.getDb();
+
+    try {
+
+        const reviewId = Number(req.params.id);
+
+        // Buscar review actual
+        const existingReview = await database
+            .collection("reviews")
+            .findOne({ id: reviewId });
+
+        if (!existingReview) {
+
+            return res.status(404).json({
+                message: `Review with id ${reviewId} not found`
+            });
+        }
+
+        const updates = req.body;
+
+        // No permitir modificar createdAt
+        if (updates.createdAt) {
+
+            return res.status(400).json({
+                message: "createdAt cannot be modified"
+            });
+        }
+
+        // Validar rating
+        if (
+            updates.rating !== undefined &&
+            (updates.rating < 1 || updates.rating > 5)
+        ) {
+
+            return res.status(400).json({
+                message: "Rating must be between 1 and 5"
+            });
+        }
+
+        // Validar ID duplicado
+        if (
+            updates.id !== undefined &&
+            Number(updates.id) !== reviewId
+        ) {
+
+            const duplicatedId = await database
+                .collection("reviews")
+                .findOne({ id: Number(updates.id) });
+
+            if (duplicatedId) {
+
+                return res.status(409).json({
+                    message: `Review with id ${updates.id} already exists`
+                });
+            }
+        }
+
+        // Convertir números si vienen
+        if (updates.id !== undefined) {
+            updates.id = Number(updates.id);
+        }
+
+        if (updates.gameId !== undefined) {
+            updates.gameId = Number(updates.gameId);
+        }
+
+        if (updates.rating !== undefined) {
+            updates.rating = Number(updates.rating);
+        }
+
+        // Actualizar solo los campos enviados
+        await database
+            .collection("reviews")
+            .updateOne(
+                { id: reviewId },
+                { $set: updates }
+            );
+
+        // Obtener review actualizada
+        const updatedReview = await database
+            .collection("reviews")
+            .findOne({ id: updates.id || reviewId });
+
+        return res.status(200).json({
+            message: "Review updated successfully",
+            review: updatedReview
+        });
+
+    } catch (e) {
+
+        return res.status(500).json({
+            message: "Error updating review",
+            error: e.message
+        });
+    }
+});
+
+router.delete("/:id", async (req, res) => {
+
+    const database = mongodb.getDb();
+
+    try {
+
+        const reviewId = Number(req.params.id);
+
+        // Verificar si existe
+        const existingReview = await database
+            .collection("reviews")
+            .findOne({ id: reviewId });
+
+        if (!existingReview) {
+
+            return res.status(404).json({
+                message: `Review with id ${reviewId} not found`
+            });
+        }
+
+        // Eliminar review
+        await database
+            .collection("reviews")
+            .deleteOne({ id: reviewId });
+
+        return res.status(200).json({
+            message: `Review ${reviewId} deleted successfully`
+        });
+
+    } catch (e) {
+
+        return res.status(500).json({
+            message: "Error deleting review",
+            error: e.message
+        });
+    }
+});
+
 
 
 module.exports = router;
