@@ -5,6 +5,7 @@ const express = require("express"); // Framework web para Node.js
 const path = require('path'); // Módulo para rutas
 const cookieParser = require('cookie-parser'); // Middleware para parsear cookies
 const logger = require('morgan'); // Middleware para solicitudes HTTP
+const xml2js = require("xml2js");
 
 let app = express();
 

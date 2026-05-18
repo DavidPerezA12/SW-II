@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const mongodb = require(`../db/conn`);
+const xml2js = require("xml2js");
 //const rawg  = require(`../services/rawg`);
 
 // Obtener todos los juegos
@@ -115,25 +116,49 @@ router.get('/:id', async (req, res) => {
 
 // GET /games/:id/country
 router.get('/:id/country', async (req, res) => {
+
     const database = mongodb.getDb();
 
     try {
+
         const gameId = Number(req.params.id);
 
-        const countries = await database
+        let countries = await database
             .collection('countries')
-            .find({ gameId })
+            .find({ gameId: gameId })
             .toArray();
 
         if (countries.length === 0) {
+
             return res.status(404).json({
                 message: `No country information found for game ${gameId}`
             });
         }
 
-        return res.json(countries);
+        // Eliminar _id de MongoDB
+        countries = countries.map(country => {
+
+            const { _id, ...rest } = country;
+
+            return rest;
+        });
+
+        // Convertir JSON -> XML
+        const builder = new xml2js.Builder();
+
+        const xml = builder.buildObject({
+            countries: {
+                country: countries
+            }
+        });
+
+        // Respuesta XML
+        res.set('Content-Type', 'application/xml');
+
+        return res.status(200).send(xml);
 
     } catch (e) {
+
         return res.status(500).json({
             message: 'Error fetching country information',
             error: e.message
