@@ -2,6 +2,8 @@ const mongodb = require('../db/conn');
 const wikidata = require('../services/wikidata');
 const fs = require("fs");
 
+const { Builder, Parser } = require("xml2js");
+
 const sleep = (ms) =>
     new Promise(resolve => setTimeout(resolve, ms));
 
@@ -9,14 +11,21 @@ const seedCountries = async () => {
 
     let totalCountries = [];
 
-    // Si ya existe el dataset
-    if (fs.existsSync("./datasets/countries.json")) {
+    // Si ya existe el XML
+    if (fs.existsSync("./datasets/countries.xml")) {
 
-        console.log("Usando countries.json existente");
+        console.log("Usando countries.xml existente");
 
-        const data = fs.readFileSync("./datasets/countries.json");
+        const xmlData = fs.readFileSync(
+            "./datasets/countries.xml",
+            "utf-8"
+        );
 
-        totalCountries = JSON.parse(data);
+        const parser = new Parser();
+
+        const parsed = await parser.parseStringPromise(xmlData);
+
+        totalCountries = parsed.countries.country;
 
     } else {
 
@@ -24,7 +33,6 @@ const seedCountries = async () => {
 
         const db = mongodb.getDb();
 
-        // TODOS los juegos
         const games = await db
             .collection("videogames")
             .find(
@@ -77,7 +85,6 @@ const seedCountries = async () => {
                 }
             });
 
-            // Mostrar progreso cada 10 juegos
             if (
                 (i + batchSize) % 10 === 0 ||
                 i + batchSize >= games.length
@@ -88,16 +95,25 @@ const seedCountries = async () => {
                 );
             }
 
-            // Evitar 429 y 504
             await sleep(2000);
         }
 
+        // Convertir a XML
+        const builder = new Builder();
+
+        const xml = builder.buildObject({
+            countries: {
+                country: totalCountries
+            }
+        });
+
+        // Guardar XML
         fs.writeFileSync(
-            "./datasets/countries.json",
-            JSON.stringify(totalCountries, null, 2)
+            "./datasets/countries.xml",
+            xml
         );
 
-        console.log("countries.json generado correctamente");
+        console.log("countries.xml generado correctamente");
     }
 
     await mongodb.connectToDatabase();

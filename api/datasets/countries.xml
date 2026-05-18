@@ -1,0 +1,4809 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<countries>
+  <country>
+    <gameId>3328</gameId>
+    <gameName>The Witcher 3: Wild Hunt</gameName>
+    <developer>CD Projekt RED</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>4200</gameId>
+    <gameName>Portal 2</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>13536</gameId>
+    <gameName>Portal</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12020</gameId>
+    <gameName>Left 4 Dead 2</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5679</gameId>
+    <gameName>The Elder Scrolls V: Skyrim</gameName>
+    <developer>Bethesda Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4062</gameId>
+    <gameName>BioShock Infinite</gameName>
+    <developer>2K</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4062</gameId>
+    <gameName>BioShock Infinite</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4062</gameId>
+    <gameName>BioShock Infinite</gameName>
+    <developer>Irrational Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>13537</gameId>
+    <gameName>Half-Life 2</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>802</gameId>
+    <gameName>Borderlands 2</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>802</gameId>
+    <gameName>Borderlands 2</gameName>
+    <developer>Gearbox Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>802</gameId>
+    <gameName>Borderlands 2</gameName>
+    <developer>Iron Galaxy Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4286</gameId>
+    <gameName>BioShock</gameName>
+    <developer>Irrational Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>32</gameId>
+    <gameName>Destiny 2</gameName>
+    <developer>Bungie</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3070</gameId>
+    <gameName>Fallout 4</gameName>
+    <developer>Bethesda Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1030</gameId>
+    <gameName>Limbo</gameName>
+    <developer>Playdead</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>11859</gameId>
+    <gameName>Team Fortress 2</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>41494</gameId>
+    <gameName>Cyberpunk 2077</gameName>
+    <developer>CD Projekt RED</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>422</gameId>
+    <gameName>Terraria</gameName>
+    <developer>505 Games</developer>
+    <country>Italy</country>
+  </country>
+  <country>
+    <gameId>422</gameId>
+    <gameName>Terraria</gameName>
+    <developer>Engine Software</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>422</gameId>
+    <gameName>Terraria</gameName>
+    <developer>Re-Logic</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4459</gameId>
+    <gameName>Grand Theft Auto IV</gameName>
+    <developer/>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4459</gameId>
+    <gameName>Grand Theft Auto IV</gameName>
+    <developer>Rockstar Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>10213</gameId>
+    <gameName>Dota 2</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>766</gameId>
+    <gameName>Warframe</gameName>
+    <developer>Digital Extremes</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3272</gameId>
+    <gameName>Rocket League</gameName>
+    <developer>Psyonix</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>278</gameId>
+    <gameName>Horizon Zero Dawn</gameName>
+    <developer>Sony Interactive Entertainment</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>278</gameId>
+    <gameName>Horizon Zero Dawn</gameName>
+    <developer>Sony Interactive Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>278</gameId>
+    <gameName>Horizon Zero Dawn</gameName>
+    <developer>Guerrilla Games</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>7689</gameId>
+    <gameName>Rise of the Tomb Raider</gameName>
+    <developer>Crystal Dynamics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3287</gameId>
+    <gameName>Batman: Arkham Knight</gameName>
+    <developer>Rocksteady Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>3192</gameId>
+    <gameName>Metal Gear Solid V: The Phantom Pain</gameName>
+    <developer>Kojima Productions</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>416</gameId>
+    <gameName>Grand Theft Auto: San Andreas</gameName>
+    <developer/>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>290856</gameId>
+    <gameName>Apex Legends</gameName>
+    <developer>Iron Galaxy Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>290856</gameId>
+    <gameName>Apex Legends</gameName>
+    <developer>Respawn Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>290856</gameId>
+    <gameName>Apex Legends</gameName>
+    <developer>Panic Button</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9767</gameId>
+    <gameName>Hollow Knight</gameName>
+    <developer>Team Cherry</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>11973</gameId>
+    <gameName>Middle-earth: Shadow of Mordor</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>11973</gameId>
+    <gameName>Middle-earth: Shadow of Mordor</gameName>
+    <developer>Monolith Productions</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19103</gameId>
+    <gameName>Half-Life 2: Lost Coast</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>41</gameId>
+    <gameName>Little Nightmares</gameName>
+    <developer>Tarsier Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>4427</gameId>
+    <gameName>BioShock 2</gameName>
+    <developer>2K Marin</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>18080</gameId>
+    <gameName>Half-Life</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19710</gameId>
+    <gameName>Half-Life 2: Episode One</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19709</gameId>
+    <gameName>Half-Life 2: Episode Two</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11936</gameId>
+    <gameName>Half-Life 2: Deathmatch</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2551</gameId>
+    <gameName>Dark Souls III</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>654</gameId>
+    <gameName>Stardew Valley</gameName>
+    <developer>ConcernedApe LLC</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10754</gameId>
+    <gameName>BioShock Remastered</gameName>
+    <developer>Irrational Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10754</gameId>
+    <gameName>BioShock Remastered</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>10754</gameId>
+    <gameName>BioShock Remastered</gameName>
+    <developer>2K Australia</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>10754</gameId>
+    <gameName>BioShock Remastered</gameName>
+    <developer>Blind Squirrel Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3612</gameId>
+    <gameName>Hotline Miami</gameName>
+    <developer>Dennaton Games</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>4161</gameId>
+    <gameName>Far Cry 3</gameName>
+    <developer>Red Storm Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4161</gameId>
+    <gameName>Far Cry 3</gameName>
+    <developer>Ubisoft Shanghai</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>4161</gameId>
+    <gameName>Far Cry 3</gameName>
+    <developer/>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>1447</gameId>
+    <gameName>Deus Ex: Mankind Divided</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>1447</gameId>
+    <gameName>Deus Ex: Mankind Divided</gameName>
+    <developer>Eidos Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>1447</gameId>
+    <gameName>Deus Ex: Mankind Divided</gameName>
+    <developer>Nixxes Software</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>10533</gameId>
+    <gameName>Path of Exile</gameName>
+    <developer>Grinding Gear Games</developer>
+    <country>New Zealand</country>
+  </country>
+  <country>
+    <gameId>19487</gameId>
+    <gameName>Alan Wake</gameName>
+    <developer/>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>3696</gameId>
+    <gameName>Wolfenstein: The New Order</gameName>
+    <developer>MachineGames</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>9721</gameId>
+    <gameName>Garry's Mod</gameName>
+    <developer/>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>13668</gameId>
+    <gameName>Amnesia: The Dark Descent</gameName>
+    <developer>Frictional Games</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>4332</gameId>
+    <gameName>Spec Ops: The Line</gameName>
+    <developer>Darkside Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4332</gameId>
+    <gameName>Spec Ops: The Line</gameName>
+    <developer/>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>11935</gameId>
+    <gameName>Half-Life Deathmatch: Source</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4386</gameId>
+    <gameName>Saints Row: The Third</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>39</gameId>
+    <gameName>Prey</gameName>
+    <developer>Arkane Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>39</gameId>
+    <gameName>Prey</gameName>
+    <developer>Human Head Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5563</gameId>
+    <gameName>Fallout: New Vegas</gameName>
+    <developer>Obsidian Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4828</gameId>
+    <gameName>Borderlands</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4828</gameId>
+    <gameName>Borderlands</gameName>
+    <developer>Gearbox Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12447</gameId>
+    <gameName>The Elder Scrolls V: Skyrim Special Edition</gameName>
+    <developer>Bethesda Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>864</gameId>
+    <gameName>Dishonored 2</gameName>
+    <developer>Arkane Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>4248</gameId>
+    <gameName>Dishonored</gameName>
+    <developer>Arkane Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>9882</gameId>
+    <gameName>Don't Starve Together</gameName>
+    <developer>Klei Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>12536</gameId>
+    <gameName>Hellblade: Senua's Sacrifice</gameName>
+    <developer>Ninja Theory</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>430</gameId>
+    <gameName>Grand Theft Auto: Vice City</gameName>
+    <developer/>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>10243</gameId>
+    <gameName>Company of Heroes 2</gameName>
+    <developer>Relic Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>5583</gameId>
+    <gameName>Hitman: Absolution</gameName>
+    <developer>IO Interactive</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>5583</gameId>
+    <gameName>Hitman: Absolution</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>5583</gameId>
+    <gameName>Hitman: Absolution</gameName>
+    <developer>Nixxes Software</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>58812</gameId>
+    <gameName>Control</gameName>
+    <developer/>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>4514</gameId>
+    <gameName>L.A. Noire</gameName>
+    <developer>Team Bondi</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>362</gameId>
+    <gameName>For Honor</gameName>
+    <developer>Ubisoft Blue Byte</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>362</gameId>
+    <gameName>For Honor</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>257201</gameId>
+    <gameName>Star Wars Jedi: Fallen Order</gameName>
+    <developer>Criterion Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>257201</gameId>
+    <gameName>Star Wars Jedi: Fallen Order</gameName>
+    <developer>Respawn Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>257201</gameId>
+    <gameName>Star Wars Jedi: Fallen Order</gameName>
+    <developer>Panic Button</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4806</gameId>
+    <gameName>Mass Effect 2</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>50738</gameId>
+    <gameName>Death Stranding</gameName>
+    <developer>Guerrilla Games</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>50738</gameId>
+    <gameName>Death Stranding</gameName>
+    <developer>Kojima Productions</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>3017</gameId>
+    <gameName>Just Cause 3</gameName>
+    <developer>Avalanche Studios Group</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>3543</gameId>
+    <gameName>Borderlands: The Pre-Sequel</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3543</gameId>
+    <gameName>Borderlands: The Pre-Sequel</gameName>
+    <developer>Gearbox Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3543</gameId>
+    <gameName>Borderlands: The Pre-Sequel</gameName>
+    <developer>2K Australia</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>11142</gameId>
+    <gameName>BioShock 2 Remastered</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>11142</gameId>
+    <gameName>BioShock 2 Remastered</gameName>
+    <developer>2K Marin</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11142</gameId>
+    <gameName>BioShock 2 Remastered</gameName>
+    <developer>Digital Extremes</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>11142</gameId>
+    <gameName>BioShock 2 Remastered</gameName>
+    <developer>2K China</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>11142</gameId>
+    <gameName>BioShock 2 Remastered</gameName>
+    <developer>2K Australia</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>274755</gameId>
+    <gameName>Hades</gameName>
+    <developer>Supergiant Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3747</gameId>
+    <gameName>Metal Gear Solid V: Ground Zeroes</gameName>
+    <developer>Kojima Productions</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>108</gameId>
+    <gameName>Mortal Kombat X</gameName>
+    <developer>NetherRealm Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4166</gameId>
+    <gameName>Mass Effect</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>4166</gameId>
+    <gameName>Mass Effect</gameName>
+    <developer>Edge of Reality</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4166</gameId>
+    <gameName>Mass Effect</gameName>
+    <developer>Demiurge Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>22509</gameId>
+    <gameName>Minecraft</gameName>
+    <developer>Microsoft</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>22509</gameId>
+    <gameName>Minecraft</gameName>
+    <developer>Mojang Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>4513</gameId>
+    <gameName>Just Cause 2</gameName>
+    <developer>Avalanche Studios Group</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>46889</gameId>
+    <gameName>Monster Hunter: World</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>3191</gameId>
+    <gameName>Mad Max</gameName>
+    <developer>Mindscape</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>480</gameId>
+    <gameName>Resident Evil 7: Biohazard</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>25</gameId>
+    <gameName>Middle-earth: Shadow of War</gameName>
+    <developer>Monolith Productions</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>613</gameId>
+    <gameName>Bastion</gameName>
+    <developer>Supergiant Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>923</gameId>
+    <gameName>Titanfall 2</gameName>
+    <developer>Respawn Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3387</gameId>
+    <gameName>Bloodborne</gameName>
+    <developer>Japan Studio</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>3387</gameId>
+    <gameName>Bloodborne</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>3254</gameId>
+    <gameName>Journey</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3254</gameId>
+    <gameName>Journey</gameName>
+    <developer>Infocom</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>13627</gameId>
+    <gameName>Undertale</gameName>
+    <developer>8-4</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>45969</gameId>
+    <gameName>Warhammer: Vermintide 2</gameName>
+    <developer>Fatshark</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>13910</gameId>
+    <gameName>XCOM: Enemy Unknown</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>13910</gameId>
+    <gameName>XCOM: Enemy Unknown</gameName>
+    <developer>Firaxis Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>23585</gameId>
+    <gameName>Far Cry 5</gameName>
+    <developer>Ubisoft Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>23585</gameId>
+    <gameName>Far Cry 5</gameName>
+    <developer>Ubisoft Kyiv</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>23585</gameId>
+    <gameName>Far Cry 5</gameName>
+    <developer>Ubisoft Shanghai</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>23585</gameId>
+    <gameName>Far Cry 5</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>23585</gameId>
+    <gameName>Far Cry 5</gameName>
+    <developer>Ubisoft Reflections</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>18240</gameId>
+    <gameName>Brothers: A Tale of Two Sons</gameName>
+    <developer>Starbreeze Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>3687</gameId>
+    <gameName>Watch Dogs</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>2743</gameId>
+    <gameName>Heavy Rain</gameName>
+    <developer>Quantic Dream</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>2743</gameId>
+    <gameName>Heavy Rain</gameName>
+    <developer>Virtuos</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>51329</gameId>
+    <gameName>Shadow of the Tomb Raider</gameName>
+    <developer>Crystal Dynamics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>51329</gameId>
+    <gameName>Shadow of the Tomb Raider</gameName>
+    <developer>Eidos Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>51329</gameId>
+    <gameName>Shadow of the Tomb Raider</gameName>
+    <developer>Nixxes Software</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>1450</gameId>
+    <gameName>INSIDE</gameName>
+    <developer>Playdead</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>50734</gameId>
+    <gameName>Sekiro: Shadows Die Twice</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>2361</gameId>
+    <gameName>Psychonauts</gameName>
+    <developer>Budcat Creations</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2361</gameId>
+    <gameName>Psychonauts</gameName>
+    <developer>Double Fine</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9830</gameId>
+    <gameName>Brawlhalla</gameName>
+    <developer>Blue Mammoth Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9830</gameId>
+    <gameName>Brawlhalla</gameName>
+    <developer>Blue Mammoth Games</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>4280</gameId>
+    <gameName>Max Payne 3</gameName>
+    <developer>Rockstar Vancouver</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>58616</gameId>
+    <gameName>Assassin's Creed Odyssey</gameName>
+    <developer>Ubisoft Quebec</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3931</gameId>
+    <gameName>Saints Row IV</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2093</gameId>
+    <gameName>No Man's Sky</gameName>
+    <developer>Hello Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>28568</gameId>
+    <gameName>Assassin's Creed II</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3556</gameId>
+    <gameName>Alien: Isolation</gameName>
+    <developer>Creative Assembly</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4223</gameId>
+    <gameName>The Darkness II</gameName>
+    <developer>Digital Extremes</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>326243</gameId>
+    <gameName>Elden Ring</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>28154</gameId>
+    <gameName>Cuphead</gameName>
+    <developer>Studio MDHR</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3678</gameId>
+    <gameName>War Thunder</gameName>
+    <developer>Gaijin Entertainment</developer>
+    <country>Hungary</country>
+  </country>
+  <country>
+    <gameId>2235</gameId>
+    <gameName>Batman: Arkham Origins</gameName>
+    <developer>Warner Bros. Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2235</gameId>
+    <gameName>Batman: Arkham Origins</gameName>
+    <developer>NetherRealm Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4502</gameId>
+    <gameName>Darksiders</gameName>
+    <developer>Vigil Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28153</gameId>
+    <gameName>Assassin's Creed Origins</gameName>
+    <developer>Ubisoft Romania</developer>
+    <country>Romania</country>
+  </country>
+  <country>
+    <gameId>28153</gameId>
+    <gameName>Assassin's Creed Origins</gameName>
+    <developer>Ubisoft Kyiv</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>28153</gameId>
+    <gameName>Assassin's Creed Origins</gameName>
+    <developer>Ubisoft Shanghai</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>28153</gameId>
+    <gameName>Assassin's Creed Origins</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>28153</gameId>
+    <gameName>Assassin's Creed Origins</gameName>
+    <developer>Ubisoft Chengdu</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>356714</gameId>
+    <gameName>Among Us</gameName>
+    <developer>Innersloth</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58751</gameId>
+    <gameName>Halo Infinite</gameName>
+    <developer>Halo Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58751</gameId>
+    <gameName>Halo Infinite</gameName>
+    <developer>The Coalition</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>58751</gameId>
+    <gameName>Halo Infinite</gameName>
+    <developer>Certain Affinity</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58751</gameId>
+    <gameName>Halo Infinite</gameName>
+    <developer>SkyBox Labs</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>58751</gameId>
+    <gameName>Halo Infinite</gameName>
+    <developer>Atomhawk Design Ltd.</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>10340</gameId>
+    <gameName>Crusader Kings II</gameName>
+    <developer>Development Studio</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>1010</gameId>
+    <gameName>Transistor</gameName>
+    <developer>Supergiant Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1682</gameId>
+    <gameName>The Wolf Among Us</gameName>
+    <developer>LCG Entertainment, Inc.</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>998</gameId>
+    <gameName>Battlefield 1</gameName>
+    <developer>DICE</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>3876</gameId>
+    <gameName>Deus Ex: Human Revolution - Director's Cut</gameName>
+    <developer>Eidos Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>2792</gameId>
+    <gameName>Layers of Fear</gameName>
+    <developer>Bloober Team</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>3497</gameId>
+    <gameName>Far Cry 4</gameName>
+    <developer>Ubisoft Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3497</gameId>
+    <gameName>Far Cry 4</gameName>
+    <developer>Ubisoft Kyiv</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>3497</gameId>
+    <gameName>Far Cry 4</gameName>
+    <developer>Red Storm Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3497</gameId>
+    <gameName>Far Cry 4</gameName>
+    <developer>Ubisoft Shanghai</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>3497</gameId>
+    <gameName>Far Cry 4</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>13461</gameId>
+    <gameName>Resident Evil 5</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>1256</gameId>
+    <gameName>XCOM 2</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>1256</gameId>
+    <gameName>XCOM 2</gameName>
+    <developer>Firaxis Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>17959</gameId>
+    <gameName>Ori and the Blind Forest: Definitive Edition</gameName>
+    <developer>Moon Studios</developer>
+    <country>Austria</country>
+  </country>
+  <country>
+    <gameId>4527</gameId>
+    <gameName>Call of Duty: Modern Warfare 2</gameName>
+    <developer>Infinity Ward</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4527</gameId>
+    <gameName>Call of Duty: Modern Warfare 2</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12024</gameId>
+    <gameName>Insurgency</gameName>
+    <developer>New World Interactive</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4599</gameId>
+    <gameName>Saints Row 2</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4599</gameId>
+    <gameName>Saints Row 2</gameName>
+    <developer>G5 Entertainment</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>13268</gameId>
+    <gameName>Amnesia: A Machine for Pigs</gameName>
+    <developer>The Chinese Room</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>28172</gameId>
+    <gameName>Kingdom Come: Deliverance</gameName>
+    <developer>Warhorse Studios</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>19590</gameId>
+    <gameName>Ori and the Blind Forest</gameName>
+    <developer>Moon Studios</developer>
+    <country>Austria</country>
+  </country>
+  <country>
+    <gameId>4544</gameId>
+    <gameName>Red Dead Redemption</gameName>
+    <developer>Rockstar San Diego</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>51325</gameId>
+    <gameName>The Last of Us Part II</gameName>
+    <developer>Naughty Dog</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3168</gameId>
+    <gameName>SOMA</gameName>
+    <developer>Frictional Games</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>10061</gameId>
+    <gameName>Watch Dogs 2</gameName>
+    <developer>Ubisoft Romania</developer>
+    <country>Romania</country>
+  </country>
+  <country>
+    <gameId>10061</gameId>
+    <gameName>Watch Dogs 2</gameName>
+    <developer>Ubisoft Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>10061</gameId>
+    <gameName>Watch Dogs 2</gameName>
+    <developer>Ubisoft Kyiv</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>10061</gameId>
+    <gameName>Watch Dogs 2</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>10061</gameId>
+    <gameName>Watch Dogs 2</gameName>
+    <developer>Ubisoft Reflections</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>3766</gameId>
+    <gameName>Thief</gameName>
+    <developer>Eidos Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>4013</gameId>
+    <gameName>Call of Juarez: Gunslinger</gameName>
+    <developer/>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>432</gameId>
+    <gameName>Grand Theft Auto III</gameName>
+    <developer/>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>432</gameId>
+    <gameName>Grand Theft Auto III</gameName>
+    <developer>DMA Design</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>28202</gameId>
+    <gameName>Wolfenstein II: The New Colossus</gameName>
+    <developer>MachineGames</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>11726</gameId>
+    <gameName>Dead Cells</gameName>
+    <developer>Motion Twin</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>11726</gameId>
+    <gameName>Dead Cells</gameName>
+    <developer>Evil Empire</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>17352</gameId>
+    <gameName>Killing Floor</gameName>
+    <developer>Tripwire Interactive</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>906</gameId>
+    <gameName>Call of Duty: Black Ops III</gameName>
+    <developer>Treyarch</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>952</gameId>
+    <gameName>Shadowrun Returns</gameName>
+    <developer>Harebrained Schemes</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>952</gameId>
+    <gameName>Shadowrun Returns</gameName>
+    <developer>Behaviour Rotterdam</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>10073</gameId>
+    <gameName>Divinity: Original Sin 2</gameName>
+    <developer>Larian Studios</developer>
+    <country>Belgium</country>
+  </country>
+  <country>
+    <gameId>10548</gameId>
+    <gameName>Darksiders Warmastered Edition</gameName>
+    <developer>Vigil Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>18272</gameId>
+    <gameName>Magicka</gameName>
+    <developer>Arrowhead Game Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>43877</gameId>
+    <gameName>Quake Champions</gameName>
+    <developer>id Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>43877</gameId>
+    <gameName>Quake Champions</gameName>
+    <developer>Saber Interactive</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3474</gameId>
+    <gameName>Lara Croft and the Temple of Osiris</gameName>
+    <developer>Crystal Dynamics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28492</gameId>
+    <gameName>Dead Island</gameName>
+    <developer/>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>59359</gameId>
+    <gameName>A Plague Tale: Innocence</gameName>
+    <developer>Asobo Studio</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>10419</gameId>
+    <gameName>Subnautica</gameName>
+    <developer>Unknown Worlds Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3757</gameId>
+    <gameName>South Park: The Stick of Truth</gameName>
+    <developer>Obsidian Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3757</gameId>
+    <gameName>South Park: The Stick of Truth</gameName>
+    <developer>South Park Digital Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>559</gameId>
+    <gameName>Fallout Shelter</gameName>
+    <developer>Behaviour Interactive</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>559</gameId>
+    <gameName>Fallout Shelter</gameName>
+    <developer>Bethesda Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>8146</gameId>
+    <gameName>Assassin's Creed Unity</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>19542</gameId>
+    <gameName>Half-Life: Blue Shift</gameName>
+    <developer>Gearbox Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1244</gameId>
+    <gameName>Darkest Dungeon</gameName>
+    <developer>Red Hook Studios</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>21265</gameId>
+    <gameName>Half-Life: Opposing Force</gameName>
+    <developer>Gearbox Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4954</gameId>
+    <gameName>Castle Crashers</gameName>
+    <developer>The Behemoth</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>15859</gameId>
+    <gameName>Star Wars: Knights of the Old Republic</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>865</gameId>
+    <gameName>Call of Duty: Black Ops</gameName>
+    <developer>Treyarch</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>865</gameId>
+    <gameName>Call of Duty: Black Ops</gameName>
+    <developer>n-Space</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9475</gameId>
+    <gameName>Don't Starve</gameName>
+    <developer>Klei Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>857</gameId>
+    <gameName>Halo: The Master Chief Collection</gameName>
+    <developer>Halo Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4639</gameId>
+    <gameName>Dragon Age: Origins</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3015</gameId>
+    <gameName>Chivalry: Medieval Warfare</gameName>
+    <developer>Torn Banner Studios</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3486</gameId>
+    <gameName>Syberia</gameName>
+    <developer>Microids</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>6617</gameId>
+    <gameName>Quantum Break</gameName>
+    <developer/>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>4550</gameId>
+    <gameName>Dead Space 2</gameName>
+    <developer>Visceral Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28623</gameId>
+    <gameName>Batman: Arkham City</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>28623</gameId>
+    <gameName>Batman: Arkham City</gameName>
+    <developer>Rocksteady Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>28623</gameId>
+    <gameName>Batman: Arkham City</gameName>
+    <developer>Iron Galaxy Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28623</gameId>
+    <gameName>Batman: Arkham City</gameName>
+    <developer>Virtuos</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>28623</gameId>
+    <gameName>Batman: Arkham City</gameName>
+    <developer>WB Games Montréal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>16112</gameId>
+    <gameName>Sleeping Dogs: Definitive Edition</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>16112</gameId>
+    <gameName>Sleeping Dogs: Definitive Edition</gameName>
+    <developer>United Front Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3932</gameId>
+    <gameName>The Bureau: XCOM Declassified</gameName>
+    <developer>2K Marin</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5562</gameId>
+    <gameName>Fallout 3</gameName>
+    <developer>Bethesda Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58755</gameId>
+    <gameName>Devil May Cry 5</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>3771</gameId>
+    <gameName>Rayman Legends</gameName>
+    <developer>Ubisoft Montpellier</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>3028</gameId>
+    <gameName>Beyond: Two Souls</gameName>
+    <developer>Quantic Dream</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>492</gameId>
+    <gameName>Yakuza 0</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>29338</gameId>
+    <gameName>Days Gone</gameName>
+    <developer>Bend Studio</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1169</gameId>
+    <gameName>Mafia III</gameName>
+    <developer>2K Czech</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>1169</gameId>
+    <gameName>Mafia III</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1169</gameId>
+    <gameName>Mafia III</gameName>
+    <developer>Hangar 13</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3842</gameId>
+    <gameName>Battlefield 4</gameName>
+    <developer>DICE</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>42187</gameId>
+    <gameName>The Sims 4</gameName>
+    <developer>Maxis</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>42187</gameId>
+    <gameName>The Sims 4</gameName>
+    <developer>The Sims Studio</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>42</gameId>
+    <gameName>What Remains of Edith Finch</gameName>
+    <developer>Giant Sparrow</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>17126</gameId>
+    <gameName>Torchlight II</gameName>
+    <developer>Runic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1959</gameId>
+    <gameName>Goat Simulator</gameName>
+    <developer>Coffee Stain Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>5703</gameId>
+    <gameName>Uncharted 3: Drake's Deception</gameName>
+    <developer>Naughty Dog</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>21924</gameId>
+    <gameName>Call of Duty: WWII</gameName>
+    <developer>Raven Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>21924</gameId>
+    <gameName>Call of Duty: WWII</gameName>
+    <developer>Sledgehammer Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28199</gameId>
+    <gameName>Ori and the Will of the Wisps</gameName>
+    <developer>Moon Studios</developer>
+    <country>Austria</country>
+  </country>
+  <country>
+    <gameId>3408</gameId>
+    <gameName>Hotline Miami 2: Wrong Number</gameName>
+    <developer>Dennaton Games</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>19365</gameId>
+    <gameName>Homefront</gameName>
+    <developer>Kaos Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19365</gameId>
+    <gameName>Homefront</gameName>
+    <developer>Digital Extremes</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3892</gameId>
+    <gameName>Sniper Elite V2</gameName>
+    <developer>Rebellion Developments</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>2623</gameId>
+    <gameName>Resident Evil 6</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>2623</gameId>
+    <gameName>Resident Evil 6</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>2873</gameId>
+    <gameName>The Witness</gameName>
+    <developer>Infocom</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2873</gameId>
+    <gameName>The Witness</gameName>
+    <developer>Thekla</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28559</gameId>
+    <gameName>Dragon Age: Inquisition</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>9609</gameId>
+    <gameName>Euro Truck Simulator 2</gameName>
+    <developer>SCS Software</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>2733</gameId>
+    <gameName>Broforce</gameName>
+    <developer>Free Lives</developer>
+    <country>South Africa</country>
+  </country>
+  <country>
+    <gameId>624</gameId>
+    <gameName>FTL: Faster Than Light</gameName>
+    <developer>Subset Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>274762</gameId>
+    <gameName>The Outer Worlds</gameName>
+    <developer>Obsidian Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11276</gameId>
+    <gameName>Call of Duty: Modern Warfare 3</gameName>
+    <developer>Treyarch</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11276</gameId>
+    <gameName>Call of Duty: Modern Warfare 3</gameName>
+    <developer>Infinity Ward</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11276</gameId>
+    <gameName>Call of Duty: Modern Warfare 3</gameName>
+    <developer>Raven Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11276</gameId>
+    <gameName>Call of Duty: Modern Warfare 3</gameName>
+    <developer>Sledgehammer Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9600</gameId>
+    <gameName>The Forest</gameName>
+    <developer>Endnight Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>22511</gameId>
+    <gameName>The Legend of Zelda: Breath of the Wild</gameName>
+    <developer>Monolith Soft Inc.</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>22511</gameId>
+    <gameName>The Legend of Zelda: Breath of the Wild</gameName>
+    <developer>Nintendo Entertainment Planning &amp; Development</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>58753</gameId>
+    <gameName>Forza Horizon 4</gameName>
+    <developer>Turn 10 Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58753</gameId>
+    <gameName>Forza Horizon 4</gameName>
+    <developer>Playground Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>23322</gameId>
+    <gameName>Surviving Mars</gameName>
+    <developer>Haemimont Games</developer>
+    <country>Bulgaria</country>
+  </country>
+  <country>
+    <gameId>58617</gameId>
+    <gameName>Borderlands 3</gameName>
+    <developer>Gearbox Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3371</gameId>
+    <gameName>Dark Souls II: Scholar of the First Sin</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>4440</gameId>
+    <gameName>Deus Ex: Human Revolution</gameName>
+    <developer>Eidos Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>18336</gameId>
+    <gameName>Alan Wake's American Nightmare</gameName>
+    <developer/>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>4101</gameId>
+    <gameName>Bayonetta</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>14446</gameId>
+    <gameName>Call of Duty: Black Ops II</gameName>
+    <developer>Treyarch</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>45821</gameId>
+    <gameName>Frostpunk</gameName>
+    <developer>11 Bit Studios</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>20406</gameId>
+    <gameName>Team Fortress Classic</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12756</gameId>
+    <gameName>Warhammer 40,000: Space Marine</gameName>
+    <developer>Relic Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>4123</gameId>
+    <gameName>Batman: Arkham Asylum</gameName>
+    <developer>Rocksteady Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4094</gameId>
+    <gameName>Metal Gear Rising: Revengeance</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>2553</gameId>
+    <gameName>Ratchet &amp; Clank</gameName>
+    <developer>Insomniac Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2553</gameId>
+    <gameName>Ratchet &amp; Clank</gameName>
+    <developer>Insomniac Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58550</gameId>
+    <gameName>Ghost of Tsushima</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>42895</gameId>
+    <gameName>Assassin's Creed Syndicate</gameName>
+    <developer>Ubisoft Quebec</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>14512</gameId>
+    <gameName>Age of Wonders III</gameName>
+    <developer>Paradox Interactive</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>14512</gameId>
+    <gameName>Age of Wonders III</gameName>
+    <developer>Triumph Studios</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>9966</gameId>
+    <gameName>Dead by Daylight</gameName>
+    <developer>Behaviour Interactive</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>18614</gameId>
+    <gameName>Half-Life: Source</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2115</gameId>
+    <gameName>Overcooked</gameName>
+    <developer>Ghost Town Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>17857</gameId>
+    <gameName>S.T.A.L.K.E.R.: Shadow of Chernobyl</gameName>
+    <developer>GSC Game World</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>9671</gameId>
+    <gameName>Rust</gameName>
+    <developer/>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>46956</gameId>
+    <gameName>Doki Doki Literature Club!</gameName>
+    <developer>Team Salvato</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3209</gameId>
+    <gameName>Until Dawn</gameName>
+    <developer>Supermassive Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>3209</gameId>
+    <gameName>Until Dawn</gameName>
+    <developer/>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>2518</gameId>
+    <gameName>Max Payne</gameName>
+    <developer/>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>19569</gameId>
+    <gameName>Hitman: Blood Money</gameName>
+    <developer>IO Interactive</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>19569</gameId>
+    <gameName>Hitman: Blood Money</gameName>
+    <developer>Feral Interactive</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>18183</gameId>
+    <gameName>Company of Heroes</gameName>
+    <developer>Relic Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>5193</gameId>
+    <gameName>Oddworld: Abe's Oddysee</gameName>
+    <developer>Oddworld Inhabitants</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>250</gameId>
+    <gameName>The Binding of Isaac: Rebirth</gameName>
+    <developer>Nicalis</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>14016</gameId>
+    <gameName>Tropico 4</gameName>
+    <developer>Haemimont Games</developer>
+    <country>Bulgaria</country>
+  </country>
+  <country>
+    <gameId>274480</gameId>
+    <gameName>Mortal Kombat 11</gameName>
+    <developer>NetherRealm Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3368</gameId>
+    <gameName>Titan Souls</gameName>
+    <developer>Acid Nerve</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>452638</gameId>
+    <gameName>Stray</gameName>
+    <developer>BlueTwelve Studio</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>16359</gameId>
+    <gameName>Divinity: Original Sin - Enhanced Edition</gameName>
+    <developer>Larian Studios</developer>
+    <country>Belgium</country>
+  </country>
+  <country>
+    <gameId>3346</gameId>
+    <gameName>Wolfenstein: The Old Blood</gameName>
+    <developer>MachineGames</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>17803</gameId>
+    <gameName>Ryse: Son of Rome</gameName>
+    <developer>Crytek</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>51610</gameId>
+    <gameName>Dark Souls: Remastered</gameName>
+    <developer>QLOC</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>19299</gameId>
+    <gameName>Fallout 2</gameName>
+    <developer>Black Isle Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3554</gameId>
+    <gameName>The Evil Within</gameName>
+    <developer>Tango Gameworks</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>455597</gameId>
+    <gameName>It Takes Two</gameName>
+    <developer>Hazelight Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>13628</gameId>
+    <gameName>Dear Esther: Landmark Edition</gameName>
+    <developer>The Chinese Room</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>12320</gameId>
+    <gameName>Prison Architect</gameName>
+    <developer>Introversion Software</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>50781</gameId>
+    <gameName>Sea of Thieves</gameName>
+    <developer>Rare Ltd.</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4729</gameId>
+    <gameName>Assassin's Creed</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>58813</gameId>
+    <gameName>Resident Evil 2</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>58813</gameId>
+    <gameName>Resident Evil 2</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>58813</gameId>
+    <gameName>Resident Evil 2</gameName>
+    <developer>Tiger Electronics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58813</gameId>
+    <gameName>Resident Evil 2</gameName>
+    <developer>Factor 5</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58813</gameId>
+    <gameName>Resident Evil 2</gameName>
+    <developer>Factor 5</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>3427</gameId>
+    <gameName>Murdered: Soul Suspect</gameName>
+    <developer>Airtight Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19452</gameId>
+    <gameName>F.E.A.R.</gameName>
+    <developer>Monolith Productions</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3449</gameId>
+    <gameName>Resident Evil</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>3449</gameId>
+    <gameName>Resident Evil</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>829</gameId>
+    <gameName>Killing Floor 2</gameName>
+    <developer>Tripwire Interactive</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3912</gameId>
+    <gameName>Sanctum 2</gameName>
+    <developer>Coffee Stain Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>678</gameId>
+    <gameName>Neverwinter</gameName>
+    <developer>Cryptic Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2574</gameId>
+    <gameName>Enter the Gungeon</gameName>
+    <developer>Dodge Roll</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19375</gameId>
+    <gameName>Far Cry 3: Blood Dragon</gameName>
+    <developer>Ubisoft Shanghai</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>19375</gameId>
+    <gameName>Far Cry 3: Blood Dragon</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>397477</gameId>
+    <gameName>Resident Evil 3</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>442854</gameId>
+    <gameName>Mafia: Definitive Edition</gameName>
+    <developer>2K Czech</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>3697</gameId>
+    <gameName>Serious Sam 3: BFE</gameName>
+    <developer>Croteam</developer>
+    <country>Croatia</country>
+  </country>
+  <country>
+    <gameId>4179</gameId>
+    <gameName>Darksiders II</gameName>
+    <developer>Vigil Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>442855</gameId>
+    <gameName>Mafia II: Definitive Edition</gameName>
+    <developer>Hangar 13</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11974</gameId>
+    <gameName>Mark of the Ninja</gameName>
+    <developer>Klei Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>12019</gameId>
+    <gameName>BattleBlock Theater</gameName>
+    <developer>The Behemoth</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2300</gameId>
+    <gameName>Drawful 2</gameName>
+    <developer>Jackbox Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>259801</gameId>
+    <gameName>Final Fantasy VII</gameName>
+    <developer>Square</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>9551</gameId>
+    <gameName>Deep Rock Galactic</gameName>
+    <developer>Ghost Ship Games</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>4000</gameId>
+    <gameName>Remember Me</gameName>
+    <developer>Don’t Nod</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>685577</gameId>
+    <gameName>Vampire Survivors</gameName>
+    <developer>Poncle</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4032</gameId>
+    <gameName>Dragon's Dogma: Dark Arisen</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>19600</gameId>
+    <gameName>Far Cry 2</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3647</gameId>
+    <gameName>Child of Light</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3350</gameId>
+    <gameName>Broken Age</gameName>
+    <developer>Double Fine</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5565</gameId>
+    <gameName>F.E.A.R. 3</gameName>
+    <developer>Wargaming West Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5687</gameId>
+    <gameName>The Playroom</gameName>
+    <developer>Japan Studio</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>5687</gameId>
+    <gameName>The Playroom</gameName>
+    <developer>Broderbund</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5564</gameId>
+    <gameName>F.E.A.R. 2: Project Origin</gameName>
+    <developer>Monolith Productions</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3290</gameId>
+    <gameName>PlanetSide 2</gameName>
+    <developer>Daybreak Game Company</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>894</gameId>
+    <gameName>Destiny</gameName>
+    <developer>Bungie</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>23557</gameId>
+    <gameName>Gwent: The Witcher Card Game</gameName>
+    <developer>CD Projekt RED</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>42215</gameId>
+    <gameName>Dying Light</gameName>
+    <developer/>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>4882</gameId>
+    <gameName>Lara Croft and the Guardian of Light</gameName>
+    <developer>Crystal Dynamics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12929</gameId>
+    <gameName>The Talos Principle</gameName>
+    <developer>Croteam</developer>
+    <country>Croatia</country>
+  </country>
+  <country>
+    <gameId>59313</gameId>
+    <gameName>Gris</gameName>
+    <developer>Nomada Studio</developer>
+    <country>Spain</country>
+  </country>
+  <country>
+    <gameId>6879</gameId>
+    <gameName>The Flame in the Flood</gameName>
+    <developer>The Molasses Flood</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4397</gameId>
+    <gameName>Battlefield 3</gameName>
+    <developer>DICE</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>28110</gameId>
+    <gameName>Vampyr</gameName>
+    <developer>Don’t Nod</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>41490</gameId>
+    <gameName>Divinity: Original Sin</gameName>
+    <developer>Larian Studios</developer>
+    <country>Belgium</country>
+  </country>
+  <country>
+    <gameId>58494</gameId>
+    <gameName>Battlefield V</gameName>
+    <developer>DICE</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>4869</gameId>
+    <gameName>Tomb Raider: Underworld</gameName>
+    <developer>Crystal Dynamics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58764</gameId>
+    <gameName>Outer Wilds</gameName>
+    <developer>Mobius Digital</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>248521</gameId>
+    <gameName>Valheim</gameName>
+    <developer>Iron Gate Studio</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>10428</gameId>
+    <gameName>Heroes &amp; Generals</gameName>
+    <developer>Reto-Moto</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>719</gameId>
+    <gameName>Deponia</gameName>
+    <developer>Daedalic Entertainment</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>29153</gameId>
+    <gameName>Max Payne 2: The Fall of Max Payne</gameName>
+    <developer/>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>3635</gameId>
+    <gameName>Rogue Legacy</gameName>
+    <developer>Cellar Door Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>17885</gameId>
+    <gameName>Overlord</gameName>
+    <developer>Rowan Software</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>17885</gameId>
+    <gameName>Overlord</gameName>
+    <developer>Electronic Arts</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>17885</gameId>
+    <gameName>Overlord</gameName>
+    <developer>Triumph Studios</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>398423</gameId>
+    <gameName>Gothic Playable Teaser</gameName>
+    <developer>THQ Nordic</developer>
+    <country>Austria</country>
+  </country>
+  <country>
+    <gameId>382</gameId>
+    <gameName>Sniper Elite 4</gameName>
+    <developer>Rebellion Developments</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>49</gameId>
+    <gameName>Persona 5</gameName>
+    <developer>Atlus</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>11279</gameId>
+    <gameName>Day of Defeat: Source</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1259</gameId>
+    <gameName>Machinarium</gameName>
+    <developer>Amanita Design</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>5342</gameId>
+    <gameName>Medal of Honor</gameName>
+    <developer>Danger Close Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1758</gameId>
+    <gameName>Valiant Hearts: The Great War</gameName>
+    <developer>Ubisoft Montpellier</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>4581</gameId>
+    <gameName>Crysis</gameName>
+    <developer>Crytek</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>622492</gameId>
+    <gameName>Forza Horizon 5</gameName>
+    <developer>Playground Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>19056</gameId>
+    <gameName>S.T.A.L.K.E.R.: Call of Pripyat</gameName>
+    <developer>GSC Game World</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>44525</gameId>
+    <gameName>Yakuza Kiwami</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>15829</gameId>
+    <gameName>Pillars of Eternity</gameName>
+    <developer>Obsidian Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>15566</gameId>
+    <gameName>Red Faction: Guerrilla</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4439</gameId>
+    <gameName>Mass Effect 3</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>19057</gameId>
+    <gameName>S.T.A.L.K.E.R.: Clear Sky</gameName>
+    <developer>GSC Game World</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>1789</gameId>
+    <gameName>The Swapper</gameName>
+    <developer>Curve Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>1789</gameId>
+    <gameName>The Swapper</gameName>
+    <developer>Facepalm Games</developer>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>3965</gameId>
+    <gameName>Binary Domain</gameName>
+    <developer>Amusement Vision</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>10767</gameId>
+    <gameName>Shadow Tactics: Blades of the Shogun</gameName>
+    <developer>Mimimi Productions</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>19592</gameId>
+    <gameName>Hitman 2: Silent Assassin</gameName>
+    <developer>IO Interactive</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>5636</gameId>
+    <gameName>Rage</gameName>
+    <developer>id Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>884</gameId>
+    <gameName>Call of Duty: Modern Warfare Remastered</gameName>
+    <developer>Raven Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5528</gameId>
+    <gameName>Call of Duty: World at War</gameName>
+    <developer>Treyarch</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5528</gameId>
+    <gameName>Call of Duty: World at War</gameName>
+    <developer>n-Space</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5528</gameId>
+    <gameName>Call of Duty: World at War</gameName>
+    <developer>Arkane Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>5528</gameId>
+    <gameName>Call of Duty: World at War</gameName>
+    <developer>Exakt Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58752</gameId>
+    <gameName>The Awesome Adventures of Captain Spirit</gameName>
+    <developer>Don’t Nod</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>9631</gameId>
+    <gameName>Sins of a Solar Empire: Rebellion</gameName>
+    <developer>Stardock</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>38</gameId>
+    <gameName>Injustice 2</gameName>
+    <developer>NetherRealm Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>38</gameId>
+    <gameName>Injustice 2</gameName>
+    <developer>QLOC</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>1140</gameId>
+    <gameName>World of Goo</gameName>
+    <developer>2D Boy</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19410</gameId>
+    <gameName>Day of Defeat</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3315</gameId>
+    <gameName>Magicka 2</gameName>
+    <developer>Pieces Interactive</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>391399</gameId>
+    <gameName>Tell Me Why</gameName>
+    <developer>Don’t Nod</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>326251</gameId>
+    <gameName>Deathloop</gameName>
+    <developer>Arkane Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>4535</gameId>
+    <gameName>Call of Duty 4: Modern Warfare</gameName>
+    <developer>Treyarch</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4535</gameId>
+    <gameName>Call of Duty 4: Modern Warfare</gameName>
+    <developer>n-Space</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4535</gameId>
+    <gameName>Call of Duty 4: Modern Warfare</gameName>
+    <developer>Infinity Ward</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4535</gameId>
+    <gameName>Call of Duty 4: Modern Warfare</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5298</gameId>
+    <gameName>Tomb Raider: Legend</gameName>
+    <developer>Crystal Dynamics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5298</gameId>
+    <gameName>Tomb Raider: Legend</gameName>
+    <developer>HumanSoft</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5298</gameId>
+    <gameName>Tomb Raider: Legend</gameName>
+    <developer>HumanSoft</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>326252</gameId>
+    <gameName>Gears 5</gameName>
+    <developer>The Coalition</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>437059</gameId>
+    <gameName>Assassin's Creed Valhalla</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>2805</gameId>
+    <gameName>Street Fighter V</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>2805</gameId>
+    <gameName>Street Fighter V</gameName>
+    <developer>Dimps</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>29171</gameId>
+    <gameName>The Evil Within 2</gameName>
+    <developer>Tango Gameworks</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>197</gameId>
+    <gameName>Trove</gameName>
+    <developer>Trion Worlds</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4523</gameId>
+    <gameName>Red Faction: Armageddon</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>6773</gameId>
+    <gameName>Sunset Overdrive</gameName>
+    <developer>Insomniac Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>17127</gameId>
+    <gameName>Torchlight</gameName>
+    <developer>Runic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5297</gameId>
+    <gameName>Tomb Raider: Anniversary</gameName>
+    <developer>Crystal Dynamics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11970</gameId>
+    <gameName>Star Wars Jedi Knight: Jedi Academy</gameName>
+    <developer>Raven Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>18003</gameId>
+    <gameName>Gone Home</gameName>
+    <developer>Fullbright</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10615</gameId>
+    <gameName>System Shock 2</gameName>
+    <developer>Irrational Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10615</gameId>
+    <gameName>System Shock 2</gameName>
+    <developer>Looking Glass Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4387</gameId>
+    <gameName>Awesomenauts</gameName>
+    <developer>Ronimo Games</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>17356</gameId>
+    <gameName>Orcs Must Die! 2</gameName>
+    <developer>Robot Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1670</gameId>
+    <gameName>Shadowrun: Dragonfall - Director's Cut</gameName>
+    <developer>Harebrained Schemes</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1670</gameId>
+    <gameName>Shadowrun: Dragonfall - Director's Cut</gameName>
+    <developer>Behaviour Rotterdam</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>28395</gameId>
+    <gameName>Metro: Last Light</gameName>
+    <developer>4A Games</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>28395</gameId>
+    <gameName>Metro: Last Light</gameName>
+    <developer>4A Games</developer>
+    <country>Malta</country>
+  </country>
+  <country>
+    <gameId>4331</gameId>
+    <gameName>Sonic Generations</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>4331</gameId>
+    <gameName>Sonic Generations</gameName>
+    <developer>Dimps</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>4331</gameId>
+    <gameName>Sonic Generations</gameName>
+    <developer>Sonic Team</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>4331</gameId>
+    <gameName>Sonic Generations</gameName>
+    <developer>Sonic Team</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>4331</gameId>
+    <gameName>Sonic Generations</gameName>
+    <developer>Sonic Team</developer>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>2213</gameId>
+    <gameName>Kerbal Space Program</gameName>
+    <developer>Squad</developer>
+    <country>Mexico</country>
+  </country>
+  <country>
+    <gameId>58133</gameId>
+    <gameName>Spyro Reignited Trilogy</gameName>
+    <developer>Toys for Bob</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19429</gameId>
+    <gameName>Alien Swarm</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10031</gameId>
+    <gameName>Battlerite</gameName>
+    <developer>Stunlock Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>4388</gameId>
+    <gameName>Battlefield: Bad Company 2</gameName>
+    <developer>DICE</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>263590</gameId>
+    <gameName>Risk of Rain 2</gameName>
+    <developer>Hopoo Games, LLC</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>327999</gameId>
+    <gameName>Dota Underlords</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>17252</gameId>
+    <gameName>Deadlight</gameName>
+    <developer/>
+    <country>Spain</country>
+  </country>
+  <country>
+    <gameId>2722</gameId>
+    <gameName>Kholat</gameName>
+    <developer>IMGN.PRO</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>3562</gameId>
+    <gameName>Styx: Master of Shadows</gameName>
+    <developer>Cyanide</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>4676</gameId>
+    <gameName>Outland</gameName>
+    <developer/>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>21926</gameId>
+    <gameName>Uncharted: The Lost Legacy</gameName>
+    <developer>Naughty Dog</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19685</gameId>
+    <gameName>Just Cause</gameName>
+    <developer>Avalanche Studios Group</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>9545</gameId>
+    <gameName>Shadow Warrior 2</gameName>
+    <developer>Flying Wild Hog</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>1299</gameId>
+    <gameName>Mount &amp; Blade: Warband</gameName>
+    <developer>TaleWorlds</developer>
+    <country>Turkey</country>
+  </country>
+  <country>
+    <gameId>2778</gameId>
+    <gameName>Surgeon Simulator</gameName>
+    <developer>Bossa Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>1225</gameId>
+    <gameName>Warhammer: End Times - Vermintide</gameName>
+    <developer>Fatshark</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>4612</gameId>
+    <gameName>Renegade Ops</gameName>
+    <developer>Avalanche Studios Group</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>2559</gameId>
+    <gameName>Stories: The Path of Destinies</gameName>
+    <developer>Spearhead Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>4923</gameId>
+    <gameName>Prototype</gameName>
+    <developer>Radical Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>4923</gameId>
+    <gameName>Prototype</gameName>
+    <developer>Neo Software</developer>
+    <country>Austria</country>
+  </country>
+  <country>
+    <gameId>4923</gameId>
+    <gameName>Prototype</gameName>
+    <developer>Surprise! Productions</developer>
+    <country>Austria</country>
+  </country>
+  <country>
+    <gameId>58585</gameId>
+    <gameName>Fallout 76</gameName>
+    <developer>Bethesda Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>401805</gameId>
+    <gameName>Genshin Impact</gameName>
+    <developer>miHoYo</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>22789</gameId>
+    <gameName>Serious Sam: The First Encounter</gameName>
+    <developer>Croteam</developer>
+    <country>Croatia</country>
+  </country>
+  <country>
+    <gameId>17295</gameId>
+    <gameName>Enclave</gameName>
+    <developer>Starbreeze Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>17925</gameId>
+    <gameName>Fable Anniversary</gameName>
+    <developer>Lionhead Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>137</gameId>
+    <gameName>Mass Effect: Andromeda</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>2239</gameId>
+    <gameName>Furi</gameName>
+    <developer>The Game Bakers</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>3748</gameId>
+    <gameName>SteamWorld Dig</gameName>
+    <developer>Image &amp; Form</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>3251</gameId>
+    <gameName>F1 2015</gameName>
+    <developer>Codemasters</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>123</gameId>
+    <gameName>Titan Quest</gameName>
+    <developer>Iron Lore Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>29173</gameId>
+    <gameName>Dishonored: Death of the Outsider</gameName>
+    <developer>Arkane Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>9465</gameId>
+    <gameName>Grim Dawn</gameName>
+    <developer>Crate Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3772</gameId>
+    <gameName>Strider</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>3772</gameId>
+    <gameName>Strider</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>2913</gameId>
+    <gameName>The Banner Saga</gameName>
+    <developer>Stoic</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>14990</gameId>
+    <gameName>Viking: Battle for Asgard</gameName>
+    <developer>Creative Assembly</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>2845</gameId>
+    <gameName>Crypt of the NecroDancer</gameName>
+    <developer>Brace Yourself Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>722</gameId>
+    <gameName>World of Tanks</gameName>
+    <developer>Wargaming</developer>
+    <country>Cyprus</country>
+  </country>
+  <country>
+    <gameId>364806</gameId>
+    <gameName>Need for Speed Heat</gameName>
+    <developer>EA Gothenburg</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>28026</gameId>
+    <gameName>Super Mario Odyssey</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>7485</gameId>
+    <gameName>Elite Dangerous</gameName>
+    <developer>Frontier Developments</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4340</gameId>
+    <gameName>Uncharted: Drake's Fortune</gameName>
+    <developer>Naughty Dog</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2830</gameId>
+    <gameName>Unravel</gameName>
+    <developer>Coldwood Interactive</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>1322</gameId>
+    <gameName>Dead Rising 2</gameName>
+    <developer>Capcom Vancouver</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>18886</gameId>
+    <gameName>Overlord II</gameName>
+    <developer>Electronic Arts</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>18886</gameId>
+    <gameName>Overlord II</gameName>
+    <developer>Triumph Studios</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>3494</gameId>
+    <gameName>Thomas Was Alone</gameName>
+    <developer>Bossa Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>3494</gameId>
+    <gameName>Thomas Was Alone</gameName>
+    <developer>Curve Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>2767</gameId>
+    <gameName>Far Cry Primal</gameName>
+    <developer>Ubisoft Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>2767</gameId>
+    <gameName>Far Cry Primal</gameName>
+    <developer>Ubisoft Kyiv</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>2767</gameId>
+    <gameName>Far Cry Primal</gameName>
+    <developer>Ubisoft Shanghai</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>2767</gameId>
+    <gameName>Far Cry Primal</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>20980</gameId>
+    <gameName>The Expendabros</gameName>
+    <developer>Free Lives</developer>
+    <country>South Africa</country>
+  </country>
+  <country>
+    <gameId>10125</gameId>
+    <gameName>Tom Clancy's Ghost Recon Wildlands</gameName>
+    <developer>Ubisoft Romania</developer>
+    <country>Romania</country>
+  </country>
+  <country>
+    <gameId>10125</gameId>
+    <gameName>Tom Clancy's Ghost Recon Wildlands</gameName>
+    <developer>Ubisoft Reflections</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>10125</gameId>
+    <gameName>Tom Clancy's Ghost Recon Wildlands</gameName>
+    <developer>Ubisoft Paris</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>10125</gameId>
+    <gameName>Tom Clancy's Ghost Recon Wildlands</gameName>
+    <developer>Ubisoft Montpellier</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>10125</gameId>
+    <gameName>Tom Clancy's Ghost Recon Wildlands</gameName>
+    <developer>Ubisoft Milan</developer>
+    <country>Italy</country>
+  </country>
+  <country>
+    <gameId>13498</gameId>
+    <gameName>EVE Online</gameName>
+    <developer>CCP Games</developer>
+    <country>Iceland</country>
+  </country>
+  <country>
+    <gameId>13498</gameId>
+    <gameName>EVE Online</gameName>
+    <developer>Simon &amp; Schuster</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12018</gameId>
+    <gameName>Star Wars Jedi Knight II: Jedi Outcast</gameName>
+    <developer>Raven Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3358</gameId>
+    <gameName>Tropico 5</gameName>
+    <developer>Haemimont Games</developer>
+    <country>Bulgaria</country>
+  </country>
+  <country>
+    <gameId>23702</gameId>
+    <gameName>Need for Speed Payback</gameName>
+    <developer>EA Gothenburg</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>906547</gameId>
+    <gameName>Hogwarts Legacy</gameName>
+    <developer>Avalanche Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3090</gameId>
+    <gameName>Need for Speed</gameName>
+    <developer>EA Gothenburg</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>3459</gameId>
+    <gameName>The Order: 1886</gameName>
+    <developer>Ready at Dawn</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9741</gameId>
+    <gameName>The Surge</gameName>
+    <developer>Deck13 Interactive</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>14989</gameId>
+    <gameName>Alpha Protocol</gameName>
+    <developer>Obsidian Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9979</gameId>
+    <gameName>Dirty Bomb</gameName>
+    <developer>Splash Damage</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>2412</gameId>
+    <gameName>Dungeons 2</gameName>
+    <developer>Realmforge Studios</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>19380</gameId>
+    <gameName>Dark Messiah of Might and Magic</gameName>
+    <developer>Arkane Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>7317</gameId>
+    <gameName>Scribblenauts Unlimited</gameName>
+    <developer>5th Cell</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10296</gameId>
+    <gameName>TERA</gameName>
+    <developer>Krafton</developer>
+    <country>South Korea</country>
+  </country>
+  <country>
+    <gameId>10296</gameId>
+    <gameName>TERA</gameName>
+    <developer>En Masse Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>22162</gameId>
+    <gameName>Moonlighter</gameName>
+    <developer>Digital Sun</developer>
+    <country>Spain</country>
+  </country>
+  <country>
+    <gameId>18726</gameId>
+    <gameName>Gothic</gameName>
+    <developer>Piranha Bytes</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>2556</gameId>
+    <gameName>Risk of Rain</gameName>
+    <developer>Hopoo Games, LLC</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>19439</gameId>
+    <gameName>Risen</gameName>
+    <developer>Piranha Bytes</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>401</gameId>
+    <gameName>Nioh</gameName>
+    <developer>Team Ninja</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>11148</gameId>
+    <gameName>The Lab</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3468</gameId>
+    <gameName>Loadout</gameName>
+    <developer>Edge of Reality</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>27938</gameId>
+    <gameName>SteamWorld Dig 2</gameName>
+    <developer>Image &amp; Form</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>10926</gameId>
+    <gameName>Factorio</gameName>
+    <developer>Wube Software</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>3501</gameId>
+    <gameName>LittleBigPlanet 3</gameName>
+    <developer>Sumo Digital</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>19560</gameId>
+    <gameName>Far Cry</gameName>
+    <developer>Crytek</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>10327</gameId>
+    <gameName>SpaceChem</gameName>
+    <developer>Zachtronics</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1830</gameId>
+    <gameName>Dungeon of the Endless</gameName>
+    <developer>Amplitude Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>2139</gameId>
+    <gameName>Hyper Light Drifter</gameName>
+    <developer>Heart Machine</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58698</gameId>
+    <gameName>Just Cause 4</gameName>
+    <developer>Avalanche Studios Group</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>12980</gameId>
+    <gameName>Endless Legend</gameName>
+    <developer>Amplitude Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>14072</gameId>
+    <gameName>Tropico 3</gameName>
+    <developer>Haemimont Games</developer>
+    <country>Bulgaria</country>
+  </country>
+  <country>
+    <gameId>4602</gameId>
+    <gameName>Bulletstorm</gameName>
+    <developer>Epic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4602</gameId>
+    <gameName>Bulletstorm</gameName>
+    <developer>People Can Fly</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>9515</gameId>
+    <gameName>We Were Here</gameName>
+    <developer>Total Mayhem Games</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>10393</gameId>
+    <gameName>Gothic 3</gameName>
+    <developer>Piranha Bytes</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>4361</gameId>
+    <gameName>Rayman Origins</gameName>
+    <developer>Ubisoft Montpellier</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>22508</gameId>
+    <gameName>Overwatch</gameName>
+    <developer>Blizzard Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>99</gameId>
+    <gameName>Snake Pass</gameName>
+    <developer>Sumo Digital</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4477</gameId>
+    <gameName>Kane &amp; Lynch 2: Dog Days</gameName>
+    <developer>IO Interactive</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>13570</gameId>
+    <gameName>Game Dev Tycoon</gameName>
+    <developer>Greenheart Games</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>842</gameId>
+    <gameName>Call of Duty: Advanced Warfare</gameName>
+    <developer>High Moon Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>842</gameId>
+    <gameName>Call of Duty: Advanced Warfare</gameName>
+    <developer>Sledgehammer Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>339961</gameId>
+    <gameName>The Dark Pictures Anthology: Man of Medan</gameName>
+    <developer>Supermassive Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>372576</gameId>
+    <gameName>Lost Ark</gameName>
+    <developer>Smilegate</developer>
+    <country>South Korea</country>
+  </country>
+  <country>
+    <gameId>13909</gameId>
+    <gameName>Prince of Persia: The Sands of Time</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>13387</gameId>
+    <gameName>Serious Sam HD: The Second Encounter</gameName>
+    <developer>Croteam</developer>
+    <country>Croatia</country>
+  </country>
+  <country>
+    <gameId>19584</gameId>
+    <gameName>Risen 2: Dark Waters</gameName>
+    <developer>Piranha Bytes</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>17357</gameId>
+    <gameName>Orcs Must Die!</gameName>
+    <developer>Robot Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4206</gameId>
+    <gameName>Vanquish</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>19568</gameId>
+    <gameName>Tom Clancy's Splinter Cell: Conviction</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>59023</gameId>
+    <gameName>Red Faction Guerrilla Re-Mars-tered</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>35561</gameId>
+    <gameName>Star Wars: Republic Commando</gameName>
+    <developer>Lucasfilm Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>18287</gameId>
+    <gameName>Anomaly: Warzone Earth</gameName>
+    <developer>11 Bit Studios</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>9736</gameId>
+    <gameName>Slime Rancher</gameName>
+    <developer>Skybound Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9736</gameId>
+    <gameName>Slime Rancher</gameName>
+    <developer>Monomi Park</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>61176</gameId>
+    <gameName>Bloodstained: Ritual of the Night</gameName>
+    <developer>Inti Creates</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>61961</gameId>
+    <gameName>Headsnatchers</gameName>
+    <developer>IguanaBee</developer>
+    <country>Chile</country>
+  </country>
+  <country>
+    <gameId>12757</gameId>
+    <gameName>Warhammer 40,000: Dawn of War II</gameName>
+    <developer>Relic Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>18185</gameId>
+    <gameName>Company of Heroes: Tales of Valor</gameName>
+    <developer>Relic Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>58640</gameId>
+    <gameName>Realm Royale</gameName>
+    <developer>Hi-Rez Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>31771</gameId>
+    <gameName>The Elder Scrolls II: Daggerfall</gameName>
+    <developer>Bethesda Softworks</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>7439</gameId>
+    <gameName>Call of Duty: Ghosts</gameName>
+    <developer>Infinity Ward</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4483</gameId>
+    <gameName>Duke Nukem Forever</gameName>
+    <developer>3D Realms</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>313843</gameId>
+    <gameName>Goat of Duty</gameName>
+    <developer>34BigThings</developer>
+    <country>Italy</country>
+  </country>
+  <country>
+    <gameId>16649</gameId>
+    <gameName>Serious Sam 2</gameName>
+    <developer>Croteam</developer>
+    <country>Croatia</country>
+  </country>
+  <country>
+    <gameId>3838</gameId>
+    <gameName>Need for Speed Rivals</gameName>
+    <developer>EA Gothenburg</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>5538</gameId>
+    <gameName>Dark Souls</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>28615</gameId>
+    <gameName>Gears of War</gameName>
+    <developer>Epic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58735</gameId>
+    <gameName>Unravel Two</gameName>
+    <developer>Coldwood Interactive</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>28631</gameId>
+    <gameName>Fable III</gameName>
+    <developer>Lionhead Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>5706</gameId>
+    <gameName>Valkyria Chronicles</gameName>
+    <developer>Sega Wow</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>5678</gameId>
+    <gameName>The Elder Scrolls IV: Oblivion</gameName>
+    <developer>4J Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>5678</gameId>
+    <gameName>The Elder Scrolls IV: Oblivion</gameName>
+    <developer>Superscape</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>5678</gameId>
+    <gameName>The Elder Scrolls IV: Oblivion</gameName>
+    <developer>Bethesda Game Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>54491</gameId>
+    <gameName>Quake</gameName>
+    <developer>id Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>54491</gameId>
+    <gameName>Quake</gameName>
+    <developer>Nightdive Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>2296</gameId>
+    <gameName>Fahrenheit: Indigo Prophecy Remastered</gameName>
+    <developer>Quantic Dream</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>2296</gameId>
+    <gameName>Fahrenheit: Indigo Prophecy Remastered</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>14211</gameId>
+    <gameName>Children of Morta</gameName>
+    <developer>Dead Mage</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>887</gameId>
+    <gameName>Call of Duty: Infinite Warfare</gameName>
+    <developer>Infinity Ward</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>887</gameId>
+    <gameName>Call of Duty: Infinite Warfare</gameName>
+    <developer>High Moon Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>57908</gameId>
+    <gameName>Tomb Raider II</gameName>
+    <developer>Core Design</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>57908</gameId>
+    <gameName>Tomb Raider II</gameName>
+    <developer>MacSoft Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>295019</gameId>
+    <gameName>GreedFall</gameName>
+    <developer>Spiders</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>50418</gameId>
+    <gameName>Deiland</gameName>
+    <developer>Chibig</developer>
+    <country>Spain</country>
+  </country>
+  <country>
+    <gameId>2639</gameId>
+    <gameName>Day of the Tentacle Remastered</gameName>
+    <developer>Double Fine</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4154</gameId>
+    <gameName>Dead Space 3</gameName>
+    <developer>Visceral Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58758</gameId>
+    <gameName>Dying Light 2 Stay Human</gameName>
+    <developer/>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>11214</gameId>
+    <gameName>Northgard</gameName>
+    <developer>Shiro Games</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>9831</gameId>
+    <gameName>Conan Exiles</gameName>
+    <developer>Funcom</developer>
+    <country>Norway</country>
+  </country>
+  <country>
+    <gameId>3400</gameId>
+    <gameName>Battlefield Hardline</gameName>
+    <developer>DICE</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>3400</gameId>
+    <gameName>Battlefield Hardline</gameName>
+    <developer>Visceral Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4571</gameId>
+    <gameName>Dungeon Defenders</gameName>
+    <developer>Chromatic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>22790</gameId>
+    <gameName>Serious Sam: The Second Encounter</gameName>
+    <developer>Croteam</developer>
+    <country>Croatia</country>
+  </country>
+  <country>
+    <gameId>693</gameId>
+    <gameName>The Last Guardian</gameName>
+    <developer>Japan Studio</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>693</gameId>
+    <gameName>The Last Guardian</gameName>
+    <developer>genDESIGN</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>966</gameId>
+    <gameName>Sonic &amp; All-Stars Racing Transformed</gameName>
+    <developer>Sumo Digital</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>59197</gameId>
+    <gameName>F1 2018</gameName>
+    <developer>Codemasters</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>13925</gameId>
+    <gameName>Prince of Persia: Warrior Within</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>479694</gameId>
+    <gameName>Inscryption</gameName>
+    <developer>Daniel Mullins Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>392019</gameId>
+    <gameName>Half-Life: Alyx</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3863</gameId>
+    <gameName>How to Survive</gameName>
+    <developer>Eko Software</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>965</gameId>
+    <gameName>Sherlock Holmes: The Devil's Daughter</gameName>
+    <developer>Frogwares</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>339958</gameId>
+    <gameName>Persona 5 Royal</gameName>
+    <developer>Atlus</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>20466</gameId>
+    <gameName>Worms Armageddon</gameName>
+    <developer>Team17</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>9811</gameId>
+    <gameName>DayZ</gameName>
+    <developer>Bohemia Interactive</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>14422</gameId>
+    <gameName>Condemned: Criminal Origins</gameName>
+    <developer>Monolith Productions</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4466</gameId>
+    <gameName>Catherine</gameName>
+    <developer>Atlus</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>10342</gameId>
+    <gameName>RaceRoom Racing Experience</gameName>
+    <developer>Sector3 Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>464</gameId>
+    <gameName>Baldur's Gate: Enhanced Edition</gameName>
+    <developer>Beamdog</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>28589</gameId>
+    <gameName>Halo 3</gameName>
+    <developer>Bungie</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58835</gameId>
+    <gameName>Yakuza Kiwami 2</gameName>
+    <developer/>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>29658</gameId>
+    <gameName>The Elder Scrolls: Arena</gameName>
+    <developer>Bethesda Softworks</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>15851</gameId>
+    <gameName>Star Wars: Dark Forces</gameName>
+    <developer>Lucasfilm Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>441</gameId>
+    <gameName>Deus Ex: The Fall</gameName>
+    <developer>Eidos Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>9911</gameId>
+    <gameName>Dungeon Defenders II</gameName>
+    <developer>Chromatic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>16813</gameId>
+    <gameName>Mount &amp; Blade</gameName>
+    <developer>TaleWorlds</developer>
+    <country>Turkey</country>
+  </country>
+  <country>
+    <gameId>51687</gameId>
+    <gameName>Two Point Hospital</gameName>
+    <developer>Two Point Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>28613</gameId>
+    <gameName>Halo: Reach</gameName>
+    <developer>Bungie</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10309</gameId>
+    <gameName>Endless Space 2</gameName>
+    <developer>Amplitude Studios</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>11164</gameId>
+    <gameName>A Hat in Time</gameName>
+    <developer>Gears for Breakfast</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>637477</gameId>
+    <gameName>Splitgate</gameName>
+    <developer>1047 Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1073</gameId>
+    <gameName>Keep Talking and Nobody Explodes</gameName>
+    <developer>Steel Crate Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>17844</gameId>
+    <gameName>Divine Divinity</gameName>
+    <developer>Larian Studios</developer>
+    <country>Belgium</country>
+  </country>
+  <country>
+    <gameId>28619</gameId>
+    <gameName>Gears of War 2</gameName>
+    <developer>Epic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>11460</gameId>
+    <gameName>Astroneer</gameName>
+    <developer>System Era Softworks</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>38965</gameId>
+    <gameName>Star Wars: The Old Republic</gameName>
+    <developer>BioWare</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>58637</gameId>
+    <gameName>Code Vein</gameName>
+    <developer>Bandai Namco Entertainment</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>12130</gameId>
+    <gameName>RimWorld</gameName>
+    <developer>Ludeon Studios</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>3751</gameId>
+    <gameName>Dark Souls II</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>19635</gameId>
+    <gameName>Fable: The Lost Chapters</gameName>
+    <developer>Lionhead Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>441738</gameId>
+    <gameName>The Ascent</gameName>
+    <developer>Neon Giant</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>2894</gameId>
+    <gameName>Invisible, Inc.</gameName>
+    <developer>Klei Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>46301</gameId>
+    <gameName>Raft</gameName>
+    <developer>Redbeet Interactive</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>58385</gameId>
+    <gameName>Rage 2</gameName>
+    <developer>id Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58385</gameId>
+    <gameName>Rage 2</gameName>
+    <developer>Avalanche Studios Group</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>876</gameId>
+    <gameName>Legend of Grimrock</gameName>
+    <developer>Almost Human</developer>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>58806</gameId>
+    <gameName>Satisfactory</gameName>
+    <developer>Coffee Stain Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>3189</gameId>
+    <gameName>Grow Home</gameName>
+    <developer>Ubisoft Reflections</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>27</gameId>
+    <gameName>Pyre</gameName>
+    <developer>Supergiant Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5524</gameId>
+    <gameName>Brink</gameName>
+    <developer>Splash Damage</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>10028</gameId>
+    <gameName>Space Engineers</gameName>
+    <developer>Keen Software House</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>13926</gameId>
+    <gameName>Prince of Persia: The Two Thrones</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>10039</gameId>
+    <gameName>Tyranny</gameName>
+    <developer>Obsidian Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>257192</gameId>
+    <gameName>Psychonauts 2</gameName>
+    <developer>Double Fine</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>486</gameId>
+    <gameName>Tales of Berseria</gameName>
+    <developer>Bandai Namco Entertainment</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>19628</gameId>
+    <gameName>FlatOut 2</gameName>
+    <developer>Bugbear Entertainment</developer>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>5995</gameId>
+    <gameName>Little Inferno</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>397473</gameId>
+    <gameName>Back 4 Blood</gameName>
+    <developer>Turtle Rock Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>10037</gameId>
+    <gameName>Europa Universalis IV</gameName>
+    <developer>Development Studio</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>17473</gameId>
+    <gameName>Quake Live</gameName>
+    <developer>id Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28126</gameId>
+    <gameName>FIFA 18</gameName>
+    <developer>EA Vancouver</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>28126</gameId>
+    <gameName>FIFA 18</gameName>
+    <developer>EA Romania</developer>
+    <country>Romania</country>
+  </country>
+  <country>
+    <gameId>3277</gameId>
+    <gameName>Quiplash</gameName>
+    <developer>Jackbox Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>45763</gameId>
+    <gameName>Bomber Crew</gameName>
+    <developer>Runner Duck</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>2119</gameId>
+    <gameName>Tricky Towers</gameName>
+    <developer>WeirdBeard</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>384567</gameId>
+    <gameName>Crusader Kings III</gameName>
+    <developer>Development Studio</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>384567</gameId>
+    <gameName>Crusader Kings III</gameName>
+    <developer>Lab42</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>12045</gameId>
+    <gameName>Two Worlds II</gameName>
+    <developer>Reality Pump Studios</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>14331</gameId>
+    <gameName>Call of Duty 2</gameName>
+    <developer>Infinity Ward</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>14331</gameId>
+    <gameName>Call of Duty 2</gameName>
+    <developer>Aspyr</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>13466</gameId>
+    <gameName>Devil May Cry 4: Special Edition</gameName>
+    <developer>Capcom</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>5488</gameId>
+    <gameName>Crash Bandicoot</gameName>
+    <developer>Naughty Dog</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12022</gameId>
+    <gameName>King's Bounty: The Legend</gameName>
+    <developer>Katauri Interactive</developer>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>4480</gameId>
+    <gameName>Mini Ninjas</gameName>
+    <developer>IO Interactive</developer>
+    <country>Denmark</country>
+  </country>
+  <country>
+    <gameId>58389</gameId>
+    <gameName>Call of Duty: Black Ops 4</gameName>
+    <developer>Treyarch</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>58389</gameId>
+    <gameName>Call of Duty: Black Ops 4</gameName>
+    <developer>Beenox</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>58389</gameId>
+    <gameName>Call of Duty: Black Ops 4</gameName>
+    <developer>Raven Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>59637</gameId>
+    <gameName>Untitled Goose Game</gameName>
+    <developer>House House</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>58394</gameId>
+    <gameName>Horizon Chase Turbo</gameName>
+    <developer>Aquiris Game Studio</developer>
+    <country>Brazil</country>
+  </country>
+  <country>
+    <gameId>748414</gameId>
+    <gameName>Aperture Desk Job</gameName>
+    <developer>Valve Corporation</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>9644</gameId>
+    <gameName>Planet Coaster</gameName>
+    <developer>Frontier Developments</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4473</gameId>
+    <gameName>Shank 2</gameName>
+    <developer>Klei Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>59611</gameId>
+    <gameName>Pathfinder: Kingmaker</gameName>
+    <developer/>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>59611</gameId>
+    <gameName>Pathfinder: Kingmaker</gameName>
+    <developer/>
+    <country>Cyprus</country>
+  </country>
+  <country>
+    <gameId>369157</gameId>
+    <gameName>Yakuza: Like a Dragon</gameName>
+    <developer>Ryu ga Gotoku Studio</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>18852</gameId>
+    <gameName>Poker Night at the Inventory</gameName>
+    <developer>Telltale Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>54492</gameId>
+    <gameName>Quake II</gameName>
+    <developer>id Software</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4962</gameId>
+    <gameName>Shank</gameName>
+    <developer>Klei Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>39707</gameId>
+    <gameName>God of War II</gameName>
+    <developer>Santa Monica Studio</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>16723</gameId>
+    <gameName>Gunpoint</gameName>
+    <developer>Suspicious Developments</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>326236</gameId>
+    <gameName>Spiritfarer</gameName>
+    <developer>Thunder Lotus Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>9880</gameId>
+    <gameName>Oxygen Not Included</gameName>
+    <developer>Klei Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>343597</gameId>
+    <gameName>Sonic Adventure 2</gameName>
+    <developer>Sonic Team</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>343597</gameId>
+    <gameName>Sonic Adventure 2</gameName>
+    <developer>Sonic Team</developer>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>11223</gameId>
+    <gameName>Absolver</gameName>
+    <developer>Sloclap</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>43734</gameId>
+    <gameName>State of Decay 2</gameName>
+    <developer>Undead Labs</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1249</gameId>
+    <gameName>FIFA 17</gameName>
+    <developer>EA Vancouver</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>1249</gameId>
+    <gameName>FIFA 17</gameName>
+    <developer>EA Romania</developer>
+    <country>Romania</country>
+  </country>
+  <country>
+    <gameId>16003</gameId>
+    <gameName>Baldur's Gate II: Enhanced Edition</gameName>
+    <developer>Beamdog</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>452642</gameId>
+    <gameName>Horizon Forbidden West</gameName>
+    <developer>Sony Interactive Entertainment</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>452642</gameId>
+    <gameName>Horizon Forbidden West</gameName>
+    <developer>Sony Interactive Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>452642</gameId>
+    <gameName>Horizon Forbidden West</gameName>
+    <developer>Guerrilla Games</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>3226</gameId>
+    <gameName>Prototype 2</gameName>
+    <developer>Radical Entertainment</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>548036</gameId>
+    <gameName>Loop Hero</gameName>
+    <developer>Four Quarters</developer>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>9828</gameId>
+    <gameName>Natural Selection 2</gameName>
+    <developer>Unknown Worlds Entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12344</gameId>
+    <gameName>Counter-Strike Nexon: Zombies</gameName>
+    <developer>Nexon</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>11839</gameId>
+    <gameName>Pathologic 2</gameName>
+    <developer>Ice-Pick Lodge</developer>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>5403</gameId>
+    <gameName>Flower</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5403</gameId>
+    <gameName>Flower</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1854</gameId>
+    <gameName>Costume Quest</gameName>
+    <developer>Double Fine</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>18712</gameId>
+    <gameName>Dear Esther</gameName>
+    <developer>The Chinese Room</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>12073</gameId>
+    <gameName>The Secret of Monkey Island: Special Edition</gameName>
+    <developer>Lucasfilm Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>39277</gameId>
+    <gameName>Aliens vs. Predator</gameName>
+    <developer>Rebellion Developments</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>58085</gameId>
+    <gameName>Jurassic World Evolution</gameName>
+    <developer>Frontier Developments</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>463723</gameId>
+    <gameName>Far Cry 6</gameName>
+    <developer>Ubisoft Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>10108</gameId>
+    <gameName>Portal Knights</gameName>
+    <developer>Keen Games</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>4108</gameId>
+    <gameName>Demon's Souls</gameName>
+    <developer>FromSoftware</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>4108</gameId>
+    <gameName>Demon's Souls</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>35613</gameId>
+    <gameName>Sonic Adventure DX: Director's Cut</gameName>
+    <developer>Sonic Team</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>35613</gameId>
+    <gameName>Sonic Adventure DX: Director's Cut</gameName>
+    <developer>Sonic Team</developer>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>570074</gameId>
+    <gameName>Teenage Mutant Ninja Turtles: Shredder's Revenge</gameName>
+    <developer>Tribute Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>22865</gameId>
+    <gameName>Tomb Raider: The Angel of Darkness</gameName>
+    <developer>Core Design</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>17169</gameId>
+    <gameName>The Ship: Murder Party</gameName>
+    <developer>Outerlight</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>29180</gameId>
+    <gameName>Ni no Kuni II: Revenant Kingdom</gameName>
+    <developer>Level-5</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>22734</gameId>
+    <gameName>Beneath a Steel Sky</gameName>
+    <developer>Revolution Software</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>42060</gameId>
+    <gameName>Wreckfest</gameName>
+    <developer>Bugbear Entertainment</developer>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>18708</gameId>
+    <gameName>Pathologic Classic HD</gameName>
+    <developer>Ice-Pick Lodge</developer>
+    <country>Russia</country>
+  </country>
+  <country>
+    <gameId>18708</gameId>
+    <gameName>Pathologic Classic HD</gameName>
+    <developer>General Arcade</developer>
+    <country>Singapore</country>
+  </country>
+  <country>
+    <gameId>4185</gameId>
+    <gameName>Kingdoms of Amalur: Reckoning</gameName>
+    <developer>Big Huge Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>4185</gameId>
+    <gameName>Kingdoms of Amalur: Reckoning</gameName>
+    <developer>38 Studios</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>295020</gameId>
+    <gameName>Wasteland 3</gameName>
+    <developer>inXile entertainment</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>44029</gameId>
+    <gameName>My Time At Portia</gameName>
+    <developer>Pathea Games</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>14625</gameId>
+    <gameName>Medieval II: Total War</gameName>
+    <developer>Creative Assembly</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>4192</gameId>
+    <gameName>Pid</gameName>
+    <developer>Might and Delight</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>366881</gameId>
+    <gameName>Little Nightmares II</gameName>
+    <developer>Tarsier Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>51324</gameId>
+    <gameName>Kingdom Hearts III</gameName>
+    <developer>Square Enix</developer>
+    <country>Japan</country>
+  </country>
+  <country>
+    <gameId>4057</gameId>
+    <gameName>Defiance</gameName>
+    <developer>Trion Worlds</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5689</gameId>
+    <gameName>The Sims 3</gameName>
+    <developer>Maxis</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5689</gameId>
+    <gameName>The Sims 3</gameName>
+    <developer>Maxis</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5689</gameId>
+    <gameName>The Sims 3</gameName>
+    <developer>EA Mobile</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5689</gameId>
+    <gameName>The Sims 3</gameName>
+    <developer>The Sims Studio</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>5689</gameId>
+    <gameName>The Sims 3</gameName>
+    <developer>Edge of Reality</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>284664</gameId>
+    <gameName>Streets of Rage 4</gameName>
+    <developer>DotEmu</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>284664</gameId>
+    <gameName>Streets of Rage 4</gameName>
+    <developer>Lizardcube</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>284664</gameId>
+    <gameName>Streets of Rage 4</gameName>
+    <developer>Guard Crush Games</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>50678</gameId>
+    <gameName>SCP: Secret Laboratory</gameName>
+    <developer>Northwood Studios</developer>
+    <country>Poland</country>
+  </country>
+  <country>
+    <gameId>19962</gameId>
+    <gameName>No Time To Explain Remastered</gameName>
+    <developer/>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>274767</gameId>
+    <gameName>Far Cry New Dawn</gameName>
+    <developer>Ubisoft Kyiv</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>274767</gameId>
+    <gameName>Far Cry New Dawn</gameName>
+    <developer>Ubisoft Shanghai</developer>
+    <country>People's Republic of China</country>
+  </country>
+  <country>
+    <gameId>274767</gameId>
+    <gameName>Far Cry New Dawn</gameName>
+    <developer>Ubisoft Montreal</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>16014</gameId>
+    <gameName>Planetary Annihilation</gameName>
+    <developer>Star Theory Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>1391</gameId>
+    <gameName>Assetto Corsa</gameName>
+    <developer>Kunos Simulazioni</developer>
+    <country>Italy</country>
+  </country>
+  <country>
+    <gameId>3987</gameId>
+    <gameName>Giana Sisters: Twisted Dreams</gameName>
+    <developer>Black Forest Games</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>616697</gameId>
+    <gameName>A Plague Tale: Requiem</gameName>
+    <developer>Asobo Studio</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>5390</gameId>
+    <gameName>Burnout Paradise</gameName>
+    <developer>Criterion Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>2944</gameId>
+    <gameName>Trine 3: The Artifacts of Power</gameName>
+    <developer>Frozenbyte</developer>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>1545</gameId>
+    <gameName>Hand of Fate</gameName>
+    <developer>Defiant Development</developer>
+    <country>Australia</country>
+  </country>
+  <country>
+    <gameId>28632</gameId>
+    <gameName>Gears of War 3</gameName>
+    <developer>Epic Games</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>17013</gameId>
+    <gameName>Lucius</gameName>
+    <developer>Shiver Games</developer>
+    <country>Finland</country>
+  </country>
+  <country>
+    <gameId>8278</gameId>
+    <gameName>Gears of War 4</gameName>
+    <developer>Splash Damage</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>8278</gameId>
+    <gameName>Gears of War 4</gameName>
+    <developer>The Coalition</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>324992</gameId>
+    <gameName>Watch Dogs: Legion</gameName>
+    <developer>Ubisoft Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>324992</gameId>
+    <gameName>Watch Dogs: Legion</gameName>
+    <developer>Ubisoft Kyiv</developer>
+    <country>Ukraine</country>
+  </country>
+  <country>
+    <gameId>324992</gameId>
+    <gameName>Watch Dogs: Legion</gameName>
+    <developer>Ubisoft Reflections</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>324992</gameId>
+    <gameName>Watch Dogs: Legion</gameName>
+    <developer>Ubisoft Paris</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>4125</gameId>
+    <gameName>Crysis 3</gameName>
+    <developer>Crytek</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>4125</gameId>
+    <gameName>Crysis 3</gameName>
+    <developer>Crytek UK</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>194</gameId>
+    <gameName>Styx: Shards of Darkness</gameName>
+    <developer>Cyanide</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>4240</gameId>
+    <gameName>Worms Revolution</gameName>
+    <developer>Team17</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>455532</gameId>
+    <gameName>Star Wars: Squadrons</gameName>
+    <developer>Motive Studio</developer>
+    <country>Canada</country>
+  </country>
+  <country>
+    <gameId>15422</gameId>
+    <gameName>Serious Sam Classics: Revolution</gameName>
+    <developer>Croteam</developer>
+    <country>Croatia</country>
+  </country>
+  <country>
+    <gameId>445430</gameId>
+    <gameName>Mafia III: Definitive Edition</gameName>
+    <developer>Hangar 13</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>28156</gameId>
+    <gameName>Tacoma</gameName>
+    <developer>Fullbright</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>44510</gameId>
+    <gameName>The Escapists 2</gameName>
+    <developer>Team17</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>311</gameId>
+    <gameName>Sunless Sea</gameName>
+    <developer>Failbetter Games</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>1165</gameId>
+    <gameName>SteamWorld Heist</gameName>
+    <developer>Image &amp; Form</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>2666</gameId>
+    <gameName>Mini Metro</gameName>
+    <developer>Dinosaur Polo Club</developer>
+    <country>New Zealand</country>
+  </country>
+  <country>
+    <gameId>3489</gameId>
+    <gameName>The Crew</gameName>
+    <developer>Ubisoft Reflections</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>3489</gameId>
+    <gameName>The Crew</gameName>
+    <developer>Asobo Studio</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>3489</gameId>
+    <gameName>The Crew</gameName>
+    <developer>Ubisoft Ivory Tower</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>3336</gameId>
+    <gameName>Project CARS</gameName>
+    <developer>Slightly Mad Studios</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>15713</gameId>
+    <gameName>Chaos on Deponia</gameName>
+    <developer>Daedalic Entertainment</developer>
+    <country>Germany</country>
+  </country>
+  <country>
+    <gameId>58325</gameId>
+    <gameName>Beat Saber</gameName>
+    <developer>Beat Games</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>12323</gameId>
+    <gameName>Shadowrun: Hong Kong - Extended Edition</gameName>
+    <developer>Harebrained Schemes</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>12323</gameId>
+    <gameName>Shadowrun: Hong Kong - Extended Edition</gameName>
+    <developer>Behaviour Rotterdam</developer>
+    <country>Netherlands</country>
+  </country>
+  <country>
+    <gameId>10758</gameId>
+    <gameName>American Truck Simulator</gameName>
+    <developer>SCS Software</developer>
+    <country>Czech Republic</country>
+  </country>
+  <country>
+    <gameId>58831</gameId>
+    <gameName>Call of Cthulhu</gameName>
+    <developer>Cyanide</developer>
+    <country>France</country>
+  </country>
+  <country>
+    <gameId>19409</gameId>
+    <gameName>Operation Flashpoint: Dragon Rising</gameName>
+    <developer>Codemasters</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>17010</gameId>
+    <gameName>Kentucky Route Zero</gameName>
+    <developer>Cardboard Computer</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>16344</gameId>
+    <gameName>Sanctum</gameName>
+    <developer>Coffee Stain Studios</developer>
+    <country>Sweden</country>
+  </country>
+  <country>
+    <gameId>579507</gameId>
+    <gameName>Death's Door</gameName>
+    <developer>Acid Nerve</developer>
+    <country>United Kingdom</country>
+  </country>
+</countries>
