@@ -85,7 +85,7 @@
         </li>
 
         <li>
-            <strong> ✅ GET /games/3328/country</strong> → Obtener país del desarrollador
+            <strong> GET /games/3328/country</strong> → Obtener país del desarrollador
             <a href="/games/3328/country">Ver país del desarrollador</a> <br>
             ESTA RUTA FUNCIONA PERO TIENE QUE ESTAR PROCESADA 100% EN XML NO EN JSON
         </li>
@@ -169,9 +169,34 @@
             <strong>✅ GET /reviews</strong> → Obtener todas las reseñas
             <a href="/reviews">Ver reseñas</a>
         </li>
+        <ul>
+            <li>
+                <strong> ✅ GET /reviews?id=4</strong> → La reseña con id 4
+                <a href="/reviews?id=4">Reseña con id 4</a>
+            </li>
+
+            <li>
+                <strong> ✅ GET /reviews?rating=5</strong> → Filtrar por rating
+                <a href="/reviews?rating=5">Reseñas con rating 5</a>
+            </li>
+
+            <li>
+                <strong> ✅ GET /reviews?limit=20</strong> → Limitar resultados
+                <a href="/reviews?limit=20">20 reseñas</a>
+            </li>
+
+            <li>
+                <strong> ✅ GET /reviews?page=2&limit=20</strong> → Paginación
+                <a href="/reviews?page=2&limit=20">Página 2</a>
+            </li>
+        </ul>
+        <li>
+            <strong> ✅ GET /reviews/3328</strong> → Obtener reseñas del videojuego con id 3328
+            <a href="/reviews/3328">Ver reseñas del juego 3328</a>
+        </li>
 
         <li>
-            <strong>POST /reviews</strong> → Crear reseña
+            <strong> ✅ POST /reviews</strong> → Crear reseña
             <a href="https://www.postman.com/">Usar Postman</a>
         </li>
 
