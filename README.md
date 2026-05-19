@@ -120,7 +120,13 @@ Requiere API key (configurar `RAWG_API_KEY` en `.env`).
    cd SW-II/api
     ```
 
-2. Crear el archivo `.env` dentro de la carpeta `api` con:
+2. Crear el archivo `.env` dentro de la carpeta `api`. Se puede copiar el archivo de ejemplo:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   El contenido debe quedar con estas variables:
 
    ```env
    MONGODB_URI=mongodb://127.0.0.1:27017/sw2-videogames
