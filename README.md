@@ -21,25 +21,26 @@
 
 ## 📖 Descripción
 
-Diseño e implementación de una API REST en Node.js, Express y MongoDB para gestionar videojuegos, desarrolladores, reseñas y países relacionados. Los datos de videojuegos y desarrolladores se obtienen inicialmente desde **RAWG** en formato JSON, y la información de países se obtiene desde **Wikidata** en formato XML.
+Diseño e implementación de una API REST en Node.js, Express y MongoDB para consultar y gestionar información sobre videojuegos, desarrolladores, reseñas y países relacionados. Los datos de videojuegos y desarrolladores se obtienen inicialmente desde **RAWG** en formato JSON, y la información de países asociados a desarrolladores se obtiene desde **Wikidata** en formato XML.
 
 El objetivo del proyecto es aprender cómo diseñar y desarrollar servicios web, incluyendo:
 
 - Consumo de APIs externas
 - Almacenamiento de datos en una base de datos NoSQL
 - Creación de endpoints REST
-- Documentación del servicio mediante OpenAPI (YAML).
+- Documentación del servicio mediante OpenAPI (YAML), disponible en `docs/openapi.yaml`.
 
 ## ✨ Funcionalidades
 
 La API REST permitirá gestionar los siguientes recursos:
 
 - Obtener información de videojuegos desde la API externa **RAWG** (formato JSON).
-- Obtener información adicional de países y desarrolladores desde **Wikidata** (formato XML).
+- Obtener información adicional de países asociados a desarrolladores desde **Wikidata** (formato XML).
 - Almacenar los datos obtenidos en datasets locales dentro de la carpeta `/api/datasets`.
 - Utilizar estos datasets para **inicializar la base de datos MongoDB** mediante un script `npm run seed`.
 - Almacenar y gestionar los datos en **MongoDB**.
-- Realizar operaciones **CRUD** en los recursos principales almacenados en MongoDB.
+- Realizar operaciones **CRUD** sobre videojuegos y reseñas almacenados en MongoDB.
+- Consultar desarrolladores y países, incluyendo filtros, búsquedas y relaciones con videojuegos.
 - Permitir **paginación y filtrado** en las consultas de videojuegos, desarrolladores y reseñas.
 
 ### Endpoints disponibles

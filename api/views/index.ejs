@@ -10,12 +10,12 @@
     <p>
         Bienvenido a la API de videojuegos.
         Esta API permite consultar información sobre videojuegos,
-        desarrolladores y reseñas.
+        desarrolladores, reseñas y países relacionados.
     </p>
 
-    <p><strong>RAWG API</strong> → Recursos <code>/games</code> y <code>/developers;</code><strong> JSON</strong></p>
-    <p><strong>Wikidata</strong> → Recursos <code>/country</code>; <strong> XML</strong></p>
-    <p><strong>Datos propios</strong> → Recursos <code>/reviews;</code> <strong> JSON</strong></p>
+    <p><strong>RAWG API</strong> → Recursos <code>/games</code> y <code>/developers</code>; <strong>JSON</strong></p>
+    <p><strong>Wikidata</strong> → Recursos <code>/countries</code> y <code>/games/:id/country</code>; <strong>XML</strong></p>
+    <p><strong>Datos propios</strong> → Recurso <code>/reviews</code>; <strong>JSON</strong></p>
 
     <h2>Endpoints disponibles</h2>
 
@@ -68,8 +68,8 @@
             </li>
 
             <li>
-                <strong>GET /games?store=Nintendo Store</strong> → Ordenar videojuegos
-                <a href="/games?store=Nintendo Store">Ordenar por tienda</a>
+                <strong>GET /games?store=Nintendo Store</strong> → Filtrar por tienda
+                <a href="/games?store=Nintendo Store">Filtrar por tienda</a>
             </li>
 
         </ul>
