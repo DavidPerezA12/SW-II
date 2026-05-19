@@ -3,6 +3,17 @@ const router = express.Router();
 
 const mongodb = require("../db/conn");
 
+const removeMongoId = ({ _id, ...document }) => document;
+
+const isPositiveInteger = (value) => {
+    const numberValue = Number(value);
+    return Number.isInteger(numberValue) && numberValue > 0;
+};
+
+const isValidRating = (value) => {
+    const numberValue = Number(value);
+    return !Number.isNaN(numberValue) && numberValue >= 1 && numberValue <= 5;
+};
 
 // GET /reviews
 // Obtener todas las reviews
@@ -19,14 +30,30 @@ router.get("/", async (req, res) => {
         const filter = {};
 
         if (id) {
+            if (!isPositiveInteger(id)) {
+                return res.status(400).json({ message: "El id debe ser un número positivo" });
+            }
+
             filter.id = parseInt(id);
         }
 
         if (rating) {
+            if (!isValidRating(rating)) {
+                return res.status(400).json({ message: "rating debe ser un número entre 1 y 5" });
+            }
+
             filter.rating = parseInt(rating);
         }
 
         // Paginación
+        if (limit && !isPositiveInteger(limit)) {
+            return res.status(400).json({ message: "limit debe ser un número positivo" });
+        }
+
+        if (page && !isPositiveInteger(page)) {
+            return res.status(400).json({ message: "page debe ser un número positivo" });
+        }
+
         const limitNumber = limit ? parseInt(limit) : 1000;
         const pageNumber = page ? parseInt(page) : 1;
         const skip = (pageNumber - 1) * limitNumber;
@@ -47,13 +74,13 @@ router.get("/", async (req, res) => {
         return res.status(200).json({
             total,
             reviews_length: reviews.length,
-            reviews
+            reviews: reviews.map(removeMongoId)
         });
 
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error fetching reviews",
+            message: "Error al obtener las reseñas",
             error: e.message
         });
     }
@@ -68,6 +95,10 @@ router.get("/:gameId", async (req, res) => {
 
     try {
 
+        if (!isPositiveInteger(req.params.gameId)) {
+            return res.status(400).json({ message: "gameId debe ser un número positivo" });
+        }
+
         const gameId = Number(req.params.gameId);
 
         const reviews = await database
@@ -78,19 +109,19 @@ router.get("/:gameId", async (req, res) => {
         if (reviews.length === 0) {
 
             return res.status(404).json({
-                message: `No reviews found for game ${gameId}`
+                message: `No se han encontrado reseñas para el videojuego ${gameId}`
             });
         }
 
         return res.status(200).json({
             reviews_length: reviews.length,
-            reviews
+            reviews: reviews.map(removeMongoId)
         });
 
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error fetching reviews",
+            message: "Error al obtener las reseñas",
             error: e.message
         });
     }
@@ -121,8 +152,20 @@ router.post("/", async (req, res) => {
         ) {
 
             return res.status(400).json({
-                message: "Required fields: id, gameId, gameName, rating, comment"
+                message: "Campos obligatorios: id, gameId, gameName, rating, comment"
             });
+        }
+
+        if (!isPositiveInteger(id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
+
+        if (!isPositiveInteger(gameId)) {
+            return res.status(400).json({ message: "gameId debe ser un número positivo" });
+        }
+
+        if (!isValidRating(rating)) {
+            return res.status(400).json({ message: "rating debe ser un número entre 1 y 5" });
         }
 
         // Comprobar si el ID ya existe
@@ -133,7 +176,7 @@ router.post("/", async (req, res) => {
         if (existingReview) {
 
             return res.status(409).json({
-                message: `Review with id ${id} already exists`
+                message: `Ya existe una reseña con id ${id}`
             });
         }
 
@@ -154,7 +197,7 @@ router.post("/", async (req, res) => {
             .insertOne(newReview);
 
         return res.status(201).json({
-            message: "Review created successfully",
+            message: "Reseña creada correctamente",
             insertedId: result.insertedId,
             review: newReview
         });
@@ -162,7 +205,7 @@ router.post("/", async (req, res) => {
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error creating review",
+            message: "Error al crear la reseña",
             error: e.message
         });
     }
@@ -174,6 +217,10 @@ router.patch("/:id", async (req, res) => {
 
     try {
 
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
+
         const reviewId = Number(req.params.id);
 
         // Buscar review actual
@@ -184,7 +231,7 @@ router.patch("/:id", async (req, res) => {
         if (!existingReview) {
 
             return res.status(404).json({
-                message: `Review with id ${reviewId} not found`
+                message: `No se ha encontrado la reseña con id ${reviewId}`
             });
         }
 
@@ -194,45 +241,35 @@ router.patch("/:id", async (req, res) => {
         if (updates.createdAt) {
 
             return res.status(400).json({
-                message: "createdAt cannot be modified"
+                message: "createdAt no se puede modificar"
+            });
+        }
+
+        const allowedFields = ["gameId", "gameName", "user", "rating", "comment"];
+        const invalidFields = Object.keys(updates).filter(field => {
+            return !allowedFields.includes(field);
+        });
+
+        if (invalidFields.length > 0) {
+            return res.status(400).json({
+                message: "Algunos campos no se pueden actualizar",
+                invalidFields
             });
         }
 
         // Validar rating
-        if (
-            updates.rating !== undefined &&
-            (updates.rating < 1 || updates.rating > 5)
-        ) {
+        if (updates.rating !== undefined && !isValidRating(updates.rating)) {
 
             return res.status(400).json({
-                message: "Rating must be between 1 and 5"
+                message: "rating debe estar entre 1 y 5"
             });
         }
 
-        // Validar ID duplicado
-        if (
-            updates.id !== undefined &&
-            Number(updates.id) !== reviewId
-        ) {
-
-            const duplicatedId = await database
-                .collection("reviews")
-                .findOne({ id: Number(updates.id) });
-
-            if (duplicatedId) {
-
-                return res.status(409).json({
-                    message: `Review with id ${updates.id} already exists`
-                });
-            }
-        }
-
-        // Convertir números si vienen
-        if (updates.id !== undefined) {
-            updates.id = Number(updates.id);
-        }
-
         if (updates.gameId !== undefined) {
+            if (!isPositiveInteger(updates.gameId)) {
+                return res.status(400).json({ message: "gameId debe ser un número positivo" });
+            }
+
             updates.gameId = Number(updates.gameId);
         }
 
@@ -251,17 +288,17 @@ router.patch("/:id", async (req, res) => {
         // Obtener review actualizada
         const updatedReview = await database
             .collection("reviews")
-            .findOne({ id: updates.id || reviewId });
+            .findOne({ id: reviewId });
 
         return res.status(200).json({
-            message: "Review updated successfully",
-            review: updatedReview
+            message: "Reseña actualizada correctamente",
+            review: removeMongoId(updatedReview)
         });
 
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error updating review",
+            message: "Error al actualizar la reseña",
             error: e.message
         });
     }
@@ -273,6 +310,10 @@ router.delete("/:id", async (req, res) => {
 
     try {
 
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
+
         const reviewId = Number(req.params.id);
 
         // Verificar si existe
@@ -283,7 +324,7 @@ router.delete("/:id", async (req, res) => {
         if (!existingReview) {
 
             return res.status(404).json({
-                message: `Review with id ${reviewId} not found`
+                message: `No se ha encontrado la reseña con id ${reviewId}`
             });
         }
 
@@ -293,13 +334,13 @@ router.delete("/:id", async (req, res) => {
             .deleteOne({ id: reviewId });
 
         return res.status(200).json({
-            message: `Review ${reviewId} deleted successfully`
+            message: `Reseña ${reviewId} eliminada correctamente`
         });
 
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error deleting review",
+            message: "Error al eliminar la reseña",
             error: e.message
         });
     }

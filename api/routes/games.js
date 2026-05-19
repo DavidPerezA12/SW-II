@@ -5,6 +5,17 @@ const mongodb = require(`../db/conn`);
 const xml2js = require("xml2js");
 //const rawg  = require(`../services/rawg`);
 
+const removeMongoId = ({ _id, ...document }) => document;
+
+const isPositiveInteger = (value) => {
+    const numberValue = Number(value);
+    return Number.isInteger(numberValue) && numberValue > 0;
+};
+
+const isValidNumber = (value) => {
+    return !Number.isNaN(Number(value));
+};
+
 // Obtener todos los juegos
 router.get('/', async (req, res) => {
     try {
@@ -21,7 +32,10 @@ router.get('/', async (req, res) => {
         
         //?id=1234
         if (id){
-            console.log("ID recibido:", id);
+            if (!isPositiveInteger(id)) {
+                return res.status(400).json({ message: "El id debe ser un número positivo" });
+            }
+
             const id_game = Number(id);
             filter.id = id_game;
         }
@@ -51,12 +65,20 @@ router.get('/', async (req, res) => {
 
         //?minRating=4.5
         if(minRating){
+            if (!isValidNumber(minRating)) {
+                return res.status(400).json({ message: "minRating debe ser un número" });
+            }
+
             filter["rating"] = { $gte: Number(minRating) };
         }
 
         //?limit=2
         let limitNumber;
         if(limit){
+            if (!isPositiveInteger(limit)) {
+                return res.status(400).json({ message: "limit debe ser un número positivo" });
+            }
+
             limitNumber = parseInt(limit);
         } else {
             limitNumber = 1000;
@@ -65,6 +87,10 @@ router.get('/', async (req, res) => {
         //?page=2&&limit=2
         let pageOption;
         if(page){
+            if (!isPositiveInteger(page)) {
+                return res.status(400).json({ message: "page debe ser un número positivo" });
+            }
+
             pageOption = Number(page);
         } else {
             pageOption = 1;
@@ -87,31 +113,34 @@ router.get('/', async (req, res) => {
             .sort(sortOption)
             .toArray();
         
-        const games_witout__id = games.map(({_id, ...game}) => game);
+        const gamesWithoutId = games.map(removeMongoId);
         
         res.status(200).json({
-            videogames_length: games_witout__id.length,
-            videogames:games_witout__id
+            videogames_length: gamesWithoutId.length,
+            videogames: gamesWithoutId
         });
     } catch (e) {
-        res.status(500).json({ message: 'Error fetching games', error: e });
+        res.status(500).json({ message: 'Error al obtener los videojuegos', error: e });
     }
 });
 
 // Obtener el juego por nombre (Solo 1)
 router.get('/:id', async (req, res) => {
     try {
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
+
         const database = mongodb.getDb();
         const game_name = await database.collection('videogames').findOne({id: Number(req.params.id)});
-        console.log("Game found:", game_name);
 
         if (!game_name) {
             return res.status(404).json({message:`El videojuego ${req.params.id} no se encuentra en la base de datos`});
         } else {
-            res.json(game_name);
+            res.json(removeMongoId(game_name));
         }
     } catch (e) {
-        res.status(500).json({ message: 'Error fetching game by name', error: e.message });
+        res.status(500).json({ message: 'Error al obtener el videojuego', error: e.message });
     }
 });
 
@@ -121,6 +150,10 @@ router.get('/:id/country', async (req, res) => {
     const database = mongodb.getDb();
 
     try {
+
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
 
         const gameId = Number(req.params.id);
 
@@ -132,7 +165,7 @@ router.get('/:id/country', async (req, res) => {
         if (countries.length === 0) {
 
             return res.status(404).json({
-                message: `No country information found for game ${gameId}`
+                message: `No se ha encontrado información de países para el videojuego ${gameId}`
             });
         }
 
@@ -161,7 +194,7 @@ router.get('/:id/country', async (req, res) => {
     } catch (e) {
 
         return res.status(500).json({
-            message: 'Error fetching country information',
+            message: 'Error al obtener la información de países',
             error: e.message
         });
     }
@@ -173,6 +206,10 @@ router.get('/:id/enriched', async (req, res) => {
     const database = mongodb.getDb();
 
     try {
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
+
         const gameId = Number(req.params.id);
 
         const game = await database
@@ -196,16 +233,16 @@ router.get('/:id/enriched', async (req, res) => {
             .toArray();
 
         return res.json({
-            game,
+            game: removeMongoId(game),
             wikidata: {
-                countries
+                countries: countries.map(removeMongoId)
             },
-            reviews
+            reviews: reviews.map(removeMongoId)
         });
 
     } catch (e) {
         return res.status(500).json({
-            message: 'Error fetching enriched game',
+            message: 'Error al obtener el videojuego enriquecido',
             error: e.message
         });
     }
@@ -218,6 +255,10 @@ router.get('/:id/reviews', async (req, res) => {
     const database = mongodb.getDb();
 
     try {
+
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
 
         const gameId = Number(req.params.id);
 
@@ -243,13 +284,13 @@ router.get('/:id/reviews', async (req, res) => {
             gameId,
             gameName: game.name,
             reviews_length: reviews.length,
-            reviews
+            reviews: reviews.map(removeMongoId)
         });
 
     } catch (e) {
 
         return res.status(500).json({
-            message: 'Error fetching game reviews',
+            message: 'Error al obtener las reseñas del videojuego',
             error: e.message
         });
     }
@@ -278,8 +319,14 @@ router.post('/', async (req, res) => {
 
         if (missingFields.length > 0) {
             return res.status(400).json({
-                message: "Missing required fields",
+                message: "Faltan campos obligatorios",
                 missingFields
+            });
+        }
+
+        if (!isPositiveInteger(newGame.id)) {
+            return res.status(400).json({
+                message: "El id debe ser un número positivo"
             });
         }
 
@@ -290,27 +337,29 @@ router.post('/', async (req, res) => {
             !Array.isArray(newGame.stores) || newGame.stores.length === 0
         ) {
             return res.status(400).json({
-                message: "Platforms, genres and stores must be non-empty arrays"
+                message: "Platforms, genres y stores deben ser arrays no vacíos"
             });
         }
 
         // Verificar si existe
         const gameExist = await database
             .collection("videogames")
-            .findOne({ id: newGame.id });
+            .findOne({ id: Number(newGame.id) });
 
         if (gameExist) {
             return res.status(409).json({
-                message: "Game already exists"
+                message: "El videojuego ya existe"
             });
         }
+
+        newGame.id = Number(newGame.id);
 
         const result = await database
             .collection("videogames")
             .insertOne(newGame);
 
         return res.status(201).json({
-            message: "Game created successfully",
+            message: "Videojuego creado correctamente",
             insertedId: result.insertedId
         });
 
@@ -319,7 +368,7 @@ router.post('/', async (req, res) => {
         console.error(error);
 
         return res.status(500).json({
-            message: "Internal server error"
+            message: "Error interno del servidor"
         });
     }
 });
@@ -328,8 +377,32 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req,res) => {
     const database = mongodb.getDb();
     try {
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
+
         const number_id = Number(req.params.id);
         const newData = req.body;
+        const allowedFields = [
+            "name",
+            "slug",
+            "released",
+            "rating",
+            "platforms",
+            "genres",
+            "stores",
+            "developers"
+        ];
+        const invalidFields = Object.keys(newData).filter(field => {
+            return !allowedFields.includes(field);
+        });
+
+        if (invalidFields.length > 0) {
+            return res.status(400).json({
+                message: "Algunos campos no se pueden actualizar",
+                invalidFields
+            });
+        }
 
         const game_exist = await database
             .collection("videogames")
@@ -337,7 +410,7 @@ router.put('/:id', async (req,res) => {
 
         if (!game_exist) {
             return res.status(404).json({
-                message: "Game not found"
+                message: "Videojuego no encontrado"
             });
         }
 
@@ -349,14 +422,14 @@ router.put('/:id', async (req,res) => {
             );
 
         res.status(200).json({
-            message: "Game updated successfully",
+            message: "Videojuego actualizado correctamente",
             id: number_id
         });
 
         
     } catch (e) {
         res.status(500).json({
-            message: "Error updating game",
+            message: "Error al actualizar el videojuego",
             error: e
         });
     }
@@ -366,18 +439,21 @@ router.put('/:id', async (req,res) => {
 router.delete('/:id', async (req, res) => {
     const database = mongodb.getDb();
     try {
+        if (!isPositiveInteger(req.params.id)) {
+            return res.status(400).json({ message: "El id debe ser un número positivo" });
+        }
+
         const number_id = Number(req.params.id);
         const game_delete = await database.collection('videogames').findOne({ id: number_id });
         if (!game_delete) {
-            return res.status(404).json({ message: 'Game not found' });
+            return res.status(404).json({ message: 'Videojuego no encontrado' });
         }
-        console.log("Game to delete:", game_delete);
 
-        await database.collection('videogames').deleteOne(game_delete);
+        await database.collection('videogames').deleteOne({ id: number_id });
 
-        res.status(200).json({ message: `Game ${game_delete.name} deleted successfully` });
+        res.status(200).json({ message: `Videojuego ${game_delete.name} eliminado correctamente` });
     } catch (e) {
-        res.status(500).json({ message: 'Error deleting game', error: e.message });
+        res.status(500).json({ message: 'Error al eliminar el videojuego', error: e.message });
     }
 });
 
