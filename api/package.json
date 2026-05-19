@@ -14,7 +14,7 @@
 
     "seed": "npm run seed:games && npm run seed:developers && npm run seed:countries && npm run seed:reviews",
 
-    "test": "echo \"No tests configured\""
+    "test": "node --check app.js && node --check bin/www.js && node --check db/conn.js && node --check routes/games.js && node --check routes/developers.js && node --check routes/reviews.js && node --check routes/countries.js && node --check services/rawg.js && node --check services/wikidata.js"
   },
 
   "keywords": [

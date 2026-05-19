@@ -71,6 +71,7 @@ Las operaciones CRUD completas se implementan sobre `/games` y `/reviews`. Los r
       - `?search=the witcher` → Todos los juegos de "the witcher".
       - `?platform=pc` → Todos los juegos para PC.
       - `?genre=action` → Filtrar por género.
+      - `?store=steam` → Filtrar por tienda.
       - `?minRating=4.5` → Filtrar por valoración mínima
       - `?page=2&limit=2` → Paginación con número de página y límite de resultados por página.
       - `?limit=10` → Limitar el número de resultados a 10.
@@ -100,10 +101,10 @@ Las operaciones CRUD completas se implementan sobre `/games` y `/reviews`. Los r
       - `?id=4` → Obtener una reseña por su ID.
       - `?rating=5` → Filtrar por valoración.
       - `?page=2&limit=20` → Paginación con número de página y límite de resultados por página.
-  - **GET /reviews/:gameId** → Obtener reseñas asociadas a un videojuego. [http://localhost:3001/reviews/3328]
+  - **GET /reviews/:gameId** → Obtener reseñas asociadas a un videojuego. En esta ruta el parámetro representa el ID del videojuego. [http://localhost:3001/reviews/3328]
   - **POST /reviews** → Agregar una nueva reseña.
-  - **PATCH /reviews/:id** → Actualizar parcialmente una reseña.
-  - **DELETE /reviews/:id** → Eliminar una reseña por su ID.
+  - **PATCH /reviews/:id** → Actualizar parcialmente una reseña. En esta ruta el parámetro representa el ID de la reseña.
+  - **DELETE /reviews/:id** → Eliminar una reseña por su ID. En esta ruta el parámetro representa el ID de la reseña.
 
 - **/countries**
   - **GET /countries** → Obtener información de países en XML. [http://localhost:3001/countries]
@@ -128,7 +129,7 @@ Las operaciones CRUD completas se implementan sobre `/games` y `/reviews`. Los r
   - Documentación: [https://api.rawg.io/docs/]
 - Wikidata Query Service (XML): [https://query.wikidata.org/]
 
-Requiere API key (configurar `RAWG_API_KEY` en `.env`).
+La clave `RAWG_API_KEY` solo es necesaria si se quieren regenerar los datasets desde RAWG. Para ejecutar el proyecto con los datasets incluidos en `api/datasets`, basta con mantener la variable en `.env`, aunque sea con un valor de ejemplo.
 
 ## ▶️ Ejecución
 
@@ -153,7 +154,19 @@ Requiere API key (configurar `RAWG_API_KEY` en `.env`).
    RAWG_API_KEY=tu_api_key_de_rawg
    ```
 
-   MongoDB debe estar arrancado antes de ejecutar los scripts. Los datasets están incluidos en la carpeta `api/datasets`, por lo que la API puede cargarlos aunque las APIs externas no estén disponibles.
+   MongoDB debe estar arrancado antes de ejecutar los scripts. Por ejemplo, con Docker:
+
+   ```bash
+   docker run --name sw2-mongo -p 27017:27017 -d mongo:7
+   ```
+
+   Si el contenedor ya existe y está parado:
+
+   ```bash
+   docker start sw2-mongo
+   ```
+
+   Los datasets están incluidos en la carpeta `api/datasets`, por lo que la API puede cargarlos aunque las APIs externas no estén disponibles.
 
 3. Instalar dependencias:
   
@@ -173,7 +186,13 @@ Requiere API key (configurar `RAWG_API_KEY` en `.env`).
    npm start
    ```
 
-6. Abrir en el navegador:
+6. Comprobar la sintaxis de los archivos principales:
+
+   ```bash
+   npm test
+   ```
+
+7. Abrir en el navegador:
 
    ```bash
    http://localhost:3001
