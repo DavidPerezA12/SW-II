@@ -7,6 +7,17 @@ const { Builder, Parser } = require("xml2js");
 const sleep = (ms) =>
     new Promise(resolve => setTimeout(resolve, ms));
 
+const firstValue = (value) => {
+    return Array.isArray(value) ? value[0] : value;
+};
+
+const normalizeCountry = (country) => ({
+    gameId: Number(firstValue(country.gameId)),
+    gameName: firstValue(country.gameName),
+    developer: firstValue(country.developer),
+    country: firstValue(country.country)
+});
+
 const seedCountries = async () => {
 
     let totalCountries = [];
@@ -25,7 +36,7 @@ const seedCountries = async () => {
 
         const parsed = await parser.parseStringPromise(xmlData);
 
-        totalCountries = parsed.countries.country;
+        totalCountries = parsed.countries.country.map(normalizeCountry);
 
     } else {
 
