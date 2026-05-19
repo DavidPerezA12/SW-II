@@ -6,6 +6,7 @@
   - [📑 Índice](#-índice)
   - [🧑‍🤝‍🧑 Miembros del grupo](#-miembros-del-grupo)
   - [📖 Descripción](#-descripción)
+  - [📚 Documentación del proyecto](#-documentación-del-proyecto)
   - [✨ Funcionalidades](#-funcionalidades)
     - [Endpoints disponibles](#endpoints-disponibles)
   - [🛠️ Tecnologías utilizadas](#️-tecnologías-utilizadas)
@@ -29,10 +30,25 @@ El objetivo del proyecto es aprender cómo diseñar y desarrollar servicios web,
 - Almacenamiento de datos en una base de datos NoSQL
 - Creación de endpoints REST
 - Documentación del servicio mediante OpenAPI (YAML), disponible en `docs/openapi.yaml`.
+- Modelo de datos de MongoDB documentado en `docs/modelo-datos.md`.
+
+## 📚 Documentación del proyecto
+
+La documentación pedida en el enunciado está repartida en estos archivos:
+
+| Requisito | Archivo o carpeta |
+|---|---|
+| Documento de diseño de la interfaz REST | `docs/documentacion/Documentacion.pdf` |
+| Especificación OpenAPI del servicio | `docs/openapi.yaml` |
+| Modelo de datos de la base de datos | `docs/modelo-datos.md` |
+| Schema asociado al XML de países | `docs/countries.xsd` |
+| Datasets para inicializar MongoDB | `api/datasets/` |
+| Scripts de carga de datos | `api/seeds/` |
+| Instrucciones para ejecutar el proyecto | Este `README.md` |
 
 ## ✨ Funcionalidades
 
-La API REST permitirá gestionar los siguientes recursos:
+La API REST permite gestionar los siguientes recursos:
 
 - Obtener información de videojuegos desde la API externa **RAWG** (formato JSON).
 - Obtener información adicional de países asociados a desarrolladores desde **Wikidata** (formato XML).
@@ -42,6 +58,8 @@ La API REST permitirá gestionar los siguientes recursos:
 - Realizar operaciones **CRUD** sobre videojuegos y reseñas almacenados en MongoDB.
 - Consultar desarrolladores y países, incluyendo filtros, búsquedas y relaciones con videojuegos.
 - Permitir **paginación y filtrado** en las consultas de videojuegos, desarrolladores y reseñas.
+
+Las operaciones CRUD completas se implementan sobre `/games` y `/reviews`. Los recursos `/developers` y `/countries` se usan principalmente como recursos de consulta, ya que proceden de APIs externas y sirven para enriquecer la información de los videojuegos.
 
 ### Endpoints disponibles
 
@@ -175,6 +193,7 @@ SW-II/
 ├── docs/
 │   ├── openapi.yaml
 │   ├── countries.xsd
+│   ├── modelo-datos.md
 │   └── documentacion/
 └── README.md
   ```
