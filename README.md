@@ -173,6 +173,8 @@ SW-II/
 │   ├── views/
 │   └── package.json
 ├── docs/
-├── openapi.yaml
+│   ├── openapi.yaml
+│   ├── countries.xsd
+│   └── documentacion/
 └── README.md
   ```
