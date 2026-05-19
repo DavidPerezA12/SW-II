@@ -100,17 +100,18 @@ router.get('/', async (req, res) => {
 
 // Obtener el juego por nombre (Solo 1)
 router.get('/:id', async (req, res) => {
-    const database = mongodb.getDb();
-    const game_name = await database.collection('videogames').findOne({id: Number(req.params.id)});
-    console.log("Game found:", game_name);
     try {
-        if (game_name.length == 0) {
-            res.status(404).json({message:`El videojuego ${req.params.id} no se encuentra en la base de datos`});
+        const database = mongodb.getDb();
+        const game_name = await database.collection('videogames').findOne({id: Number(req.params.id)});
+        console.log("Game found:", game_name);
+
+        if (!game_name) {
+            return res.status(404).json({message:`El videojuego ${req.params.id} no se encuentra en la base de datos`});
         } else {
             res.json(game_name);
         }
     } catch (e) {
-        res.status(500).json({ message: 'Error fetching game by name', error: e });
+        res.status(500).json({ message: 'Error fetching game by name', error: e.message });
     }
 });
 
@@ -368,7 +369,7 @@ router.delete('/:id', async (req, res) => {
         const number_id = Number(req.params.id);
         const game_delete = await database.collection('videogames').findOne({ id: number_id });
         if (!game_delete) {
-            res.status(404).json({ message: 'Game not found' });
+            return res.status(404).json({ message: 'Game not found' });
         }
         console.log("Game to delete:", game_delete);
 
@@ -376,7 +377,7 @@ router.delete('/:id', async (req, res) => {
 
         res.status(200).json({ message: `Game ${game_delete.name} deleted successfully` });
     } catch (e) {
-        res.status(500).json({ message: 'Error deleting game', error: e });
+        res.status(500).json({ message: 'Error deleting game', error: e.message });
     }
 });
 

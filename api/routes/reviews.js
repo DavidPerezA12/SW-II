@@ -27,8 +27,8 @@ router.get("/", async (req, res) => {
         }
 
         // Paginación
-        const limitNumber = parseInt(limit);
-        const pageNumber = parseInt(page);
+        const limitNumber = limit ? parseInt(limit) : 1000;
+        const pageNumber = page ? parseInt(page) : 1;
         const skip = (pageNumber - 1) * limitNumber;
 
         // Query MongoDB
