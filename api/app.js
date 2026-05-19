@@ -33,6 +33,9 @@ app.use('/developers', developers);
 const reviews = require('./routes/reviews');
 app.use('/reviews', reviews);
 
+const countries = require('./routes/countries');
+app.use('/countries', countries);
+
 // Error 404 y reenvia al controlador de errores
 app.use(function(req, res, next) {
   next(createError(404));
