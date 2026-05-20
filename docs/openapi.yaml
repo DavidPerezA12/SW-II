@@ -1045,7 +1045,7 @@ components:
           xml:
             name: developer
           example: CD Projekt RED
-        country:
+        developerCountry:
           type: string
           xml:
             name: country

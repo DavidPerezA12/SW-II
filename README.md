@@ -12,6 +12,12 @@
   - [🛠️ Tecnologías utilizadas](#️-tecnologías-utilizadas)
     - [APIs externas](#apis-externas)
   - [▶️ Ejecución](#️-ejecución)
+    - [1. Preparar el proyecto](#1-preparar-el-proyecto)
+    - [2. Arrancar MongoDB](#2-arrancar-mongodb)
+    - [3. Inicializar la base de datos](#3-inicializar-la-base-de-datos)
+    - [4. Ejecutar la API](#4-ejecutar-la-api)
+    - [5. Ejecutar el cliente web](#5-ejecutar-el-cliente-web)
+    - [6. Ejecutar las pruebas](#6-ejecutar-las-pruebas)
   - [✅ Pruebas](#-pruebas)
   - [📂 Estructura del proyecto](#-estructura-del-proyecto)
 
@@ -163,7 +169,7 @@ Crear el archivo `.env` dentro de `api`. Se puede copiar el archivo de ejemplo:
    ```env
    MONGODB_URI=mongodb://127.0.0.1:27017/sw2-videogames
    PORT=3001
-   RAWG_API_KEY=tu_api_key_de_rawg
+   RAWG_API_KEY=ff5b600dc61b4f9aad86ff9dd70b09b9
    ```
 
 Instalar dependencias:
