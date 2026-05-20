@@ -10,7 +10,7 @@
     "seed:countries": "node ./seeds/countries",
     "seed:reviews": "node ./seeds/reviews",
     "seed": "npm run seed:games && npm run seed:developers && npm run seed:countries && npm run seed:reviews",
-    "test": "node --check app.js && node --check bin/www.js && node --check db/conn.js && node --check routes/games.js && node --check routes/developers.js && node --check routes/reviews.js && node --check routes/countries.js && node --check services/rawg.js && node --check services/wikidata.js"
+    "test": "node --check app.js && node --check bin/www.js && node --check db/conn.js && node --check routes/games.js && node --check routes/developers.js && node --check routes/reviews.js && node --check routes/countries.js && node --check services/rawg.js && node --check services/wikidata.js && node --test test/routes.test.js"
   },
   "keywords": [
     "api",
@@ -37,7 +37,8 @@
   },
   "devDependencies": {
     "eslint": "^9.2.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "supertest": "^7.2.2"
   },
   "engines": {
     "node": ">=18"

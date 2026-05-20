@@ -12,6 +12,7 @@
   - [🛠️ Tecnologías utilizadas](#️-tecnologías-utilizadas)
     - [APIs externas](#apis-externas)
   - [▶️ Ejecución](#️-ejecución)
+  - [✅ Pruebas](#-pruebas)
   - [📂 Estructura del proyecto](#-estructura-del-proyecto)
 
 ## 🧑‍🤝‍🧑 Miembros del grupo
@@ -193,7 +194,7 @@ La clave `RAWG_API_KEY` solo es necesaria si se quieren regenerar los datasets d
    npm start
    ```
 
-6. Comprobar la sintaxis de los archivos principales:
+6. Comprobar la sintaxis de los archivos principales y ejecutar las pruebas de rutas:
 
    ```bash
    npm test
@@ -205,12 +206,37 @@ La clave `RAWG_API_KEY` solo es necesaria si se quieren regenerar los datasets d
    http://localhost:3001
    ```
 
+## ✅ Pruebas
+
+El proyecto incluye pruebas automatizadas para validar el comportamiento real de las rutas principales de la API. Se ejecutan con:
+
+```bash
+npm test
+```
+
+Este comando realiza dos comprobaciones:
+
+- Verifica la sintaxis de los archivos principales con `node --check`.
+- Ejecuta pruebas HTTP sobre la aplicación Express con `node:test` y `supertest`.
+
+Las pruebas de rutas están en `api/test/routes.test.js` y cubren casos de `/games`, `/developers`, `/reviews` y `/countries`, incluyendo:
+
+- Filtros, ordenación y paginación.
+- Respuestas correctas para códigos `200`, `400` y `409`.
+- Creación y consulta de videojuegos.
+- Actualización parcial de reviews.
+- Respuestas XML del recurso `/countries`.
+- Comprobación de que no se expone el campo interno `_id` de MongoDB.
+
+Para que las pruebas sean reproducibles, se utiliza una base de datos en memoria definida en `api/test/helpers/inMemoryDb.js`. Por tanto, `npm test` no necesita que MongoDB esté arrancado ni modifica los datos reales de la base de datos.
+
 ## 📂 Estructura del proyecto
   
   ```bash
 SW-II/
 ├── api/
 │   ├── datasets/
+│   ├── test/
 │   ├── routes/
 │   ├── seeds/
 │   ├── services/
