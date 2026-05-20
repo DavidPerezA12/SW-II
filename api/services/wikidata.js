@@ -1,67 +1,125 @@
 const axios = require("axios");
-const xml2js = require("xml2js");
 
 const WIKIDATA_URL = "https://query.wikidata.org/sparql";
+const WIKIDATA_API_URL = "https://www.wikidata.org/w/api.php";
 
-const parser = new xml2js.Parser();
+const USER_AGENT = "VideogamesAPI/1.0 (student project)";
 
-const getCountries = async (gameName) => {
+const searchGameEntities = async (gameName) => {
+
+    const response = await axios.get(WIKIDATA_API_URL, {
+        params: {
+            action: "wbsearchentities",
+            search: gameName,
+            language: "en",
+            format: "json",
+            limit: 5
+        },
+        headers: {
+            "User-Agent": USER_AGENT
+        },
+        timeout: 30000
+    });
+
+    return (response.data.search || [])
+        .map(result => result.id)
+        .filter(id => /^Q\d+$/.test(id));
+};
+
+const mapCountryResults = (results) => {
+    return results
+        .filter(r => r.countryLabel?.value)
+        .map(r => {
+            return {
+                game: r.gameLabel?.value || null,
+                gameId: r.game?.value?.split("/").pop() || null,
+                developer: r.developerLabel?.value || null,
+                developerId: r.developer?.value?.split("/").pop() || null,
+                country: r.countryLabel.value
+            };
+        });
+};
+
+const runCountryQuery = async (query) => {
+
+    const response = await axios.get(WIKIDATA_URL, {
+        params: {
+            query,
+            format: "json"
+        },
+        headers: {
+            "User-Agent": USER_AGENT
+        },
+        timeout: 30000
+    });
+
+    const results = response.data.results?.bindings || [];
+
+    return mapCountryResults(results);
+};
+
+const getCountriesByExactLabel = async (gameName) => {
 
     const safeName = gameName.replace(/"/g, '\\"');
 
     const query = `
         SELECT ?game ?gameLabel ?developer ?developerLabel ?countryLabel WHERE {
 
-            ?game rdfs:label "${safeName}"@en;
-                  wdt:P31 wd:Q7889;
+            ?game rdfs:label ?label;
+                  wdt:P31/wdt:P279* wd:Q7889;
                   wdt:P178 ?developer.
+
+            FILTER(STR(?label) = "${safeName}" && LANG(?label) IN ("en", "mul"))
 
             ?developer wdt:P17 ?country.
 
             SERVICE wikibase:label {
-                bd:serviceParam wikibase:language "en".
+                bd:serviceParam wikibase:language "en,mul".
             }
         }
         LIMIT 5
     `;
 
-    const response = await axios.get(WIKIDATA_URL, {
-        params: {
-            query,
-            format: "xml"
-        },
-        headers: {
-            "User-Agent": "VideogamesAPI/1.0 (student project)"
-        },
-        timeout: 30000
-    });
+    return runCountryQuery(query);
+};
 
-    const result = await parser.parseStringPromise(response.data);
+const getCountriesByEntitySearch = async (gameName) => {
 
-    const results = result.sparql.results?.[0]?.result || [];
+    const entityIds = await searchGameEntities(gameName);
 
-    return results.map(r => {
+    if (entityIds.length === 0) {
+        return [];
+    }
 
-        const getValue = (name) => {
-            const found = r.binding.find(
-                b => b.$.name === name
-            );
+    const query = `
+        SELECT ?game ?gameLabel ?developer ?developerLabel ?countryLabel WHERE {
 
-            return (
-                found?.literal?.[0]?._ ||
-                found?.uri?.[0] ||
-                null
-            );
-        };
+            VALUES ?game { wd:${entityIds[0]} }
 
-        return {
-            game: getValue("gameLabel"),
-            gameId: getValue("game")?.split("/").pop() || null,
-            developer: getValue("developerLabel"),
-            developerId: getValue("developer")?.split("/").pop() || null,
-            country: getValue("countryLabel")
-        };
-    });
+            ?game wdt:P31/wdt:P279* wd:Q7889;
+                  wdt:P178 ?developer.
+
+            ?developer wdt:P17 ?country.
+
+            SERVICE wikibase:label {
+                bd:serviceParam wikibase:language "en,mul".
+            }
+        }
+        LIMIT 5
+    `;
+
+    return runCountryQuery(query);
+};
+
+const getCountries = async (gameName) => {
+
+    const exactResults = await getCountriesByExactLabel(gameName);
+
+    if (exactResults.length > 0) {
+        return exactResults;
+    }
+
+    return getCountriesByEntitySearch(gameName);
 };
 
 module.exports = {

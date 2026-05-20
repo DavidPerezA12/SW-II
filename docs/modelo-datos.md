@@ -10,8 +10,8 @@ No se han usado claves foráneas como en una base de datos relacional. En su lug
 |---|---|---|---:|
 | `videogames` | `/games` | RAWG API | 1000 |
 | `developers` | `/developers` | RAWG API | 600 |
-| `reviews` | `/reviews` | Datos propios generados | 3437 |
-| `countries` | `/countries` | Wikidata Query Service | 1602 |
+| `reviews` | `/reviews` | Datos propios generados | 3482 |
+| `countries` | `/countries` | Wikidata Query Service | 1612 |
 
 ## Relación entre recursos
 
@@ -226,7 +226,7 @@ Ejemplo en XML:
 </country>
 ```
 
-Esta información se devuelve en XML desde `GET /countries` y `GET /games/:id/country`. La estructura se valida con el schema `docs/countries.xsd`. El dataset actual contiene 1602 entradas `country`.
+Esta información se devuelve en XML desde `GET /countries` y `GET /games/:id/country`. La estructura se valida con el schema `docs/countries.xsd`. El dataset actual contiene 1612 entradas `country`.
 
 ## Carga de datos
 

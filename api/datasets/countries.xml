@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <countries>
   <country>
+    <gameId>3498</gameId>
+    <gameName>Grand Theft Auto V</gameName>
+    <developer>Rockstar North</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>3498</gameId>
+    <gameName>Grand Theft Auto V</gameName>
+    <developer>Rockstar San Diego</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3498</gameId>
+    <gameName>Grand Theft Auto V</gameName>
+    <developer>Rockstar New England</developer>
+    <country>United States</country>
+  </country>
+  <country>
+    <gameId>3498</gameId>
+    <gameName>Grand Theft Auto V</gameName>
+    <developer>Rockstar Leeds</developer>
+    <country>United Kingdom</country>
+  </country>
+  <country>
+    <gameId>3498</gameId>
+    <gameName>Grand Theft Auto V</gameName>
+    <developer>Rockstar Toronto</developer>
+    <country>Canada</country>
+  </country>
+  <country>
     <gameId>3328</gameId>
     <gameName>The Witcher 3: Wild Hunt</gameName>
     <developer>CD Projekt RED</developer>

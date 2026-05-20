@@ -21,9 +21,10 @@ const normalizeCountry = (country) => ({
 const seedCountries = async () => {
 
     let totalCountries = [];
+    const regenerateCountries = process.env.REGENERATE_COUNTRIES === "true";
 
     // Si ya existe el XML
-    if (fs.existsSync("./datasets/countries.xml")) {
+    if (fs.existsSync("./datasets/countries.xml") && !regenerateCountries) {
 
         console.log("Usando countries.xml existente");
 
@@ -59,7 +60,8 @@ const seedCountries = async () => {
 
         console.log(`Total games: ${games.length}`);
 
-        const batchSize = 2;
+        const batchSize = Number(process.env.COUNTRIES_BATCH_SIZE) || 5;
+        const delayMs = Number(process.env.COUNTRIES_DELAY_MS) || 1000;
 
         for (let i = 0; i < games.length; i += batchSize) {
 
@@ -106,7 +108,7 @@ const seedCountries = async () => {
                 );
             }
 
-            await sleep(2000);
+            await sleep(delayMs);
         }
 
         // Convertir a XML
