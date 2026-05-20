@@ -460,7 +460,7 @@ paths:
       tags:
         - Reviews
       summary: Obtener reviews
-      description: Lista las reviews almacenadas en MongoDB. Permite filtrar por ID, valoración y paginar resultados.
+      description: Consulta las reviews guardadas en MongoDB, con filtros opcionales por ID y valoración.
       parameters:
         - name: id
           in: query
@@ -508,7 +508,7 @@ paths:
       tags:
         - Reviews
       summary: Crear review
-      description: Inserta una review asociada a un videojuego.
+      description: Registra una nueva review asociada a un videojuego existente.
       requestBody:
         required: true
         content:
@@ -533,14 +533,14 @@ paths:
         "500":
           $ref: "#/components/responses/InternalError"
 
-  /reviews/{id}:
+  /reviews/game/{gameId}:
     get:
       tags:
         - Reviews
       summary: Obtener reviews por videojuego
-      description: En esta operación el parámetro de la ruta representa el ID del videojuego.
+      description: Recupera las reviews vinculadas al videojuego indicado.
       parameters:
-        - name: id
+        - name: gameId
           in: path
           required: true
           description: ID numérico del videojuego.
@@ -562,11 +562,12 @@ paths:
         "500":
           $ref: "#/components/responses/InternalError"
 
+  /reviews/{id}:
     patch:
       tags:
         - Reviews
       summary: Actualizar review
-      description: En esta operación el parámetro de la ruta representa el ID de la review.
+      description: Modifica parcialmente una review usando su ID propio.
       parameters:
         - name: id
           in: path
@@ -599,7 +600,7 @@ paths:
       tags:
         - Reviews
       summary: Eliminar review
-      description: Elimina una review por su ID.
+      description: Borra la review identificada por su ID.
       parameters:
         - name: id
           in: path

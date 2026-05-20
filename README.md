@@ -106,10 +106,10 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
       - `?id=4` → Obtener una review por su ID.
       - `?rating=5` → Filtrar por valoración.
       - `?page=2&limit=20` → Paginación con número de página y límite de resultados por página.
-  - **GET /reviews/:gameId** → Obtener reviews asociadas a un videojuego. En esta ruta el parámetro representa el ID del videojuego. [http://localhost:3001/reviews/3328]
+  - **GET /reviews/game/:gameId** → Obtener reviews asociadas a un videojuego. [http://localhost:3001/reviews/game/3328]
   - **POST /reviews** → Agregar una nueva review.
-  - **PATCH /reviews/:id** → Actualizar parcialmente una review. En esta ruta el parámetro representa el ID de la review.
-  - **DELETE /reviews/:id** → Eliminar una review por su ID. En esta ruta el parámetro representa el ID de la review.
+  - **PATCH /reviews/:id** → Actualizar parcialmente una review por su ID.
+  - **DELETE /reviews/:id** → Eliminar una review por su ID.
 
 - **/countries**
   - **GET /countries** → Obtener información de países en XML. [http://localhost:3001/countries]

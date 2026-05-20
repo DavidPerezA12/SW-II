@@ -87,9 +87,9 @@ router.get("/", async (req, res) => {
 });
 
 
-// GET /reviews/:gameId
-// Obtener una review específica
-router.get("/:gameId", async (req, res) => {
+// GET /reviews/game/:gameId
+// Obtener las reviews asociadas a un videojuego
+router.get("/game/:gameId", async (req, res) => {
 
     const database = mongodb.getDb();
 
