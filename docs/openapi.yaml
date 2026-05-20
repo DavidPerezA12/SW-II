@@ -1,11 +1,23 @@
 openapi: 3.0.3
 info:
   title: API REST de videojuegos
-  description: API REST para consultar y gestionar videojuegos, desarrolladores, reviews y países relacionados con sus desarrolladores.
+  description: |
+    API REST para consultar y gestionar videojuegos, desarrolladores, reviews y países relacionados con sus desarrolladores.
+
+    La API utiliza MongoDB como almacenamiento principal. Los recursos `/games`, `/developers` y `/reviews`
+    devuelven JSON. Los países se devuelven en XML desde `/countries` y `/games/{id}/country`.
+
+    Los datos iniciales se cargan desde datasets incluidos en el repositorio. RAWG aporta videojuegos y
+    desarrolladores en JSON; Wikidata aporta países en XML. La API puede funcionar aunque esas APIs externas
+    no estén disponibles en el momento de la ejecución.
   version: 1.0.0
+  license:
+    name: ISC
+    url: https://opensource.org/license/isc-license-txt
 servers:
-  - url: http://localhost:3001
-    description: Servidor local de desarrollo
+  - url: /
+    description: Servidor actual. En local se usa normalmente http://localhost:3001.
+security: []
 tags:
   - name: Home
     description: Página inicial de la API
@@ -22,6 +34,7 @@ paths:
     get:
       tags:
         - Home
+      operationId: getHome
       summary: Página de bienvenida
       description: Devuelve la página HTML con enlaces a los endpoints principales.
       responses:
@@ -31,11 +44,14 @@ paths:
             text/html:
               schema:
                 type: string
+        "404":
+          $ref: "#/components/responses/NotFound"
 
   /games:
     get:
       tags:
         - Games
+      operationId: listGames
       summary: Obtener videojuegos
       description: Lista los videojuegos almacenados en MongoDB. Permite buscar, filtrar, ordenar y paginar resultados.
       parameters:
@@ -119,6 +135,7 @@ paths:
     post:
       tags:
         - Games
+      operationId: createGame
       summary: Crear videojuego
       description: Inserta un videojuego en la colección principal.
       requestBody:
@@ -153,6 +170,7 @@ paths:
     get:
       tags:
         - Games
+      operationId: getGameById
       summary: Obtener videojuego por ID
       parameters:
         - $ref: "#/components/parameters/GameId"
@@ -172,6 +190,7 @@ paths:
     put:
       tags:
         - Games
+      operationId: updateGame
       summary: Actualizar videojuego
       description: Actualiza los campos admitidos de un videojuego existente.
       parameters:
@@ -204,8 +223,9 @@ paths:
     delete:
       tags:
         - Games
+      operationId: deleteGame
       summary: Eliminar videojuego
-      description: Elimina un videojuego de la colección principal.
+      description: Elimina un videojuego de la colección principal si no tiene reviews, países o desarrolladores asociados.
       parameters:
         - $ref: "#/components/parameters/GameId"
       responses:
@@ -233,8 +253,9 @@ paths:
       tags:
         - Games
         - Countries
+      operationId: getGameCountries
       summary: Obtener países relacionados con un videojuego
-      description: Devuelve en XML los países asociados a los desarrolladores de un videojuego.
+      description: Devuelve en XML los países asociados a los desarrolladores de un videojuego. El XML tiene schema asociado en `docs/countries.xsd`.
       parameters:
         - $ref: "#/components/parameters/GameId"
       responses:
@@ -256,6 +277,7 @@ paths:
       tags:
         - Games
         - Reviews
+      operationId: getGameReviews
       summary: Obtener reviews de un videojuego
       description: Devuelve las reviews asociadas al videojuego indicado.
       parameters:
@@ -278,6 +300,7 @@ paths:
     get:
       tags:
         - Games
+      operationId: getEnrichedGame
       summary: Obtener videojuego enriquecido
       description: Devuelve el videojuego junto con sus reviews y los países asociados a sus desarrolladores.
       parameters:
@@ -300,6 +323,7 @@ paths:
     get:
       tags:
         - Developers
+      operationId: listDevelopers
       summary: Obtener desarrolladores
       description: Lista los desarrolladores almacenados en MongoDB. Permite búsqueda, filtro por videojuego, ordenación y paginación.
       parameters:
@@ -352,6 +376,7 @@ paths:
     post:
       tags:
         - Developers
+      operationId: createDeveloper
       summary: Crear desarrollador
       description: Inserta un desarrollador en la colección de desarrolladores.
       requestBody:
@@ -369,6 +394,12 @@ paths:
                 $ref: "#/components/schemas/CreatedDeveloperResponse"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "404":
+          description: Algún videojuego asociado no existe en la base de datos.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "409":
           description: Ya existe un desarrollador con ese ID.
           content:
@@ -382,6 +413,7 @@ paths:
     get:
       tags:
         - Developers
+      operationId: getDeveloperById
       summary: Obtener desarrollador por ID
       description: Busca un desarrollador por el ID numérico importado desde RAWG.
       parameters:
@@ -409,6 +441,7 @@ paths:
     put:
       tags:
         - Developers
+      operationId: updateDeveloper
       summary: Actualizar desarrollador
       description: Actualiza los campos admitidos de un desarrollador existente.
       parameters:
@@ -442,6 +475,7 @@ paths:
     delete:
       tags:
         - Developers
+      operationId: deleteDeveloper
       summary: Eliminar desarrollador
       description: Elimina un desarrollador de la colección.
       parameters:
@@ -471,6 +505,7 @@ paths:
     get:
       tags:
         - Reviews
+      operationId: listReviews
       summary: Obtener reviews
       description: Consulta las reviews guardadas en MongoDB, con filtros opcionales por ID y valoración.
       parameters:
@@ -519,6 +554,7 @@ paths:
     post:
       tags:
         - Reviews
+      operationId: createReview
       summary: Crear review
       description: Registra una nueva review asociada a un videojuego existente.
       requestBody:
@@ -536,6 +572,12 @@ paths:
                 $ref: "#/components/schemas/CreatedReviewResponse"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "404":
+          description: El videojuego asociado a la review no existe.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "409":
           description: Ya existe una review con ese ID.
           content:
@@ -549,6 +591,7 @@ paths:
     get:
       tags:
         - Reviews
+      operationId: getReviewsByGame
       summary: Obtener reviews por videojuego
       description: Recupera las reviews vinculadas al videojuego indicado.
       parameters:
@@ -578,6 +621,7 @@ paths:
     patch:
       tags:
         - Reviews
+      operationId: updateReview
       summary: Actualizar review
       description: Modifica parcialmente una review usando su ID propio.
       parameters:
@@ -611,6 +655,7 @@ paths:
     delete:
       tags:
         - Reviews
+      operationId: deleteReview
       summary: Eliminar review
       description: Borra la review identificada por su ID.
       parameters:
@@ -640,8 +685,9 @@ paths:
     get:
       tags:
         - Countries
+      operationId: listCountries
       summary: Obtener países
-      description: Devuelve en XML la relación entre videojuegos, desarrolladores y países.
+      description: Devuelve en XML la relación entre videojuegos, desarrolladores y países. El XML tiene schema asociado en `docs/countries.xsd`.
       parameters:
         - name: country
           in: query
@@ -708,9 +754,17 @@ components:
   schemas:
     Game:
       type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
+        - platforms
+        - genres
+        - stores
       properties:
         id:
           type: integer
+          minimum: 1
           example: 3328
         slug:
           type: string
@@ -729,14 +783,19 @@ components:
         rating:
           type: number
           format: float
+          minimum: 0
+          maximum: 5
           nullable: true
           example: 4.64
         metacritic:
           type: integer
+          minimum: 0
+          maximum: 100
           nullable: true
           example: 92
         playtime:
           type: integer
+          minimum: 0
           nullable: true
           example: 43
         platforms:
@@ -764,6 +823,13 @@ components:
           type: string
           nullable: true
           example: Mature
+        developers:
+          type: array
+          nullable: true
+          items:
+            type: string
+          example:
+            - CD Projekt RED
 
     GameInput:
       type: object
@@ -777,6 +843,7 @@ components:
       properties:
         id:
           type: integer
+          minimum: 1
           example: 999999
         slug:
           type: string
@@ -787,6 +854,64 @@ components:
         released:
           type: string
           example: "2026-01-01"
+        background_image:
+          type: string
+          nullable: true
+        rating:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 5
+          example: 4.5
+        metacritic:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 100
+          example: 85
+        playtime:
+          type: integer
+          minimum: 0
+          example: 12
+        platforms:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+          example:
+            - PC
+        genres:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+          example:
+            - RPG
+        stores:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+          example:
+            - Steam
+        esrb_rating:
+          type: string
+          nullable: true
+
+    GameUpdate:
+      type: object
+      additionalProperties: false
+      description: Campos admitidos en la actualización de un videojuego. No se actualiza el ID.
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        released:
+          type: string
         background_image:
           type: string
           nullable: true
@@ -808,72 +933,46 @@ components:
           minItems: 1
           items:
             type: string
+            minLength: 1
         genres:
           type: array
           minItems: 1
           items:
             type: string
+            minLength: 1
         stores:
           type: array
           minItems: 1
           items:
             type: string
-        esrb_rating:
-          type: string
-          nullable: true
-
-    GameUpdate:
-      type: object
-      description: Campos admitidos en la actualización de un videojuego. No se actualiza el ID.
-      properties:
-        slug:
-          type: string
-        name:
-          type: string
-        released:
-          type: string
-        background_image:
-          type: string
-          nullable: true
-        rating:
-          type: number
-          format: float
-        metacritic:
-          type: integer
-          nullable: true
-        playtime:
-          type: integer
-        platforms:
-          type: array
-          items:
-            type: string
-        genres:
-          type: array
-          items:
-            type: string
-        stores:
-          type: array
-          items:
-            type: string
+            minLength: 1
         esrb_rating:
           type: string
           nullable: true
         developers:
           type: array
+          minItems: 1
           items:
             type: string
+            minLength: 1
 
     DeveloperGame:
       type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
       properties:
         id:
           type: integer
+          minimum: 1
           example: 4200
         slug:
           type: string
           example: portal-2
         name:
           type: string
+          minLength: 1
           example: Portal 2
         added:
           type: integer
@@ -881,9 +980,16 @@ components:
 
     Developer:
       type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
+        - slug
+        - games
       properties:
         id:
           type: integer
+          minimum: 1
           example: 1612
         name:
           type: string
@@ -893,6 +999,7 @@ components:
           example: valve-software
         games_count:
           type: integer
+          minimum: 0
           example: 44
         image_background:
           type: string
@@ -904,6 +1011,7 @@ components:
 
     DeveloperInput:
       type: object
+      additionalProperties: false
       required:
         - id
         - name
@@ -912,15 +1020,19 @@ components:
       properties:
         id:
           type: integer
+          minimum: 1
           example: 999999
         name:
           type: string
+          minLength: 1
           example: Mi Estudio
         slug:
           type: string
+          minLength: 1
           example: mi-estudio
         games_count:
           type: integer
+          minimum: 0
           example: 1
         image_background:
           type: string
@@ -934,14 +1046,18 @@ components:
 
     DeveloperUpdate:
       type: object
+      additionalProperties: false
       description: Campos del desarrollador que se quieran modificar. El ID no se puede actualizar.
       properties:
         name:
           type: string
+          minLength: 1
         slug:
           type: string
+          minLength: 1
         games_count:
           type: integer
+          minimum: 0
         image_background:
           type: string
           nullable: true
@@ -953,12 +1069,23 @@ components:
 
     Review:
       type: object
+      additionalProperties: false
+      required:
+        - id
+        - gameId
+        - gameName
+        - user
+        - rating
+        - comment
+        - createdAt
       properties:
         id:
           type: integer
+          minimum: 1
           example: 1
         gameId:
           type: integer
+          minimum: 1
           example: 3328
         gameName:
           type: string
@@ -973,6 +1100,7 @@ components:
           example: 5
         comment:
           type: string
+          minLength: 1
           example: Muy buen juego, lo recomiendo.
         createdAt:
           type: string
@@ -980,6 +1108,7 @@ components:
 
     ReviewInput:
       type: object
+      additionalProperties: false
       required:
         - id
         - gameId
@@ -989,9 +1118,11 @@ components:
       properties:
         id:
           type: integer
+          minimum: 1
           example: 4000
         gameId:
           type: integer
+          minimum: 1
           example: 3328
         gameName:
           type: string
@@ -1006,14 +1137,17 @@ components:
           example: 5
         comment:
           type: string
+          minLength: 1
           example: Muy buen juego, lo recomiendo.
 
     ReviewUpdate:
       type: object
+      additionalProperties: false
       description: Campos admitidos en la actualización parcial de una review. No se actualizan id ni createdAt.
       properties:
         gameId:
           type: integer
+          minimum: 1
         gameName:
           type: string
         user:
@@ -1024,11 +1158,18 @@ components:
           maximum: 5
         comment:
           type: string
+          minLength: 1
 
     Country:
       type: object
+      additionalProperties: false
       xml:
         name: country
+      required:
+        - gameId
+        - gameName
+        - developer
+        - country
       properties:
         gameId:
           type: integer
@@ -1053,8 +1194,11 @@ components:
 
     CountriesXml:
       type: object
+      additionalProperties: false
       xml:
         name: countries
+      required:
+        - country
       properties:
         country:
           type: array
@@ -1066,6 +1210,11 @@ components:
 
     GamesListResponse:
       type: object
+      additionalProperties: false
+      required:
+        - total
+        - videogames_length
+        - videogames
       properties:
         total:
           type: integer
@@ -1080,6 +1229,11 @@ components:
 
     DevelopersListResponse:
       type: object
+      additionalProperties: false
+      required:
+        - total
+        - developers_length
+        - developers
       properties:
         total:
           type: integer
@@ -1094,6 +1248,11 @@ components:
 
     ReviewsListResponse:
       type: object
+      additionalProperties: false
+      required:
+        - total
+        - reviews_length
+        - reviews
       properties:
         total:
           type: integer
@@ -1108,6 +1267,10 @@ components:
 
     ReviewsByGameResponse:
       type: object
+      additionalProperties: false
+      required:
+        - reviews_length
+        - reviews
       properties:
         reviews_length:
           type: integer
@@ -1119,6 +1282,12 @@ components:
 
     GameReviewsResponse:
       type: object
+      additionalProperties: false
+      required:
+        - gameId
+        - gameName
+        - reviews_length
+        - reviews
       properties:
         gameId:
           type: integer
@@ -1136,11 +1305,19 @@ components:
 
     EnrichedGameResponse:
       type: object
+      additionalProperties: false
+      required:
+        - game
+        - wikidata
+        - reviews
       properties:
         game:
           $ref: "#/components/schemas/Game"
         wikidata:
           type: object
+          additionalProperties: false
+          required:
+            - countries
           properties:
             countries:
               type: array
@@ -1153,6 +1330,11 @@ components:
 
     CreatedResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
+        - id
+        - game
       properties:
         message:
           type: string
@@ -1165,6 +1347,11 @@ components:
 
     CreatedReviewResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
+        - id
+        - review
       properties:
         message:
           type: string
@@ -1177,6 +1364,11 @@ components:
 
     CreatedDeveloperResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
+        - id
+        - developer
       properties:
         message:
           type: string
@@ -1189,6 +1381,10 @@ components:
 
     UpdatedDeveloperResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
+        - developer
       properties:
         message:
           type: string
@@ -1198,6 +1394,10 @@ components:
 
     UpdatedReviewResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
+        - review
       properties:
         message:
           type: string
@@ -1207,6 +1407,10 @@ components:
 
     UpdateGameResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
+        - id
       properties:
         message:
           type: string
@@ -1217,12 +1421,18 @@ components:
 
     MessageResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
       properties:
         message:
           type: string
 
     ErrorResponse:
       type: object
+      additionalProperties: false
+      required:
+        - message
       properties:
         message:
           type: string
@@ -1242,3 +1452,20 @@ components:
           description: Campos enviados que la ruta no admite.
           items:
             type: string
+        dependencies:
+          type: object
+          description: Conteo de recursos relacionados que impiden actualizar o eliminar un videojuego.
+          additionalProperties: false
+          properties:
+            reviews:
+              type: integer
+              minimum: 0
+              example: 3
+            countries:
+              type: integer
+              minimum: 0
+              example: 1
+            developers:
+              type: integer
+              minimum: 0
+              example: 2

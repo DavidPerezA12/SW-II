@@ -2,3 +2,5 @@ api/node_modules
 .env
 /package-lock.json
 .DS_Store
+docs/*.docx
+docs/~$*.docx
