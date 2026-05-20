@@ -1,8 +1,8 @@
 # Modelo de datos de la base de datos
 
-La base de datos del proyecto está montada en MongoDB y se divide en cuatro colecciones: videojuegos, desarrolladores, reseñas y países. El recurso principal es `videogames`, porque las reseñas, los países y parte de la información de desarrolladores se entienden a partir de un videojuego concreto.
+La base de datos del proyecto está montada en MongoDB y se divide en cuatro colecciones: videojuegos, desarrolladores, reviews y países. El recurso principal es `videogames`, porque las reviews, los países y parte de la información de desarrolladores se entienden a partir de un videojuego concreto.
 
-No se han usado claves foráneas como en una base de datos relacional. En su lugar, se repiten algunos identificadores para poder relacionar los documentos desde las rutas de la API. El más importante es `gameId`, que conecta reseñas y países con `videogames.id`.
+No se han usado claves foráneas como en una base de datos relacional. En su lugar, se repiten algunos identificadores para poder relacionar los documentos desde las rutas de la API. El más importante es `gameId`, que conecta reviews y países con `videogames.id`.
 
 ## Colecciones principales
 
@@ -11,14 +11,14 @@ No se han usado claves foráneas como en una base de datos relacional. En su lug
 | `videogames` | `/games` | RAWG API | 1000 |
 | `developers` | `/developers` | RAWG API | 600 |
 | `reviews` | `/reviews` | Datos propios generados | 3437 |
-| `countries` | `/countries` | Wikidata Query Service | 801 |
+| `countries` | `/countries` | Wikidata Query Service | 1602 |
 
 ## Relación entre recursos
 
 El modelo queda organizado alrededor de los videojuegos:
 
 - `videogames.id` identifica cada videojuego.
-- `reviews.gameId` guarda el ID del videojuego reseñado.
+- `reviews.gameId` guarda el ID del videojuego al que pertenece la review.
 - `countries.gameId` guarda el ID del videojuego asociado a un desarrollador y país.
 - `developers.games[].id` contiene los juegos relacionados con cada desarrollador.
 
@@ -168,20 +168,20 @@ Rutas principales:
 
 ## `reviews`
 
-Las reseñas son datos propios del proyecto. Se añadieron para tener un recurso que no dependa directamente de una API externa y sobre el que tenga sentido hacer altas, modificaciones y borrados.
+Las reviews son datos propios del proyecto. Se añadieron para tener un recurso que no dependa directamente de una API externa y sobre el que tenga sentido hacer altas, modificaciones y borrados.
 
-Cada reseña se asocia a un videojuego mediante `gameId`. También se guarda `gameName`, aunque sea un dato repetido, porque hace las respuestas más fáciles de leer y permite entender el dataset sin consultar siempre `videogames`.
+Cada review se asocia a un videojuego mediante `gameId`. También se guarda `gameName`, aunque sea un dato repetido, porque hace las respuestas más fáciles de leer y permite entender el dataset sin consultar siempre `videogames`.
 
 Campos principales:
 
 | Campo | Tipo | Descripción |
 |---|---|---|
-| `id` | Number | Identificador de la reseña. |
-| `gameId` | Number | ID del videojuego reseñado. |
+| `id` | Number | Identificador de la review. |
+| `gameId` | Number | ID del videojuego al que pertenece la review. |
 | `gameName` | String | Nombre del videojuego. |
-| `user` | String | Usuario que escribe la reseña. |
+| `user` | String | Usuario que escribe la review. |
 | `rating` | Number | Valoración entre 1 y 5. |
-| `comment` | String | Comentario de la reseña. |
+| `comment` | String | Comentario de la review. |
 | `createdAt` | String/Date | Fecha de creación. |
 
 Ejemplo:
@@ -198,7 +198,7 @@ Ejemplo:
 }
 ```
 
-Esta colección se usa en `GET /reviews`, `POST /reviews`, `PATCH /reviews/:id` y `DELETE /reviews/:id`. También se puede acceder a las reseñas de un juego desde `GET /games/:id/reviews`.
+Esta colección se usa en `GET /reviews`, `POST /reviews`, `PATCH /reviews/:id` y `DELETE /reviews/:id`. También se puede acceder a las reviews de un juego desde `GET /games/:id/reviews`.
 
 ## `countries`
 
@@ -226,7 +226,7 @@ Ejemplo en XML:
 </country>
 ```
 
-Esta información se devuelve en XML desde `GET /countries` y `GET /games/:id/country`. La estructura se valida con el schema `docs/countries.xsd`.
+Esta información se devuelve en XML desde `GET /countries` y `GET /games/:id/country`. La estructura se valida con el schema `docs/countries.xsd`. El dataset actual contiene 1602 entradas `country`.
 
 ## Carga de datos
 
@@ -237,7 +237,7 @@ Los datos se cargan con scripts npm, por lo que no hace falta insertar documento
 | `npm run seed:games` | Videojuegos desde `api/datasets/videogames.json` |
 | `npm run seed:developers` | Desarrolladores desde `api/datasets/developers.json` |
 | `npm run seed:countries` | Países desde `api/datasets/countries.xml` |
-| `npm run seed:reviews` | Reseñas generadas en `api/datasets/reviews.json` |
+| `npm run seed:reviews` | Reviews generadas en `api/datasets/reviews.json` |
 | `npm run seed` | Ejecuta toda la carga en orden |
 
 Los datasets están incluidos en el repositorio para que la API pueda funcionar aunque RAWG o Wikidata no estén disponibles en ese momento.

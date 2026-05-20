@@ -6,13 +6,13 @@ const seedDevelopers = async () => {
 
     let totalDevelopers = [];
 
-    // Si el dataset ya existe usa los games del JSON para cargarlos después en MongoDB
+    // Si el dataset ya existe usa los desarrolladores del JSON para cargarlos después en MongoDB
     if (fs.existsSync("./datasets/developers.json")) {
 
         const data = fs.readFileSync("./datasets/developers.json");
         totalDevelopers = JSON.parse(data);
     
-    // Si el dataset no existe: pasa los games de RAWG al JSON para cargarlo después en MongoDB
+    // Si el dataset no existe: pasa los desarrolladores de RAWG al JSON para cargarlo después en MongoDB
     } else {
 
         const developers = await rawg.getDevelopers();

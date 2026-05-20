@@ -85,7 +85,7 @@ router.get('/', async (req, res) => {
 
     } catch (e) {
         return res.status(500).json({
-            message: "Error fetching developers",
+            message: "Error al obtener los desarrolladores",
             error: e.message
         });
     }
@@ -108,7 +108,7 @@ router.get('/:id', async (req, res) => {
 
         if (!developer) {
             return res.status(404).json({
-                message: `Developer ${developerId} not found`
+                message: `Desarrollador ${developerId} no encontrado`
             });
         }
 
@@ -116,7 +116,7 @@ router.get('/:id', async (req, res) => {
 
     } catch (e) {
         return res.status(500).json({
-            message: "Error fetching developer",
+            message: "Error al obtener el desarrollador",
             error: e.message
         });
     }
@@ -254,7 +254,7 @@ router.put('/:id', async (req, res) => {
 
         if (!existingDeveloper) {
             return res.status(404).json({
-                message: `Developer ${developerId} not found`
+                message: `Desarrollador ${developerId} no encontrado`
             });
         }
 
@@ -276,7 +276,7 @@ router.put('/:id', async (req, res) => {
 
     } catch (e) {
         return res.status(500).json({
-            message: "Error updating developer",
+            message: "Error al actualizar el desarrollador",
             error: e.message
         });
     }
@@ -297,7 +297,7 @@ router.delete('/:id', async (req, res) => {
 
         if (!existingDeveloper) {
             return res.status(404).json({
-                message: `Developer ${developerId} not found`
+                message: `Desarrollador ${developerId} no encontrado`
             });
         }
 
@@ -311,7 +311,7 @@ router.delete('/:id', async (req, res) => {
 
     } catch (e) {
         return res.status(500).json({
-            message: "Error deleting developer",
+            message: "Error al eliminar el desarrollador",
             error: e.message
         });
     }

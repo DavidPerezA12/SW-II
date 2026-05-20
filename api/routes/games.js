@@ -290,7 +290,7 @@ router.get('/:id/reviews', async (req, res) => {
     } catch (e) {
 
         return res.status(500).json({
-            message: 'Error al obtener las reseñas del videojuego',
+            message: 'Error al obtener las reviews del videojuego',
             error: e.message
         });
     }

@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  title: Videogames API
-  description: API REST para consultar y gestionar videojuegos, desarrolladores, reseñas y países relacionados.
+  title: API REST de videojuegos
+  description: API REST para consultar y gestionar videojuegos, desarrolladores, reviews y países relacionados con sus desarrolladores.
   version: 1.0.0
 servers:
   - url: http://localhost:3001
@@ -14,7 +14,7 @@ tags:
   - name: Developers
     description: Operaciones sobre desarrolladores
   - name: Reviews
-    description: Operaciones sobre reseñas
+    description: Operaciones sobre reviews
   - name: Countries
     description: Información en XML sobre países y desarrolladores
 paths:
@@ -37,13 +37,14 @@ paths:
       tags:
         - Games
       summary: Obtener videojuegos
-      description: Lista videojuegos almacenados en MongoDB. Permite filtros, ordenación y paginación.
+      description: Lista los videojuegos almacenados en MongoDB. Permite buscar, filtrar, ordenar y paginar resultados.
       parameters:
         - name: id
           in: query
           description: ID numérico del videojuego.
           schema:
             type: integer
+            minimum: 1
           example: 3328
         - name: search
           in: query
@@ -75,12 +76,15 @@ paths:
           schema:
             type: number
             format: float
+            minimum: 0
+            maximum: 5
           example: 4.5
         - name: page
           in: query
           description: Número de página.
           schema:
             type: integer
+            minimum: 1
             default: 1
           example: 2
         - name: limit
@@ -88,6 +92,7 @@ paths:
           description: Número máximo de resultados.
           schema:
             type: integer
+            minimum: 1
             default: 1000
           example: 20
         - name: sort
@@ -107,13 +112,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/GamesListResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "500":
           $ref: "#/components/responses/InternalError"
     post:
       tags:
         - Games
       summary: Crear videojuego
-      description: Inserta un nuevo videojuego en la colección de videojuegos.
+      description: Inserta un videojuego en la colección principal.
       requestBody:
         required: true
         content:
@@ -156,6 +163,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Game"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -164,6 +173,7 @@ paths:
       tags:
         - Games
       summary: Actualizar videojuego
+      description: Actualiza los campos admitidos de un videojuego existente.
       parameters:
         - $ref: "#/components/parameters/GameId"
       requestBody:
@@ -179,6 +189,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/UpdateGameResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -187,6 +199,7 @@ paths:
       tags:
         - Games
       summary: Eliminar videojuego
+      description: Elimina un videojuego de la colección principal.
       parameters:
         - $ref: "#/components/parameters/GameId"
       responses:
@@ -196,6 +209,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/MessageResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -207,7 +222,7 @@ paths:
         - Games
         - Countries
       summary: Obtener países relacionados con un videojuego
-      description: Devuelve información de países en formato XML.
+      description: Devuelve en XML los países asociados a los desarrolladores de un videojuego.
       parameters:
         - $ref: "#/components/parameters/GameId"
       responses:
@@ -217,6 +232,8 @@ paths:
             application/xml:
               schema:
                 $ref: "#/components/schemas/CountriesXml"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -227,16 +244,19 @@ paths:
       tags:
         - Games
         - Reviews
-      summary: Obtener reseñas de un videojuego
+      summary: Obtener reviews de un videojuego
+      description: Devuelve las reviews asociadas al videojuego indicado.
       parameters:
         - $ref: "#/components/parameters/GameId"
       responses:
         "200":
-          description: Reseñas asociadas al videojuego.
+          description: Reviews asociadas al videojuego.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/GameReviewsResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -247,7 +267,7 @@ paths:
       tags:
         - Games
       summary: Obtener videojuego enriquecido
-      description: Devuelve el videojuego junto con información de países y reseñas.
+      description: Devuelve el videojuego junto con sus reviews y los países asociados a sus desarrolladores.
       parameters:
         - $ref: "#/components/parameters/GameId"
       responses:
@@ -257,6 +277,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/EnrichedGameResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -267,7 +289,7 @@ paths:
       tags:
         - Developers
       summary: Obtener desarrolladores
-      description: Lista desarrolladores almacenados en MongoDB. Permite búsqueda, filtro por videojuego, ordenación y paginación.
+      description: Lista los desarrolladores almacenados en MongoDB. Permite búsqueda, filtro por videojuego, ordenación y paginación.
       parameters:
         - name: search
           in: query
@@ -280,12 +302,14 @@ paths:
           description: ID de un videojuego asociado al desarrollador.
           schema:
             type: integer
+            minimum: 1
           example: 3328
         - name: page
           in: query
           description: Número de página.
           schema:
             type: integer
+            minimum: 1
             default: 1
           example: 2
         - name: limit
@@ -293,6 +317,7 @@ paths:
           description: Número máximo de resultados.
           schema:
             type: integer
+            minimum: 1
             default: 1000
           example: 20
         - name: sort
@@ -316,7 +341,7 @@ paths:
       tags:
         - Developers
       summary: Crear desarrollador
-      description: Inserta un nuevo desarrollador en la colección de desarrolladores.
+      description: Inserta un desarrollador en la colección de desarrolladores.
       requestBody:
         required: true
         content:
@@ -346,6 +371,7 @@ paths:
       tags:
         - Developers
       summary: Obtener desarrollador por ID
+      description: Busca un desarrollador por el ID numérico importado desde RAWG.
       parameters:
         - name: id
           in: path
@@ -353,6 +379,7 @@ paths:
           description: ID numérico del desarrollador.
           schema:
             type: integer
+            minimum: 1
           example: 1612
       responses:
         "200":
@@ -371,6 +398,7 @@ paths:
       tags:
         - Developers
       summary: Actualizar desarrollador
+      description: Actualiza los campos admitidos de un desarrollador existente.
       parameters:
         - name: id
           in: path
@@ -378,6 +406,7 @@ paths:
           description: ID numérico del desarrollador.
           schema:
             type: integer
+            minimum: 1
           example: 1612
       requestBody:
         required: true
@@ -402,6 +431,7 @@ paths:
       tags:
         - Developers
       summary: Eliminar desarrollador
+      description: Elimina un desarrollador de la colección.
       parameters:
         - name: id
           in: path
@@ -409,6 +439,7 @@ paths:
           description: ID numérico del desarrollador.
           schema:
             type: integer
+            minimum: 1
           example: 1612
       responses:
         "200":
@@ -428,18 +459,19 @@ paths:
     get:
       tags:
         - Reviews
-      summary: Obtener reseñas
-      description: Lista reseñas almacenadas en MongoDB. Permite filtrar por ID y rating.
+      summary: Obtener reviews
+      description: Lista las reviews almacenadas en MongoDB. Permite filtrar por ID, valoración y paginar resultados.
       parameters:
         - name: id
           in: query
-          description: ID numérico de la reseña.
+          description: ID numérico de la review.
           schema:
             type: integer
+            minimum: 1
           example: 4
         - name: rating
           in: query
-          description: Valoración de la reseña.
+          description: Valoración de la review.
           schema:
             type: integer
             minimum: 1
@@ -450,6 +482,7 @@ paths:
           description: Número de página.
           schema:
             type: integer
+            minimum: 1
             default: 1
           example: 2
         - name: limit
@@ -457,21 +490,25 @@ paths:
           description: Número máximo de resultados.
           schema:
             type: integer
+            minimum: 1
             default: 1000
           example: 20
       responses:
         "200":
-          description: Lista de reseñas.
+          description: Lista de reviews.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ReviewsListResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "500":
           $ref: "#/components/responses/InternalError"
     post:
       tags:
         - Reviews
-      summary: Crear reseña
+      summary: Crear review
+      description: Inserta una review asociada a un videojuego.
       requestBody:
         required: true
         content:
@@ -480,7 +517,7 @@ paths:
               $ref: "#/components/schemas/ReviewInput"
       responses:
         "201":
-          description: Reseña creada correctamente.
+          description: Review creada correctamente.
           content:
             application/json:
               schema:
@@ -488,7 +525,7 @@ paths:
         "400":
           $ref: "#/components/responses/BadRequest"
         "409":
-          description: Ya existe una reseña con ese ID.
+          description: Ya existe una review con ese ID.
           content:
             application/json:
               schema:
@@ -500,7 +537,8 @@ paths:
     get:
       tags:
         - Reviews
-      summary: Obtener reseñas por videojuego
+      summary: Obtener reviews por videojuego
+      description: En esta operación el parámetro de la ruta representa el ID del videojuego.
       parameters:
         - name: id
           in: path
@@ -508,14 +546,17 @@ paths:
           description: ID numérico del videojuego.
           schema:
             type: integer
+            minimum: 1
           example: 3328
       responses:
         "200":
-          description: Reseñas del videojuego.
+          description: Reviews del videojuego.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ReviewsByGameResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -524,14 +565,16 @@ paths:
     patch:
       tags:
         - Reviews
-      summary: Actualizar reseña
+      summary: Actualizar review
+      description: En esta operación el parámetro de la ruta representa el ID de la review.
       parameters:
         - name: id
           in: path
           required: true
-          description: ID numérico de la reseña.
+          description: ID numérico de la review.
           schema:
             type: integer
+            minimum: 1
           example: 1
       requestBody:
         required: true
@@ -541,7 +584,7 @@ paths:
               $ref: "#/components/schemas/ReviewUpdate"
       responses:
         "200":
-          description: Reseña actualizada.
+          description: Review actualizada.
           content:
             application/json:
               schema:
@@ -550,33 +593,31 @@ paths:
           $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
-        "409":
-          description: Ya existe una reseña con ese ID.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
         "500":
           $ref: "#/components/responses/InternalError"
     delete:
       tags:
         - Reviews
-      summary: Eliminar reseña
+      summary: Eliminar review
+      description: Elimina una review por su ID.
       parameters:
         - name: id
           in: path
           required: true
-          description: ID numérico de la reseña.
+          description: ID numérico de la review.
           schema:
             type: integer
+            minimum: 1
           example: 1
       responses:
         "200":
-          description: Reseña eliminada.
+          description: Review eliminada.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/MessageResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -587,7 +628,7 @@ paths:
       tags:
         - Countries
       summary: Obtener países
-      description: Devuelve información de países en formato XML.
+      description: Devuelve en XML la relación entre videojuegos, desarrolladores y países.
       parameters:
         - name: country
           in: query
@@ -628,6 +669,7 @@ components:
       description: ID numérico del videojuego.
       schema:
         type: integer
+        minimum: 1
       example: 3328
 
   responses:
@@ -654,9 +696,6 @@ components:
     Game:
       type: object
       properties:
-        _id:
-          type: string
-          description: Identificador interno de MongoDB.
         id:
           type: integer
           example: 3328
@@ -766,7 +805,7 @@ components:
 
     GameUpdate:
       type: object
-      description: Campos del videojuego que se quieran modificar.
+      description: Campos admitidos en la actualización de un videojuego. No se actualiza el ID.
       properties:
         slug:
           type: string
@@ -774,17 +813,9 @@ components:
           type: string
         released:
           type: string
-        background_image:
-          type: string
-          nullable: true
         rating:
           type: number
           format: float
-        metacritic:
-          type: integer
-          nullable: true
-        playtime:
-          type: integer
         platforms:
           type: array
           items:
@@ -797,9 +828,10 @@ components:
           type: array
           items:
             type: string
-        esrb_rating:
-          type: string
-          nullable: true
+        developers:
+          type: array
+          items:
+            type: string
 
     DeveloperGame:
       type: object
@@ -820,9 +852,6 @@ components:
     Developer:
       type: object
       properties:
-        _id:
-          type: string
-          description: Identificador interno de MongoDB.
         id:
           type: integer
           example: 1612
@@ -895,9 +924,6 @@ components:
     Review:
       type: object
       properties:
-        _id:
-          type: string
-          description: Identificador interno de MongoDB.
         id:
           type: integer
           example: 1
@@ -954,9 +980,8 @@ components:
 
     ReviewUpdate:
       type: object
+      description: Campos admitidos en la actualización parcial de una review. No se actualizan id ni createdAt.
       properties:
-        id:
-          type: integer
         gameId:
           type: integer
         gameName:
@@ -972,18 +997,28 @@ components:
 
     Country:
       type: object
+      xml:
+        name: country
       properties:
         gameId:
           type: integer
+          xml:
+            name: gameId
           example: 3328
         gameName:
           type: string
+          xml:
+            name: gameName
           example: "The Witcher 3: Wild Hunt"
         developer:
           type: string
+          xml:
+            name: developer
           example: CD Projekt RED
         country:
           type: string
+          xml:
+            name: country
           example: Poland
 
     CountriesXml:
@@ -1085,7 +1120,7 @@ components:
       properties:
         message:
           type: string
-          example: Game created successfully
+          example: Videojuego creado correctamente
         insertedId:
           type: string
 
@@ -1094,7 +1129,7 @@ components:
       properties:
         message:
           type: string
-          example: Review created successfully
+          example: Review creada correctamente
         insertedId:
           type: string
         review:
@@ -1125,7 +1160,7 @@ components:
       properties:
         message:
           type: string
-          example: Review updated successfully
+          example: Review actualizada correctamente
         review:
           $ref: "#/components/schemas/Review"
 
@@ -1134,7 +1169,7 @@ components:
       properties:
         message:
           type: string
-          example: Game updated successfully
+          example: Videojuego actualizado correctamente
         id:
           type: integer
           example: 3328
@@ -1150,5 +1185,19 @@ components:
       properties:
         message:
           type: string
+          example: El id debe ser un número positivo
         error:
+          type: object
+          description: Detalle técnico cuando el error procede de una excepción.
+          additionalProperties: true
           nullable: true
+        missingFields:
+          type: array
+          description: Campos obligatorios que faltan en la petición.
+          items:
+            type: string
+        invalidFields:
+          type: array
+          description: Campos enviados que la ruta no admite.
+          items:
+            type: string

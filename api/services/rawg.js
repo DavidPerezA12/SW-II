@@ -8,8 +8,8 @@ require("dotenv").config();
 const RAWG_URL_BASE = "https://api.rawg.io/api";
 
 /*
-    Obtener 100 juegos de RAWG
-    10 juegos por página x 10 páginas = 100 juegos
+    Obtener 1000 juegos de RAWG
+    40 juegos por página x 25 páginas = 1000 juegos
 */
 const getGames = async () => {
     try {
@@ -49,13 +49,13 @@ const getGames = async () => {
         return allGames;
 
     } catch (error) {
-        console.error("Error fetching games from RAWG:", error.message);
+        console.error("Error al obtener videojuegos desde RAWG:", error.message);
         throw error;
     }
 };
 
 /*
-    Obtener 100 developers de RAWG
+    Obtener 540 desarrolladores de RAWG
 */
 const getDevelopers = async () => {
     try {
@@ -78,7 +78,7 @@ const getDevelopers = async () => {
         return allDevelopers;
 
     } catch (error) {
-        console.error("Error fetching developers from RAWG:", error.message);
+        console.error("Error al obtener desarrolladores desde RAWG:", error.message);
         throw error;
     }
 };

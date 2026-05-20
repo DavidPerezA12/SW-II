@@ -22,7 +22,7 @@
 
 ## 📖 Descripción
 
-Diseño e implementación de una API REST en Node.js, Express y MongoDB para consultar y gestionar información sobre videojuegos, desarrolladores, reseñas y países relacionados. Los datos de videojuegos y desarrolladores se obtienen inicialmente desde **RAWG** en formato JSON, y la información de países asociados a desarrolladores se obtiene desde **Wikidata** en formato XML.
+Diseño e implementación de una API REST en Node.js, Express y MongoDB para consultar y gestionar información sobre videojuegos, desarrolladores, reviews y países relacionados. Los datos de videojuegos y desarrolladores se obtienen inicialmente desde **RAWG** en formato JSON, y la información de países asociados a desarrolladores se obtiene desde **Wikidata** en formato XML.
 
 El objetivo del proyecto es aprender cómo diseñar y desarrollar servicios web, incluyendo:
 
@@ -38,13 +38,15 @@ La documentación pedida en el enunciado está repartida en estos archivos:
 
 | Requisito | Archivo o carpeta |
 |---|---|
-| Documento de diseño de la interfaz REST | `docs/documentacion/Documentacion.pdf` |
+| Documento de diseño de la interfaz REST | `docs/Diseno_Interfaz_REST.docx` |
 | Especificación OpenAPI del servicio | `docs/openapi.yaml` |
 | Modelo de datos de la base de datos | `docs/modelo-datos.md` |
 | Schema asociado al XML de países | `docs/countries.xsd` |
 | Datasets para inicializar MongoDB | `api/datasets/` |
 | Scripts de carga de datos | `api/seeds/` |
 | Instrucciones para ejecutar el proyecto | Este `README.md` |
+
+El proyecto integra datos externos de RAWG y Wikidata en datasets locales para que la API pueda ejecutarse aunque esas APIs no estén disponibles. La colección principal, `videogames`, contiene 1000 documentos y permite búsquedas con filtros, ordenación y paginación. Sobre `/games`, `/developers` y `/reviews` se implementan operaciones CRUD, mientras que `/countries` se mantiene como recurso XML de consulta con su schema en `docs/countries.xsd`.
 
 ## ✨ Funcionalidades
 
@@ -55,9 +57,9 @@ La API REST permite gestionar los siguientes recursos:
 - Almacenar los datos obtenidos en datasets locales dentro de la carpeta `/api/datasets`.
 - Utilizar estos datasets para **inicializar la base de datos MongoDB** mediante un script `npm run seed`.
 - Almacenar y gestionar los datos en **MongoDB**.
-- Realizar operaciones **CRUD** sobre videojuegos, desarrolladores y reseñas almacenados en MongoDB.
+- Realizar operaciones **CRUD** sobre videojuegos, desarrolladores y reviews almacenados en MongoDB.
 - Consultar desarrolladores y países, incluyendo filtros, búsquedas y relaciones con videojuegos.
-- Permitir **paginación y filtrado** en las consultas de videojuegos, desarrolladores y reseñas.
+- Permitir **paginación y filtrado** en las consultas de videojuegos, desarrolladores y reviews.
 
 Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/reviews`. El recurso `/countries` se mantiene como recurso de consulta en XML, ya que procede de Wikidata y sirve para enriquecer la información de los videojuegos con países asociados a sus desarrolladores.
 
@@ -79,8 +81,8 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
       - `?sort=-name` → Ordenar por nombre descendente.
   - **GET /games/:id** → Obtener detalles de un videojuego por su ID. [http://localhost:3001/games/3328]
   - **GET /games/:id/country** → Obtener en XML los países asociados a un videojuego. [http://localhost:3001/games/3328/country]
-  - **GET /games/:id/reviews** → Obtener reseñas de un videojuego. [http://localhost:3001/games/3328/reviews]
-  - **GET /games/:id/enriched** → Obtener el videojuego junto con países y reseñas. [http://localhost:3001/games/3328/enriched]
+  - **GET /games/:id/reviews** → Obtener reviews de un videojuego. [http://localhost:3001/games/3328/reviews]
+  - **GET /games/:id/enriched** → Obtener el videojuego junto con países y reviews. [http://localhost:3001/games/3328/enriched]
   - **POST /games** → Agregar un nuevo videojuego a la base de datos.
   - **PUT /games/:id** → Actualizar la información de un videojuego por su ID.
   - **DELETE /games/:id** → Eliminar un videojuego por su ID.
@@ -99,15 +101,15 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
   - **DELETE /developers/:id** → Eliminar un desarrollador por su ID.
 
 - **/reviews**
-  - **GET /reviews** → Obtener la lista de reseñas. [http://localhost:3001/reviews]
+  - **GET /reviews** → Obtener la lista de reviews. [http://localhost:3001/reviews]
     - **Query params**:
-      - `?id=4` → Obtener una reseña por su ID.
+      - `?id=4` → Obtener una review por su ID.
       - `?rating=5` → Filtrar por valoración.
       - `?page=2&limit=20` → Paginación con número de página y límite de resultados por página.
-  - **GET /reviews/:gameId** → Obtener reseñas asociadas a un videojuego. En esta ruta el parámetro representa el ID del videojuego. [http://localhost:3001/reviews/3328]
-  - **POST /reviews** → Agregar una nueva reseña.
-  - **PATCH /reviews/:id** → Actualizar parcialmente una reseña. En esta ruta el parámetro representa el ID de la reseña.
-  - **DELETE /reviews/:id** → Eliminar una reseña por su ID. En esta ruta el parámetro representa el ID de la reseña.
+  - **GET /reviews/:gameId** → Obtener reviews asociadas a un videojuego. En esta ruta el parámetro representa el ID del videojuego. [http://localhost:3001/reviews/3328]
+  - **POST /reviews** → Agregar una nueva review.
+  - **PATCH /reviews/:id** → Actualizar parcialmente una review. En esta ruta el parámetro representa el ID de la review.
+  - **DELETE /reviews/:id** → Eliminar una review por su ID. En esta ruta el parámetro representa el ID de la review.
 
 - **/countries**
   - **GET /countries** → Obtener información de países en XML. [http://localhost:3001/countries]
@@ -216,6 +218,6 @@ SW-II/
 │   ├── openapi.yaml
 │   ├── countries.xsd
 │   ├── modelo-datos.md
-│   └── documentacion/
+│   └── Diseno_Interfaz_REST.docx
 └── README.md
   ```

@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
         if (countries.length === 0) {
 
             return res.status(404).json({
-                message: 'No country information found'
+                message: 'No se ha encontrado información de países'
             });
         }
 
@@ -77,7 +77,7 @@ router.get('/', async (req, res) => {
     } catch (e) {
 
         return res.status(500).json({
-            message: 'Error fetching country information',
+            message: 'Error al obtener la información de países',
             error: e.message
         });
     }

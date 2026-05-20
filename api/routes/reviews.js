@@ -80,7 +80,7 @@ router.get("/", async (req, res) => {
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error al obtener las reseñas",
+            message: "Error al obtener las reviews",
             error: e.message
         });
     }
@@ -109,7 +109,7 @@ router.get("/:gameId", async (req, res) => {
         if (reviews.length === 0) {
 
             return res.status(404).json({
-                message: `No se han encontrado reseñas para el videojuego ${gameId}`
+                message: `No se han encontrado reviews para el videojuego ${gameId}`
             });
         }
 
@@ -121,7 +121,7 @@ router.get("/:gameId", async (req, res) => {
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error al obtener las reseñas",
+            message: "Error al obtener las reviews",
             error: e.message
         });
     }
@@ -176,7 +176,7 @@ router.post("/", async (req, res) => {
         if (existingReview) {
 
             return res.status(409).json({
-                message: `Ya existe una reseña con id ${id}`
+                message: `Ya existe una review con id ${id}`
             });
         }
 
@@ -197,7 +197,7 @@ router.post("/", async (req, res) => {
             .insertOne(newReview);
 
         return res.status(201).json({
-            message: "Reseña creada correctamente",
+            message: "Review creada correctamente",
             insertedId: result.insertedId,
             review: newReview
         });
@@ -205,7 +205,7 @@ router.post("/", async (req, res) => {
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error al crear la reseña",
+            message: "Error al crear la review",
             error: e.message
         });
     }
@@ -231,7 +231,7 @@ router.patch("/:id", async (req, res) => {
         if (!existingReview) {
 
             return res.status(404).json({
-                message: `No se ha encontrado la reseña con id ${reviewId}`
+                message: `No se ha encontrado la review con id ${reviewId}`
             });
         }
 
@@ -291,14 +291,14 @@ router.patch("/:id", async (req, res) => {
             .findOne({ id: reviewId });
 
         return res.status(200).json({
-            message: "Reseña actualizada correctamente",
+            message: "Review actualizada correctamente",
             review: removeMongoId(updatedReview)
         });
 
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error al actualizar la reseña",
+            message: "Error al actualizar la review",
             error: e.message
         });
     }
@@ -324,7 +324,7 @@ router.delete("/:id", async (req, res) => {
         if (!existingReview) {
 
             return res.status(404).json({
-                message: `No se ha encontrado la reseña con id ${reviewId}`
+                message: `No se ha encontrado la review con id ${reviewId}`
             });
         }
 
@@ -334,13 +334,13 @@ router.delete("/:id", async (req, res) => {
             .deleteOne({ id: reviewId });
 
         return res.status(200).json({
-            message: `Reseña ${reviewId} eliminada correctamente`
+            message: `Review ${reviewId} eliminada correctamente`
         });
 
     } catch (e) {
 
         return res.status(500).json({
-            message: "Error al eliminar la reseña",
+            message: "Error al eliminar la review",
             error: e.message
         });
     }
