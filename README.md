@@ -143,7 +143,7 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
   - Documentación: [https://api.rawg.io/docs/]
 - Wikidata Query Service (XML): [https://query.wikidata.org/]
 
-Para la ejecución de la entrega no hace falta consultar RAWG en directo: los datasets necesarios ya están incluidos en `api/datasets`. La variable `RAWG_API_KEY` puede mantenerse en `.env` con un valor de ejemplo.
+Para la ejecución de la entrega no hace falta consultar RAWG en directo: los datasets necesarios ya están incluidos en `api/datasets`. Wikidata no requiere API key para las consultas usadas en el proyecto.
 
 Los scripts de carga usan los datasets locales para que la API funcione aunque RAWG o Wikidata no estén disponibles durante la ejecución.
 
@@ -163,6 +163,8 @@ Crear el archivo `.env` dentro de `api`. Se puede copiar el archivo de ejemplo:
    ```bash
    cp .env.example .env
    ```
+
+   El ejemplo incluye una clave de RAWG para que la corrección sea más directa. En un proyecto real no subiríamos una clave así al repositorio.
 
    El contenido debe quedar con estas variables:
 
