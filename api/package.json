@@ -10,7 +10,7 @@
     "seed:countries": "node ./seeds/countries",
     "seed:reviews": "node ./seeds/reviews",
     "seed": "npm run seed:games && npm run seed:developers && npm run seed:countries && npm run seed:reviews",
-    "test": "node --check app.js && node --check bin/www.js && node --check db/conn.js && node --check routes/games.js && node --check routes/developers.js && node --check routes/reviews.js && node --check routes/countries.js && node --check services/rawg.js && node --check services/wikidata.js && node --test test/routes.test.js"
+    "test": "node --check app.js && node --check bin/www.js && node --check db/conn.js && node --check routes/games.js && node --check routes/developers.js && node --check routes/reviews.js && node --check routes/countries.js && node --check services/rawg.js && node --check services/wikidata.js && node --test test/*.test.js"
   },
   "keywords": [
     "api",
@@ -26,6 +26,7 @@
   "dependencies": {
     "axios": "^1.16.1",
     "cookie-parser": "1.4.7",
+    "cors": "^2.8.6",
     "debug": "^4.4.3",
     "dotenv": "^17.4.2",
     "ejs": "^3.1.10",

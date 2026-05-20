@@ -11,7 +11,7 @@ const connectToDatabase = async () => {
     try {
         await client.connect();
         dbConnection = client.db();
-        console.log("Succesfully connected to database");
+        console.log("Successfully connected to database");
     } catch (e){
         console.error(e);
         process.exit();

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SW-II</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <div class="bg-mesh" aria-hidden="true"></div>
+        <div class="noise-overlay" aria-hidden="true"></div>
+
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-text">
+                    <h1>SW-II</h1>
+                </div>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#/" class="nav-link active" data-route="home">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                            ></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/games" class="nav-link" data-route="games">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect
+                                x="2"
+                                y="6"
+                                width="20"
+                                height="12"
+                                rx="2"
+                            ></rect>
+                            <path d="M6 12h4m-2-2v4"></path>
+                            <path d="M15 11v2m2-1h-4"></path>
+                        </svg>
+                        <span>Videojuegos</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#/developers"
+                        class="nav-link"
+                        data-route="developers"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                            ></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>Desarrolladores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/reviews" class="nav-link" data-route="reviews">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                            ></polygon>
+                        </svg>
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#/countries"
+                        class="nav-link"
+                        data-route="countries"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                            ></path>
+                        </svg>
+                        <span>Países</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="status-pill">
+                    <span class="status-dot" id="api-status"></span>
+                    <span id="api-status-text">Conectando...</span>
+                </div>
+            </div>
+        </nav>
+
+        <main id="app" class="main"></main>
+
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal" id="modal">
+                <button
+                    class="modal-close"
+                    id="modal-close"
+                    aria-label="Cerrar"
+                >
+                    &times;
+                </button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+        <div id="toast-container" class="toast-container"></div>
+
+        <script type="module" src="js/app.js"></script>
+    </body>
+</html>

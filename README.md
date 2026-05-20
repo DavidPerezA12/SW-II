@@ -137,18 +137,22 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
   - Documentación: [https://api.rawg.io/docs/]
 - Wikidata Query Service (XML): [https://query.wikidata.org/]
 
-La clave `RAWG_API_KEY` solo es necesaria si se quieren regenerar los datasets desde RAWG. Para ejecutar el proyecto con los datasets incluidos en `api/datasets`, basta con mantener la variable en `.env`, aunque sea con un valor de ejemplo.
+Para la ejecución de la entrega no hace falta consultar RAWG en directo: los datasets necesarios ya están incluidos en `api/datasets`. La variable `RAWG_API_KEY` puede mantenerse en `.env` con un valor de ejemplo.
+
+Los scripts de carga usan los datasets locales para que la API funcione aunque RAWG o Wikidata no estén disponibles durante la ejecución.
 
 ## ▶️ Ejecución
 
-1. Clonar el repositorio y entrar a la carpeta del proyecto (`api`):
+### 1. Preparar el proyecto
+
+Clonar el repositorio y entrar a la carpeta de la API:
 
    ```bash
    git clone https://github.com/DavidPerezA12/SW-II.git
    cd SW-II/api
-    ```
+   ```
 
-2. Crear el archivo `.env` dentro de la carpeta `api`. Se puede copiar el archivo de ejemplo:
+Crear el archivo `.env` dentro de `api`. Se puede copiar el archivo de ejemplo:
 
    ```bash
    cp .env.example .env
@@ -162,49 +166,106 @@ La clave `RAWG_API_KEY` solo es necesaria si se quieren regenerar los datasets d
    RAWG_API_KEY=tu_api_key_de_rawg
    ```
 
-   MongoDB debe estar arrancado antes de ejecutar los scripts. Por ejemplo, con Docker:
+Instalar dependencias:
+
+   ```bash
+   npm install
+   ```
+
+### 2. Arrancar MongoDB
+
+MongoDB debe estar arrancado antes de inicializar la base de datos. Por ejemplo, con Docker:
 
    ```bash
    docker run --name sw2-mongo -p 27017:27017 -d mongo:7
    ```
 
-   Si el contenedor ya existe y está parado:
+Si el contenedor ya existe y está parado:
 
    ```bash
    docker start sw2-mongo
    ```
 
-   Los datasets están incluidos en la carpeta `api/datasets`, por lo que la API puede cargarlos aunque las APIs externas no estén disponibles.
+Los datasets están incluidos en `api/datasets`, por lo que la API puede cargarlos sin depender de que las APIs externas estén disponibles.
 
-3. Instalar dependencias:
-  
-   ```bash
-   npm install
-   ```
+### 3. Inicializar la base de datos
 
-4. Inicializar la base de datos con el dataset:
+Este paso solo es necesario la primera vez, si la base de datos está vacía o si se quieren volver a cargar los datos incluidos en `api/datasets`. Si MongoDB ya contiene los datos del proyecto, se puede pasar directamente al paso 4.
+
+Desde la carpeta `api`:
   
    ```bash
    npm run seed
    ```
 
-5. Ejecutar servidor:
+### 4. Ejecutar la API
+
+Desde la carpeta `api`:
   
    ```bash
    npm start
    ```
 
-6. Comprobar la sintaxis de los archivos principales y ejecutar las pruebas de rutas:
-
-   ```bash
-   npm test
-   ```
-
-7. Abrir en el navegador:
+La API queda disponible en:
 
    ```bash
    http://localhost:3001
    ```
+
+### 5. Ejecutar el cliente web
+
+El repositorio incluye un cliente SPA en `client/`. Consume la API mediante peticiones HTTP a `http://localhost:3001`, por lo que hay que dejar la API arrancada y abrir otro terminal:
+
+Opción con Python:
+
+   ```bash
+   cd SW-II/client
+   python3 -m http.server 8080
+   ```
+
+Después abrir en el navegador:
+
+```bash
+http://localhost:8080
+```
+
+Opción con Node:
+
+```bash
+cd SW-II
+npx serve client
+```
+
+Después abrir la URL que indique `serve`. Si `serve` intenta usar `3001`, elegir otro puerto para no ocupar el puerto de la API. Por ejemplo:
+
+```bash
+http://localhost:3000
+```
+
+Resumen rápido de terminales:
+
+```bash
+# Terminal 1: MongoDB
+docker start sw2-mongo
+
+# Terminal 2: API
+cd SW-II/api
+npm start
+
+# Terminal 3: Cliente
+cd SW-II/client
+python3 -m http.server 8080
+# alternativa desde SW-II:
+# npx serve client
+```
+
+### 6. Ejecutar las pruebas
+
+Desde la carpeta `api`:
+
+```bash
+npm test
+```
 
 ## ✅ Pruebas
 
@@ -242,6 +303,10 @@ SW-II/
 │   ├── services/
 │   ├── views/
 │   └── package.json
+├── client/
+│   ├── css/
+│   ├── js/
+│   └── index.html
 ├── docs/
 │   ├── openapi.yaml
 │   ├── countries.xsd
