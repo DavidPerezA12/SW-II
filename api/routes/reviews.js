@@ -256,7 +256,7 @@ router.post("/", async (req, res) => {
         return res.status(201).json({
             message: "Review creada correctamente",
             id: newReview.id,
-            review: newReview
+            review: removeMongoId(newReview)
         });
 
     } catch (e) {
