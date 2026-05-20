@@ -308,6 +308,36 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DevelopersListResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"
+    post:
+      tags:
+        - Developers
+      summary: Crear desarrollador
+      description: Inserta un nuevo desarrollador en la colección de desarrolladores.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeveloperInput"
+      responses:
+        "201":
+          description: Desarrollador creado correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreatedDeveloperResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "409":
+          description: Ya existe un desarrollador con ese ID.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           $ref: "#/components/responses/InternalError"
 
@@ -331,6 +361,64 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Developer"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalError"
+    put:
+      tags:
+        - Developers
+      summary: Actualizar desarrollador
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID numérico del desarrollador.
+          schema:
+            type: integer
+          example: 1612
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeveloperUpdate"
+      responses:
+        "200":
+          description: Desarrollador actualizado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdatedDeveloperResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalError"
+    delete:
+      tags:
+        - Developers
+      summary: Eliminar desarrollador
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID numérico del desarrollador.
+          schema:
+            type: integer
+          example: 1612
+      responses:
+        "200":
+          description: Desarrollador eliminado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":
@@ -755,6 +843,55 @@ components:
           items:
             $ref: "#/components/schemas/DeveloperGame"
 
+    DeveloperInput:
+      type: object
+      required:
+        - id
+        - name
+        - slug
+        - games
+      properties:
+        id:
+          type: integer
+          example: 999999
+        name:
+          type: string
+          example: Mi Estudio
+        slug:
+          type: string
+          example: mi-estudio
+        games_count:
+          type: integer
+          example: 1
+        image_background:
+          type: string
+          nullable: true
+          example: https://example.com/developer.jpg
+        games:
+          type: array
+          minItems: 1
+          items:
+            $ref: "#/components/schemas/DeveloperGame"
+
+    DeveloperUpdate:
+      type: object
+      description: Campos del desarrollador que se quieran modificar. El ID no se puede actualizar.
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        games_count:
+          type: integer
+        image_background:
+          type: string
+          nullable: true
+        games:
+          type: array
+          minItems: 1
+          items:
+            $ref: "#/components/schemas/DeveloperGame"
+
     Review:
       type: object
       properties:
@@ -962,6 +1099,26 @@ components:
           type: string
         review:
           $ref: "#/components/schemas/Review"
+
+    CreatedDeveloperResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Desarrollador creado correctamente
+        insertedId:
+          type: string
+        developer:
+          $ref: "#/components/schemas/Developer"
+
+    UpdatedDeveloperResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Desarrollador actualizado correctamente
+        developer:
+          $ref: "#/components/schemas/Developer"
 
     UpdatedReviewResponse:
       type: object

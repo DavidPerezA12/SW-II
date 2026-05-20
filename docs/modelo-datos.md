@@ -156,7 +156,15 @@ Ejemplo:
 }
 ```
 
-Desde la API se puede consultar el listado de desarrolladores, buscar por nombre o filtrar por un videojuego concreto usando `gameId`.
+Desde la API se puede consultar el listado de desarrolladores, buscar por nombre o filtrar por un videojuego concreto usando `gameId`. Además, este recurso permite operaciones CRUD para añadir desarrolladores propios, corregir datos importados desde RAWG o eliminar registros que no se quieran mantener en la base de datos.
+
+Rutas principales:
+
+- `GET /developers`
+- `GET /developers/:id`
+- `POST /developers`
+- `PUT /developers/:id`
+- `DELETE /developers/:id`
 
 ## `reviews`
 
@@ -239,5 +247,6 @@ Los datasets están incluidos en el repositorio para que la API pueda funcionar 
 - Se usa `id` como identificador funcional porque viene de RAWG y es más cómodo para las rutas REST que el `_id` interno de MongoDB.
 - Se mantiene `gameId` en `reviews` y `countries` para relacionar esas colecciones con `videogames`.
 - En `developers`, la lista de juegos se deja dentro del documento porque RAWG ya devuelve los datos así y MongoDB permite trabajar bien con arrays.
+- `countries` se deja como recurso de consulta en XML porque representa información importada desde Wikidata. Los recursos modificables de la API son `videogames`, `developers` y `reviews`.
 - Se repite `gameName` en algunas colecciones para que las respuestas sean más claras.
 - El XML de países se conserva como dataset porque el proyecto pide trabajar también con mensajes XML y tener un schema asociado.

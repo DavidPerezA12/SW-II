@@ -55,11 +55,11 @@ La API REST permite gestionar los siguientes recursos:
 - Almacenar los datos obtenidos en datasets locales dentro de la carpeta `/api/datasets`.
 - Utilizar estos datasets para **inicializar la base de datos MongoDB** mediante un script `npm run seed`.
 - Almacenar y gestionar los datos en **MongoDB**.
-- Realizar operaciones **CRUD** sobre videojuegos y reseñas almacenados en MongoDB.
+- Realizar operaciones **CRUD** sobre videojuegos, desarrolladores y reseñas almacenados en MongoDB.
 - Consultar desarrolladores y países, incluyendo filtros, búsquedas y relaciones con videojuegos.
 - Permitir **paginación y filtrado** en las consultas de videojuegos, desarrolladores y reseñas.
 
-Las operaciones CRUD completas se implementan sobre `/games` y `/reviews`. Los recursos `/developers` y `/countries` se usan principalmente como recursos de consulta, ya que proceden de APIs externas y sirven para enriquecer la información de los videojuegos.
+Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/reviews`. El recurso `/countries` se mantiene como recurso de consulta en XML, ya que procede de Wikidata y sirve para enriquecer la información de los videojuegos con países asociados a sus desarrolladores.
 
 ### Endpoints disponibles
 
@@ -94,6 +94,9 @@ Las operaciones CRUD completas se implementan sobre `/games` y `/reviews`. Los r
       - `?page=2&limit=20` → Paginación con número de página y límite de resultados por página.
       - `?sort=-games_count` → Ordenar por número de juegos de mayor a menor.
   - **GET /developers/:id** → Obtener detalles de un desarrollador por su ID. [http://localhost:3001/developers/9023]
+  - **POST /developers** → Agregar un nuevo desarrollador a la base de datos.
+  - **PUT /developers/:id** → Actualizar la información de un desarrollador por su ID.
+  - **DELETE /developers/:id** → Eliminar un desarrollador por su ID.
 
 - **/reviews**
   - **GET /reviews** → Obtener la lista de reseñas. [http://localhost:3001/reviews]
