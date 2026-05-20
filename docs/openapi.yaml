@@ -97,7 +97,7 @@ paths:
           example: 20
         - name: sort
           in: query
-          description: Campo de ordenación. Con guion inicial ordena de forma descendente. Campos permitidos: id, name, released, rating, metacritic, playtime.
+          description: "Campo de ordenación. Con guion inicial ordena de forma descendente. Campos permitidos: id, name, released, rating, metacritic, playtime."
           schema:
             type: string
           examples:
@@ -193,6 +193,12 @@ paths:
           $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
+        "409":
+          description: El cambio rompería recursos relacionados.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           $ref: "#/components/responses/InternalError"
     delete:
@@ -213,6 +219,12 @@ paths:
           $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
+        "409":
+          description: El videojuego tiene recursos relacionados y no puede eliminarse.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           $ref: "#/components/responses/InternalError"
 
@@ -322,7 +334,7 @@ paths:
           example: 20
         - name: sort
           in: query
-          description: Campo de ordenación. Con guion inicial ordena de forma descendente. Campos permitidos: id, name, slug, games_count.
+          description: "Campo de ordenación. Con guion inicial ordena de forma descendente. Campos permitidos: id, name, slug, games_count."
           schema:
             type: string
           example: -games_count
@@ -755,6 +767,7 @@ components:
 
     GameInput:
       type: object
+      additionalProperties: false
       required:
         - id
         - name
@@ -780,11 +793,16 @@ components:
         rating:
           type: number
           format: float
+          minimum: 0
+          maximum: 5
         metacritic:
           type: integer
           nullable: true
+          minimum: 0
+          maximum: 100
         playtime:
           type: integer
+          minimum: 0
         platforms:
           type: array
           minItems: 1
@@ -814,9 +832,17 @@ components:
           type: string
         released:
           type: string
+        background_image:
+          type: string
+          nullable: true
         rating:
           type: number
           format: float
+        metacritic:
+          type: integer
+          nullable: true
+        playtime:
+          type: integer
         platforms:
           type: array
           items:
@@ -829,6 +855,9 @@ components:
           type: array
           items:
             type: string
+        esrb_rating:
+          type: string
+          nullable: true
         developers:
           type: array
           items:
@@ -1038,6 +1067,9 @@ components:
     GamesListResponse:
       type: object
       properties:
+        total:
+          type: integer
+          example: 1000
         videogames_length:
           type: integer
           example: 2
@@ -1049,6 +1081,9 @@ components:
     DevelopersListResponse:
       type: object
       properties:
+        total:
+          type: integer
+          example: 600
         developers_length:
           type: integer
           example: 2
@@ -1062,7 +1097,7 @@ components:
       properties:
         total:
           type: integer
-          example: 3437
+          example: 3482
         reviews_length:
           type: integer
           example: 20
@@ -1122,8 +1157,11 @@ components:
         message:
           type: string
           example: Videojuego creado correctamente
-        insertedId:
-          type: string
+        id:
+          type: integer
+          example: 999999
+        game:
+          $ref: "#/components/schemas/Game"
 
     CreatedReviewResponse:
       type: object
@@ -1131,8 +1169,9 @@ components:
         message:
           type: string
           example: Review creada correctamente
-        insertedId:
-          type: string
+        id:
+          type: integer
+          example: 3
         review:
           $ref: "#/components/schemas/Review"
 
@@ -1142,8 +1181,9 @@ components:
         message:
           type: string
           example: Desarrollador creado correctamente
-        insertedId:
-          type: string
+        id:
+          type: integer
+          example: 7003
         developer:
           $ref: "#/components/schemas/Developer"
 

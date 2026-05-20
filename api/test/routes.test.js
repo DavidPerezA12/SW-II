@@ -138,10 +138,14 @@ describe("games routes", () => {
             stores: ["Steam"]
         };
 
-        await request(app)
+        const createResponse = await request(app)
             .post("/games")
             .send(newGame)
             .expect(201);
+
+        assert.equal(createResponse.body.id, 9999);
+        assert.equal(createResponse.body.insertedId, undefined);
+        assert.equal(createResponse.body.game._id, undefined);
 
         const response = await request(app)
             .get("/games/9999")
@@ -152,6 +156,67 @@ describe("games routes", () => {
         assert.equal(response.body._id, undefined);
     });
 
+    test("POST /games rechaza campos no permitidos y valida tipos como PUT", async () => {
+        await request(app)
+            .post("/games")
+            .send([])
+            .expect(400)
+            .expect(response => {
+                assert.equal(response.body.message, "El cuerpo de la petición debe ser un objeto JSON");
+            });
+
+        await request(app)
+            .post("/games")
+            .send({
+                id: 9998,
+                name: "Invalid Game",
+                platforms: ["PC"],
+                genres: ["Action"],
+                stores: ["Steam"],
+                admin: true
+            })
+            .expect(400)
+            .expect(response => {
+                assert.deepEqual(response.body.invalidFields, ["admin"]);
+            });
+
+        await request(app)
+            .post("/games")
+            .send({
+                id: 9997,
+                name: "Invalid Game",
+                platforms: ["PC"],
+                genres: ["Action"],
+                stores: ["Steam"],
+                rating: "hola"
+            })
+            .expect(400);
+
+        await request(app)
+            .post("/games")
+            .send({
+                id: 9996,
+                name: "Invalid Game",
+                platforms: ["PC"],
+                genres: ["Action"],
+                stores: ["Steam"],
+                metacritic: 101
+            })
+            .expect(400);
+
+        await request(app)
+            .post("/games")
+            .send({
+                id: 9995,
+                name: "Invalid Game",
+                platforms: ["PC"],
+                genres: ["Action"],
+                stores: ["Steam"],
+                playtime: -1
+            })
+            .expect(400);
+    });
+
     test("PUT /games/:id rechaza campos no permitidos", async () => {
         const response = await request(app)
             .put("/games/3328")
@@ -159,6 +224,97 @@ describe("games routes", () => {
             .expect(400);
 
         assert.deepEqual(response.body.invalidFields, ["id"]);
+    });
+
+    test("PUT /games/:id valida tipos y rangos de campos editables", async () => {
+        await request(app)
+            .put("/games/3328")
+            .send({ rating: "hola" })
+            .expect(400);
+
+        await request(app)
+            .put("/games/3328")
+            .send({ platforms: "PC" })
+            .expect(400);
+
+        await request(app)
+            .put("/games/3328")
+            .send({ genres: [] })
+            .expect(400);
+
+        await request(app)
+            .put("/games/3328")
+            .send({ metacritic: 101 })
+            .expect(400);
+    });
+
+    test("PUT /games/:id acepta los campos editables por el cliente", async () => {
+        await request(app)
+            .put("/games/3328")
+            .send({
+                background_image: "https://example.com/witcher.jpg",
+                metacritic: 93,
+                playtime: 50,
+                esrb_rating: "Mature"
+            })
+            .expect(200);
+
+        const response = await request(app)
+            .get("/games/3328")
+            .expect(200);
+
+        assert.equal(response.body.background_image, "https://example.com/witcher.jpg");
+        assert.equal(response.body.metacritic, 93);
+        assert.equal(response.body.playtime, 50);
+        assert.equal(response.body.esrb_rating, "Mature");
+    });
+
+    test("PUT /games/:id rechaza renombrar videojuegos con recursos relacionados", async () => {
+        const response = await request(app)
+            .put("/games/4200")
+            .send({ name: "Portal Dos" })
+            .expect(409);
+
+        assert.equal(response.body.message, "No se puede cambiar el nombre de un videojuego con recursos relacionados");
+        assert.equal(response.body.dependencies.reviews > 0, true);
+        assert.equal(response.body.dependencies.countries > 0, true);
+        assert.equal(response.body.dependencies.developers > 0, true);
+    });
+
+    test("DELETE /games/:id rechaza eliminar videojuegos con recursos relacionados", async () => {
+        const response = await request(app)
+            .delete("/games/4200")
+            .expect(409);
+
+        assert.equal(response.body.message, "No se puede eliminar un videojuego con recursos relacionados");
+        assert.equal(response.body.dependencies.reviews > 0, true);
+        assert.equal(response.body.dependencies.countries > 0, true);
+        assert.equal(response.body.dependencies.developers > 0, true);
+
+        await request(app)
+            .get("/games/4200")
+            .expect(200);
+    });
+
+    test("DELETE /games/:id elimina un videojuego sin dependencias", async () => {
+        await request(app)
+            .post("/games")
+            .send({
+                id: 9994,
+                name: "Juego temporal",
+                platforms: ["PC"],
+                genres: ["Action"],
+                stores: ["Steam"]
+            })
+            .expect(201);
+
+        await request(app)
+            .delete("/games/9994")
+            .expect(200);
+
+        await request(app)
+            .get("/games/9994")
+            .expect(404);
     });
 
     test("GET /games/:id/enriched devuelve videojuego, países y reviews relacionados", async () => {
@@ -185,6 +341,14 @@ describe("developers routes", () => {
     });
 
     test("POST /developers detecta ids duplicados", async () => {
+        await request(app)
+            .post("/developers")
+            .send([])
+            .expect(400)
+            .expect(response => {
+                assert.equal(response.body.message, "El cuerpo de la petición debe ser un objeto JSON");
+            });
+
         const response = await request(app)
             .post("/developers")
             .send({
@@ -196,6 +360,76 @@ describe("developers routes", () => {
             .expect(409);
 
         assert.match(response.body.message, /Ya existe un desarrollador/);
+    });
+
+    test("POST /developers no expone _id interno de MongoDB", async () => {
+        const response = await request(app)
+            .post("/developers")
+            .send({
+                id: 7003,
+                name: "Nuevo estudio",
+                slug: "nuevo-estudio",
+                games: [{ id: 3328, name: "The Witcher 3: Wild Hunt" }]
+            })
+            .expect(201);
+
+        assert.equal(response.body.id, 7003);
+        assert.equal(response.body.insertedId, undefined);
+        assert.equal(response.body.developer._id, undefined);
+    });
+
+    test("POST /developers valida estructura y existencia de juegos asociados", async () => {
+        await request(app)
+            .post("/developers")
+            .send({
+                id: 7000,
+                name: "Nuevo estudio",
+                slug: "nuevo-estudio",
+                games: ["Portal 2"]
+            })
+            .expect(400);
+
+        await request(app)
+            .post("/developers")
+            .send({
+                id: 7001,
+                name: "Nuevo estudio",
+                slug: "nuevo-estudio",
+                games: [{ id: 99999, name: "Juego inexistente" }]
+            })
+            .expect(404);
+
+        await request(app)
+            .post("/developers")
+            .send({
+                id: 7002,
+                name: "Nuevo estudio",
+                slug: "nuevo-estudio",
+                games: [{ id: 3328, name: "Nombre incorrecto" }]
+            })
+            .expect(400);
+    });
+
+    test("PUT y DELETE /developers/:id actualizan y eliminan desarrolladores", async () => {
+        await request(app)
+            .put("/developers/1612")
+            .send({ name: "Valve Corporation", games_count: 51 })
+            .expect(200);
+
+        const updated = await request(app)
+            .get("/developers/1612")
+            .expect(200);
+
+        assert.equal(updated.body.name, "Valve Corporation");
+        assert.equal(updated.body.games_count, 51);
+
+        await request(app)
+            .delete("/developers/1612")
+            .expect(200);
+
+        await request(app)
+            .get("/developers/1612")
+            .expect(404);
     });
 });
 
@@ -214,6 +448,14 @@ describe("reviews routes", () => {
     test("PATCH /reviews/:id valida rating y actualiza solo campos permitidos", async () => {
         await request(app)
             .patch("/reviews/1")
+            .send([])
+            .expect(400)
+            .expect(response => {
+                assert.equal(response.body.message, "El cuerpo de la petición debe ser un objeto JSON");
+            });
+
+        await request(app)
+            .patch("/reviews/1")
             .send({ rating: 6 })
             .expect(400);
 
@@ -224,6 +466,96 @@ describe("reviews routes", () => {
 
         assert.equal(response.body.review.rating, 3);
         assert.equal(response.body.review.comment, "Actualizada");
+    });
+
+    test("GET /reviews/game/:gameId consulta reviews por videojuego", async () => {
+        const response = await request(app)
+            .get("/reviews/game/3328")
+            .expect(200);
+
+        assert.equal(response.body.reviews_length, 1);
+        assert.equal(response.body.reviews[0].gameId, 3328);
+    });
+
+    test("POST y DELETE /reviews crean y eliminan reviews", async () => {
+        const response = await request(app)
+            .post("/reviews")
+            .send({
+                id: 3,
+                gameId: 3328,
+                gameName: "The Witcher 3: Wild Hunt",
+                user: "tester",
+                rating: 5,
+                comment: "Nueva review"
+            })
+            .expect(201);
+
+        assert.equal(response.body.id, 3);
+        assert.equal(response.body.insertedId, undefined);
+
+        const created = await request(app)
+            .get("/reviews")
+            .query({ id: "3" })
+            .expect(200);
+
+        assert.equal(created.body.reviews[0].comment, "Nueva review");
+
+        await request(app)
+            .delete("/reviews/3")
+            .expect(200);
+
+        const afterDelete = await request(app)
+            .get("/reviews")
+            .query({ id: "3" })
+            .expect(200);
+
+        assert.equal(afterDelete.body.reviews_length, 0);
+    });
+
+    test("POST /reviews rechaza reviews de videojuegos inexistentes o incoherentes", async () => {
+        await request(app)
+            .post("/reviews")
+            .send({
+                id: 4,
+                gameId: 99999,
+                gameName: "Juego inexistente",
+                user: "tester",
+                rating: 5,
+                comment: "Review huérfana"
+            })
+            .expect(404);
+
+        await request(app)
+            .post("/reviews")
+            .send({
+                id: 5,
+                gameId: 3328,
+                gameName: "Nombre inventado",
+                user: "tester",
+                rating: 5,
+                comment: "Review incoherente"
+            })
+            .expect(400);
+    });
+
+    test("PATCH /reviews/:id valida coherencia de gameId y gameName", async () => {
+        await request(app)
+            .patch("/reviews/1")
+            .send({ gameId: 99999 })
+            .expect(404);
+
+        await request(app)
+            .patch("/reviews/1")
+            .send({ gameId: 4200, gameName: "Nombre incorrecto" })
+            .expect(400);
+
+        const response = await request(app)
+            .patch("/reviews/1")
+            .send({ gameId: 4200, gameName: "Portal 2" })
+            .expect(200);
+
+        assert.equal(response.body.review.gameId, 4200);
+        assert.equal(response.body.review.gameName, "Portal 2");
     });
 });
 
@@ -237,5 +569,16 @@ describe("countries routes", () => {
 
         assert.match(response.text, /<country>Poland<\/country>/);
         assert.doesNotMatch(response.text, /United States of America/);
+    });
+});
+
+describe("global API errors", () => {
+    test("devuelve 404 global en JSON", async () => {
+        const response = await request(app)
+            .get("/ruta-inexistente")
+            .expect("Content-Type", /application\/json/)
+            .expect(404);
+
+        assert.equal(response.body.message, "Recurso no encontrado");
     });
 });

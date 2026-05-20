@@ -7,6 +7,10 @@ const xml2js = require("xml2js");
 
 const removeMongoId = ({ _id, ...document }) => document;
 
+const isPlainObject = (value) => {
+    return value !== null && typeof value === "object" && !Array.isArray(value);
+};
+
 const isPositiveInteger = (value) => {
     const numberValue = Number(value);
     return Number.isInteger(numberValue) && numberValue > 0;
@@ -14,6 +18,24 @@ const isPositiveInteger = (value) => {
 
 const isValidNumber = (value) => {
     return !Number.isNaN(Number(value));
+};
+
+const isNonEmptyString = (value) => {
+    return typeof value === "string" && value.trim().length > 0;
+};
+
+const isNonEmptyStringArray = (value) => {
+    return Array.isArray(value) && value.length > 0 && value.every(isNonEmptyString);
+};
+
+const isNumberInRange = (value, min, max) => {
+    const numberValue = Number(value);
+    return Number.isFinite(numberValue) && numberValue >= min && numberValue <= max;
+};
+
+const isNonNegativeInteger = (value) => {
+    const numberValue = Number(value);
+    return Number.isInteger(numberValue) && numberValue >= 0;
 };
 
 const escapeRegex = (value) => {
@@ -28,6 +50,40 @@ const allowedSortFields = [
     "metacritic",
     "playtime"
 ];
+
+const allowedGameFields = [
+    "id",
+    "name",
+    "slug",
+    "released",
+    "background_image",
+    "rating",
+    "metacritic",
+    "playtime",
+    "platforms",
+    "genres",
+    "stores",
+    "esrb_rating",
+    "developers"
+];
+
+const findGameDependencies = async (database, gameId) => {
+    const [reviews, countries, developers] = await Promise.all([
+        database.collection("reviews").countDocuments({ gameId }),
+        database.collection("countries").countDocuments({ gameId }),
+        database.collection("developers").countDocuments({ "games.id": gameId })
+    ]);
+
+    return {
+        reviews,
+        countries,
+        developers
+    };
+};
+
+const hasGameDependencies = (dependencies) => {
+    return Object.values(dependencies).some(count => count > 0);
+};
 
 // Obtener todos los juegos
 router.get('/', async (req, res) => {
@@ -129,8 +185,10 @@ router.get('/', async (req, res) => {
                 sortOption = {[sortField] : 1};
             }
         }
-        const games = await database
-            .collection("videogames")
+        const gamesCollection = database.collection("videogames");
+        const total = await gamesCollection.countDocuments(filter);
+
+        const games = await gamesCollection
             .find(filter)
             .skip((pageOption - 1) * limitNumber)
             .limit(limitNumber)
@@ -140,6 +198,7 @@ router.get('/', async (req, res) => {
         const gamesWithoutId = games.map(removeMongoId);
         
         res.status(200).json({
+            total,
             videogames_length: gamesWithoutId.length,
             videogames: gamesWithoutId
         });
@@ -329,6 +388,21 @@ router.post('/', async (req, res) => {
 
         const newGame = req.body;
 
+        if (!isPlainObject(newGame)) {
+            return res.status(400).json({ message: "El cuerpo de la petición debe ser un objeto JSON" });
+        }
+
+        const invalidFields = Object.keys(newGame).filter(field => {
+            return !allowedGameFields.includes(field);
+        });
+
+        if (invalidFields.length > 0) {
+            return res.status(400).json({
+                message: "Algunos campos no se pueden crear",
+                invalidFields
+            });
+        }
+
         const requiredFields = [
             "id",
             "name",
@@ -354,15 +428,40 @@ router.post('/', async (req, res) => {
             });
         }
 
-        // Validar arrays vacíos
-        if (
-            !Array.isArray(newGame.platforms) || newGame.platforms.length === 0 ||
-            !Array.isArray(newGame.genres) || newGame.genres.length === 0 ||
-            !Array.isArray(newGame.stores) || newGame.stores.length === 0
-        ) {
+        const stringFields = ["name", "slug", "released", "background_image", "esrb_rating"];
+        const invalidStringFields = stringFields.filter(field => {
+            return newGame[field] !== undefined && newGame[field] !== null && !isNonEmptyString(newGame[field]);
+        });
+
+        if (invalidStringFields.length > 0) {
             return res.status(400).json({
-                message: "Platforms, genres y stores deben ser arrays no vacíos"
+                message: "Algunos campos de texto no son válidos",
+                invalidFields: invalidStringFields
             });
+        }
+
+        const arrayFields = ["platforms", "genres", "stores", "developers"];
+        const invalidArrayFields = arrayFields.filter(field => {
+            return newGame[field] !== undefined && !isNonEmptyStringArray(newGame[field]);
+        });
+
+        if (invalidArrayFields.length > 0) {
+            return res.status(400).json({
+                message: "platforms, genres, stores y developers deben ser arrays no vacíos de texto",
+                invalidFields: invalidArrayFields
+            });
+        }
+
+        if (newGame.rating !== undefined && !isNumberInRange(newGame.rating, 0, 5)) {
+            return res.status(400).json({ message: "rating debe ser un número entre 0 y 5" });
+        }
+
+        if (newGame.metacritic !== undefined && !isNumberInRange(newGame.metacritic, 0, 100)) {
+            return res.status(400).json({ message: "metacritic debe ser un número entre 0 y 100" });
+        }
+
+        if (newGame.playtime !== undefined && !isNonNegativeInteger(newGame.playtime)) {
+            return res.status(400).json({ message: "playtime debe ser un número entero igual o mayor que 0" });
         }
 
         // Verificar si existe
@@ -376,15 +475,23 @@ router.post('/', async (req, res) => {
             });
         }
 
-        newGame.id = Number(newGame.id);
+        const gameToInsert = {
+            ...newGame,
+            id: Number(newGame.id)
+        };
 
-        const result = await database
+        if (gameToInsert.rating !== undefined) gameToInsert.rating = Number(gameToInsert.rating);
+        if (gameToInsert.metacritic !== undefined) gameToInsert.metacritic = Number(gameToInsert.metacritic);
+        if (gameToInsert.playtime !== undefined) gameToInsert.playtime = Number(gameToInsert.playtime);
+
+        await database
             .collection("videogames")
-            .insertOne(newGame);
+            .insertOne(gameToInsert);
 
         return res.status(201).json({
             message: "Videojuego creado correctamente",
-            insertedId: result.insertedId
+            id: gameToInsert.id,
+            game: removeMongoId(gameToInsert)
         });
 
     } catch (error) {
@@ -407,16 +514,12 @@ router.put('/:id', async (req,res) => {
 
         const number_id = Number(req.params.id);
         const newData = req.body;
-        const allowedFields = [
-            "name",
-            "slug",
-            "released",
-            "rating",
-            "platforms",
-            "genres",
-            "stores",
-            "developers"
-        ];
+
+        if (!isPlainObject(newData)) {
+            return res.status(400).json({ message: "El cuerpo de la petición debe ser un objeto JSON" });
+        }
+
+        const allowedFields = allowedGameFields.filter(field => field !== "id");
         const invalidFields = Object.keys(newData).filter(field => {
             return !allowedFields.includes(field);
         });
@@ -428,6 +531,50 @@ router.put('/:id', async (req,res) => {
             });
         }
 
+        if (Object.keys(newData).length === 0) {
+            return res.status(400).json({ message: "No se han enviado campos para actualizar" });
+        }
+
+        const stringFields = ["name", "slug", "released", "background_image", "esrb_rating"];
+        const invalidStringFields = stringFields.filter(field => {
+            return newData[field] !== undefined && newData[field] !== null && !isNonEmptyString(newData[field]);
+        });
+
+        if (invalidStringFields.length > 0) {
+            return res.status(400).json({
+                message: "Algunos campos de texto no son válidos",
+                invalidFields: invalidStringFields
+            });
+        }
+
+        const arrayFields = ["platforms", "genres", "stores", "developers"];
+        const invalidArrayFields = arrayFields.filter(field => {
+            return newData[field] !== undefined && !isNonEmptyStringArray(newData[field]);
+        });
+
+        if (invalidArrayFields.length > 0) {
+            return res.status(400).json({
+                message: "platforms, genres, stores y developers deben ser arrays no vacíos de texto",
+                invalidFields: invalidArrayFields
+            });
+        }
+
+        if (newData.rating !== undefined && !isNumberInRange(newData.rating, 0, 5)) {
+            return res.status(400).json({ message: "rating debe ser un número entre 0 y 5" });
+        }
+
+        if (newData.metacritic !== undefined && !isNumberInRange(newData.metacritic, 0, 100)) {
+            return res.status(400).json({ message: "metacritic debe ser un número entre 0 y 100" });
+        }
+
+        if (newData.playtime !== undefined && !isNonNegativeInteger(newData.playtime)) {
+            return res.status(400).json({ message: "playtime debe ser un número entero igual o mayor que 0" });
+        }
+
+        if (newData.rating !== undefined) newData.rating = Number(newData.rating);
+        if (newData.metacritic !== undefined) newData.metacritic = Number(newData.metacritic);
+        if (newData.playtime !== undefined) newData.playtime = Number(newData.playtime);
+
         const game_exist = await database
             .collection("videogames")
             .findOne({ id: number_id });
@@ -436,6 +583,17 @@ router.put('/:id', async (req,res) => {
             return res.status(404).json({
                 message: "Videojuego no encontrado"
             });
+        }
+
+        if (newData.name !== undefined && newData.name !== game_exist.name) {
+            const dependencies = await findGameDependencies(database, number_id);
+
+            if (hasGameDependencies(dependencies)) {
+                return res.status(409).json({
+                    message: "No se puede cambiar el nombre de un videojuego con recursos relacionados",
+                    dependencies
+                });
+            }
         }
 
         await database
@@ -471,6 +629,15 @@ router.delete('/:id', async (req, res) => {
         const game_delete = await database.collection('videogames').findOne({ id: number_id });
         if (!game_delete) {
             return res.status(404).json({ message: 'Videojuego no encontrado' });
+        }
+
+        const dependencies = await findGameDependencies(database, number_id);
+
+        if (hasGameDependencies(dependencies)) {
+            return res.status(409).json({
+                message: 'No se puede eliminar un videojuego con recursos relacionados',
+                dependencies
+            });
         }
 
         await database.collection('videogames').deleteOne({ id: number_id });

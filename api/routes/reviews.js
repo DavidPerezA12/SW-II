@@ -5,6 +5,10 @@ const mongodb = require("../db/conn");
 
 const removeMongoId = ({ _id, ...document }) => document;
 
+const isPlainObject = (value) => {
+    return value !== null && typeof value === "object" && !Array.isArray(value);
+};
+
 const isPositiveInteger = (value) => {
     const numberValue = Number(value);
     return Number.isInteger(numberValue) && numberValue > 0;
@@ -13,6 +17,36 @@ const isPositiveInteger = (value) => {
 const isValidRating = (value) => {
     const numberValue = Number(value);
     return !Number.isNaN(numberValue) && numberValue >= 1 && numberValue <= 5;
+};
+
+const isNonEmptyString = (value) => {
+    return typeof value === "string" && value.trim().length > 0;
+};
+
+const findGameForReview = async (database, gameId, gameName) => {
+    const game = await database
+        .collection("videogames")
+        .findOne({ id: Number(gameId) });
+
+    if (!game) {
+        return {
+            error: {
+                status: 404,
+                body: { message: `El videojuego ${gameId} no se encuentra en la base de datos` }
+            }
+        };
+    }
+
+    if (gameName !== undefined && gameName !== game.name) {
+        return {
+            error: {
+                status: 400,
+                body: { message: "gameName no coincide con el videojuego indicado por gameId" }
+            }
+        };
+    }
+
+    return { game };
 };
 
 // GET /reviews
@@ -133,6 +167,12 @@ router.post("/", async (req, res) => {
 
     try {
 
+        const body = req.body;
+
+        if (!isPlainObject(body)) {
+            return res.status(400).json({ message: "El cuerpo de la petición debe ser un objeto JSON" });
+        }
+
         const {
             id,
             gameId,
@@ -140,7 +180,7 @@ router.post("/", async (req, res) => {
             user,
             rating,
             comment
-        } = req.body;
+        } = body;
 
         // Validar campos obligatorios
         if (
@@ -168,6 +208,23 @@ router.post("/", async (req, res) => {
             return res.status(400).json({ message: "rating debe ser un número entre 1 y 5" });
         }
 
+        if (!isNonEmptyString(gameName)) {
+            return res.status(400).json({ message: "gameName debe ser un texto no vacío" });
+        }
+
+        if (!isNonEmptyString(comment)) {
+            return res.status(400).json({ message: "comment debe ser un texto no vacío" });
+        }
+
+        if (user !== undefined && !isNonEmptyString(user)) {
+            return res.status(400).json({ message: "user debe ser un texto no vacío" });
+        }
+
+        const { game, error } = await findGameForReview(database, gameId, gameName);
+        if (error) {
+            return res.status(error.status).json(error.body);
+        }
+
         // Comprobar si el ID ya existe
         const existingReview = await database
             .collection("reviews")
@@ -183,8 +240,8 @@ router.post("/", async (req, res) => {
         // Crear objeto review
         const newReview = {
             id: Number(id),
-            gameId: Number(gameId),
-            gameName,
+            gameId: game.id,
+            gameName: game.name,
             user: user || "anonymous",
             rating: Number(rating),
             comment,
@@ -192,13 +249,13 @@ router.post("/", async (req, res) => {
         };
 
         // Insertar en MongoDB
-        const result = await database
+        await database
             .collection("reviews")
             .insertOne(newReview);
 
         return res.status(201).json({
             message: "Review creada correctamente",
-            insertedId: result.insertedId,
+            id: newReview.id,
             review: newReview
         });
 
@@ -236,6 +293,10 @@ router.patch("/:id", async (req, res) => {
         }
 
         const updates = req.body;
+
+        if (!isPlainObject(updates)) {
+            return res.status(400).json({ message: "El cuerpo de la petición debe ser un objeto JSON" });
+        }
 
         // No permitir modificar createdAt
         if (updates.createdAt) {
@@ -275,6 +336,31 @@ router.patch("/:id", async (req, res) => {
 
         if (updates.rating !== undefined) {
             updates.rating = Number(updates.rating);
+        }
+
+        if (updates.gameName !== undefined && !isNonEmptyString(updates.gameName)) {
+            return res.status(400).json({ message: "gameName debe ser un texto no vacío" });
+        }
+
+        if (updates.comment !== undefined && !isNonEmptyString(updates.comment)) {
+            return res.status(400).json({ message: "comment debe ser un texto no vacío" });
+        }
+
+        if (updates.user !== undefined && !isNonEmptyString(updates.user)) {
+            return res.status(400).json({ message: "user debe ser un texto no vacío" });
+        }
+
+        if (updates.gameId !== undefined || updates.gameName !== undefined) {
+            const targetGameId = updates.gameId !== undefined ? updates.gameId : existingReview.gameId;
+            const targetGameName = updates.gameName !== undefined ? updates.gameName : existingReview.gameName;
+            const { game, error } = await findGameForReview(database, targetGameId, targetGameName);
+
+            if (error) {
+                return res.status(error.status).json(error.body);
+            }
+
+            updates.gameId = game.id;
+            updates.gameName = game.name;
         }
 
         // Actualizar solo los campos enviados

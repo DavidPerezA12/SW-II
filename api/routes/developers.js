@@ -5,6 +5,10 @@ const mongodb = require('../db/conn');
 
 const removeMongoId = ({ _id, ...document }) => document;
 
+const isPlainObject = (value) => {
+    return value !== null && typeof value === "object" && !Array.isArray(value);
+};
+
 const isPositiveInteger = (value) => {
     const numberValue = Number(value);
     return Number.isInteger(numberValue) && numberValue > 0;
@@ -12,6 +16,55 @@ const isPositiveInteger = (value) => {
 
 const isNonEmptyArray = (value) => {
     return Array.isArray(value) && value.length > 0;
+};
+
+const isNonEmptyString = (value) => {
+    return typeof value === "string" && value.trim().length > 0;
+};
+
+const validateDeveloperGames = (games) => {
+    if (!isNonEmptyArray(games)) {
+        return "games debe ser un array no vacío";
+    }
+
+    const invalidGame = games.find(game => {
+        return (
+            !game ||
+            typeof game !== "object" ||
+            !isPositiveInteger(game.id) ||
+            !isNonEmptyString(game.name)
+        );
+    });
+
+    if (invalidGame) {
+        return "Cada juego asociado debe tener id positivo y name no vacío";
+    }
+
+    return null;
+};
+
+const validateGamesExist = async (database, games) => {
+    for (const game of games) {
+        const existingGame = await database
+            .collection("videogames")
+            .findOne({ id: Number(game.id) });
+
+        if (!existingGame) {
+            return {
+                status: 404,
+                body: { message: `El videojuego ${game.id} no se encuentra en la base de datos` }
+            };
+        }
+
+        if (game.name !== existingGame.name) {
+            return {
+                status: 400,
+                body: { message: `El nombre del videojuego ${game.id} no coincide con la base de datos` }
+            };
+        }
+    }
+
+    return null;
 };
 
 const escapeRegex = (value) => {
@@ -93,7 +146,10 @@ router.get('/', async (req, res) => {
             }
         }
 
-        const developers = await database.collection('developers')
+        const developersCollection = database.collection('developers');
+        const total = await developersCollection.countDocuments(filter);
+
+        const developers = await developersCollection
             .find(filter)
             .sort(sortOption)
             .skip((pageOption - 1) * limitNumber)
@@ -101,6 +157,7 @@ router.get('/', async (req, res) => {
             .toArray();
 
         return res.status(200).json({
+            total,
             developers_length: developers.length,
             developers: developers.map(removeMongoId)
         });
@@ -149,6 +206,10 @@ router.post('/', async (req, res) => {
         const database = mongodb.getDb();
         const newDeveloper = req.body;
 
+        if (!isPlainObject(newDeveloper)) {
+            return res.status(400).json({ message: "El cuerpo de la petición debe ser un objeto JSON" });
+        }
+
         const allowedCreateFields = ["id", ...allowedDeveloperFields];
         const invalidFields = Object.keys(newDeveloper).filter(field => {
             return !allowedCreateFields.includes(field);
@@ -177,8 +238,14 @@ router.post('/', async (req, res) => {
             return res.status(400).json({ message: "El id debe ser un número positivo" });
         }
 
-        if (!isNonEmptyArray(newDeveloper.games)) {
-            return res.status(400).json({ message: "games debe ser un array no vacío" });
+        const gamesValidationError = validateDeveloperGames(newDeveloper.games);
+        if (gamesValidationError) {
+            return res.status(400).json({ message: gamesValidationError });
+        }
+
+        const gamesExistError = await validateGamesExist(database, newDeveloper.games);
+        if (gamesExistError) {
+            return res.status(gamesExistError.status).json(gamesExistError.body);
         }
 
         if (
@@ -209,19 +276,19 @@ router.post('/', async (req, res) => {
                 : newDeveloper.games.length
         };
 
-        const result = await database
+        await database
             .collection('developers')
             .insertOne(developerToInsert);
 
         return res.status(201).json({
             message: "Desarrollador creado correctamente",
-            insertedId: result.insertedId,
+            id: developerToInsert.id,
             developer: removeMongoId(developerToInsert)
         });
 
     } catch (e) {
         return res.status(500).json({
-            message: "Error creating developer",
+            message: "Error al crear el desarrollador",
             error: e.message
         });
     }
@@ -236,6 +303,10 @@ router.put('/:id', async (req, res) => {
         const database = mongodb.getDb();
         const developerId = Number(req.params.id);
         const updates = req.body;
+
+        if (!isPlainObject(updates)) {
+            return res.status(400).json({ message: "El cuerpo de la petición debe ser un objeto JSON" });
+        }
 
         if (Object.keys(updates).length === 0) {
             return res.status(400).json({ message: "No se han enviado campos para actualizar" });
@@ -252,8 +323,16 @@ router.put('/:id', async (req, res) => {
             });
         }
 
-        if (updates.games !== undefined && !isNonEmptyArray(updates.games)) {
-            return res.status(400).json({ message: "games debe ser un array no vacío" });
+        if (updates.games !== undefined) {
+            const gamesValidationError = validateDeveloperGames(updates.games);
+            if (gamesValidationError) {
+                return res.status(400).json({ message: gamesValidationError });
+            }
+
+            const gamesExistError = await validateGamesExist(database, updates.games);
+            if (gamesExistError) {
+                return res.status(gamesExistError.status).json(gamesExistError.body);
+            }
         }
 
         if (
