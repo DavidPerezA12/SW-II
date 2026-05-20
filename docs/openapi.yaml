@@ -97,7 +97,7 @@ paths:
           example: 20
         - name: sort
           in: query
-          description: Campo de ordenación. Con guion inicial ordena de forma descendente.
+          description: Campo de ordenación. Con guion inicial ordena de forma descendente. Campos permitidos: id, name, released, rating, metacritic, playtime.
           schema:
             type: string
           examples:
@@ -322,7 +322,7 @@ paths:
           example: 20
         - name: sort
           in: query
-          description: Campo de ordenación. Con guion inicial ordena de forma descendente.
+          description: Campo de ordenación. Con guion inicial ordena de forma descendente. Campos permitidos: id, name, slug, games_count.
           schema:
             type: string
           example: -games_count

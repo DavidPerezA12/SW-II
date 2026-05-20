@@ -16,6 +16,19 @@ const isValidNumber = (value) => {
     return !Number.isNaN(Number(value));
 };
 
+const escapeRegex = (value) => {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
+const allowedSortFields = [
+    "id",
+    "name",
+    "released",
+    "rating",
+    "metacritic",
+    "playtime"
+];
+
 // Obtener todos los juegos
 router.get('/', async (req, res) => {
     try {
@@ -42,25 +55,27 @@ router.get('/', async (req, res) => {
 
         //?search=the witcher
         if (search){
+            const safeSearch = escapeRegex(search);
+
             filter.$or = [
-                { name: { $regex: search, $options: "i" } },
-                { slug: { $regex: search, $options: "i" } }
+                { name: { $regex: safeSearch, $options: "i" } },
+                { slug: { $regex: safeSearch, $options: "i" } }
             ];
         }
 
         //?platform=pc
         if (platform) {
-            filter.platforms = { $regex: new RegExp(`^${platform}$`, "i") };
+            filter.platforms = { $regex: new RegExp(`^${escapeRegex(platform)}$`, "i") };
         }
 
         //?genre=shooter
         if (genre) {
-            filter.genres = { $regex: new RegExp(`^${genre}$`, "i") };
+            filter.genres = { $regex: new RegExp(`^${escapeRegex(genre)}$`, "i") };
         }
 
         //?store=steam
         if (store) {
-            filter.stores = { $regex: new RegExp(`^${store}$`, "i") };
+            filter.stores = { $regex: new RegExp(`^${escapeRegex(store)}$`, "i") };
         }
 
         //?minRating=4.5
@@ -99,10 +114,19 @@ router.get('/', async (req, res) => {
         //games?sort=rating /games?sort=-name
         let sortOption = {};
         if(sort){
+            const sortField = sort.startsWith("-") ? sort.slice(1) : sort;
+
+            if (!allowedSortFields.includes(sortField)) {
+                return res.status(400).json({
+                    message: "Campo de ordenación no permitido",
+                    allowedSortFields
+                });
+            }
+
             if(sort.startsWith("-")){
-                sortOption = {[sort.slice(1)] : -1}; //sort= -name // sort.slice(1)= name
+                sortOption = {[sortField] : -1};
             }else{
-                sortOption = {[sort] : 1};
+                sortOption = {[sortField] : 1};
             }
         }
         const games = await database

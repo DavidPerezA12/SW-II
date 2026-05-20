@@ -5,7 +5,7 @@ const client = new MongoClient(process.env.MONGODB_URI); // Instancia del client
 let dbConnection;
 
 // Función para conectar a la base de datos
-connectToDatabase = async () => {
+const connectToDatabase = async () => {
     try {
         await client.connect();
         dbConnection = client.db();
@@ -17,9 +17,9 @@ connectToDatabase = async () => {
 };
 
 // Función para obtener la conexión a la base de datos
-getDb = () => {
+const getDb = () => {
     return dbConnection;
-}
+};
 
 module.exports = {
     connectToDatabase,

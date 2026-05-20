@@ -79,6 +79,7 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
       - `?limit=10` → Limitar el número de resultados a 10.
       - `?sort=rating` → Ordenar por valoración ascendente.
       - `?sort=-name` → Ordenar por nombre descendente.
+      - Campos permitidos para `sort`: `id`, `name`, `released`, `rating`, `metacritic`, `playtime`.
   - **GET /games/:id** → Obtener detalles de un videojuego por su ID. [http://localhost:3001/games/3328]
   - **GET /games/:id/country** → Obtener en XML los países asociados a un videojuego. [http://localhost:3001/games/3328/country]
   - **GET /games/:id/reviews** → Obtener reviews de un videojuego. [http://localhost:3001/games/3328/reviews]
@@ -95,6 +96,7 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
       - `?limit=50` → Limitar el número de resultados a 50.
       - `?page=2&limit=20` → Paginación con número de página y límite de resultados por página.
       - `?sort=-games_count` → Ordenar por número de juegos de mayor a menor.
+      - Campos permitidos para `sort`: `id`, `name`, `slug`, `games_count`.
   - **GET /developers/:id** → Obtener detalles de un desarrollador por su ID. [http://localhost:3001/developers/9023]
   - **POST /developers** → Agregar un nuevo desarrollador a la base de datos.
   - **PUT /developers/:id** → Actualizar la información de un desarrollador por su ID.

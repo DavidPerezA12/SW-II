@@ -3,6 +3,10 @@ const router = express.Router();
 const mongodb = require('../db/conn');
 const xml2js = require("xml2js");
 
+const escapeRegex = (value) => {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
 router.get('/', async (req, res) => {
 
     const database = mongodb.getDb();
@@ -18,7 +22,7 @@ router.get('/', async (req, res) => {
         if (country) {
 
             filter.country = {
-                $regex: country,
+                $regex: escapeRegex(country),
                 $options: "i"
             };
         }
@@ -27,7 +31,7 @@ router.get('/', async (req, res) => {
         if (developer) {
 
             filter.developer = {
-                $regex: developer,
+                $regex: escapeRegex(developer),
                 $options: "i"
             };
         }
@@ -36,7 +40,7 @@ router.get('/', async (req, res) => {
         if (gameName) {
 
             filter.gameName = {
-                $regex: gameName,
+                $regex: escapeRegex(gameName),
                 $options: "i"
             };
         }

@@ -14,12 +14,23 @@ const isNonEmptyArray = (value) => {
     return Array.isArray(value) && value.length > 0;
 };
 
+const escapeRegex = (value) => {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
 const allowedDeveloperFields = [
     "name",
     "slug",
     "games_count",
     "image_background",
     "games"
+];
+
+const allowedSortFields = [
+    "id",
+    "name",
+    "slug",
+    "games_count"
 ];
 
 // Obtener todos los desarrolladores
@@ -33,9 +44,11 @@ router.get('/', async (req, res) => {
 
         // ?search=cd-projekt
         if (search) {
+            const safeSearch = escapeRegex(search);
+
             filter.$or = [
-                { name: { $regex: search, $options: "i" } },
-                { slug: { $regex: search, $options: "i" } }
+                { name: { $regex: safeSearch, $options: "i" } },
+                { slug: { $regex: safeSearch, $options: "i" } }
             ];
         }
 
@@ -64,10 +77,19 @@ router.get('/', async (req, res) => {
         let sortOption = {};
 
         if (sort) {
+            const sortField = sort.startsWith("-") ? sort.slice(1) : sort;
+
+            if (!allowedSortFields.includes(sortField)) {
+                return res.status(400).json({
+                    message: "Campo de ordenación no permitido",
+                    allowedSortFields
+                });
+            }
+
             if (sort.startsWith("-")) {
-                sortOption = { [sort.slice(1)]: -1 };
+                sortOption = { [sortField]: -1 };
             } else {
-                sortOption = { [sort]: 1 };
+                sortOption = { [sortField]: 1 };
             }
         }
 
