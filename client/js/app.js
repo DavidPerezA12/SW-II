@@ -62,6 +62,8 @@ export function closeModal() {
   document.body.style.overflow = "";
 }
 
+window.closeModal = closeModal;
+
 modalClose.addEventListener("click", closeModal);
 modalOverlay.addEventListener("click", (e) => {
   if (e.target === modalOverlay) closeModal();
