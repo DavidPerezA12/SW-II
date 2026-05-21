@@ -1,9 +1,13 @@
 const axios = require("axios");
+const xml2js = require("xml2js");
 
 const WIKIDATA_URL = "https://query.wikidata.org/sparql";
 const WIKIDATA_API_URL = "https://www.wikidata.org/w/api.php";
 
 const USER_AGENT = "VideogamesAPI/1.0 (student project)";
+const XML_PARSER = new xml2js.Parser({
+    explicitArray: false
+});
 
 const searchGameEntities = async (gameName) => {
 
@@ -26,18 +30,50 @@ const searchGameEntities = async (gameName) => {
         .filter(id => /^Q\d+$/.test(id));
 };
 
-const mapCountryResults = (results) => {
+const asArray = (value) => {
+    if (!value) {
+        return [];
+    }
+
+    return Array.isArray(value) ? value : [value];
+};
+
+const bindingValue = (bindings, name) => {
+    const binding = asArray(bindings).find(item => item.$?.name === name);
+
+    if (!binding) {
+        return null;
+    }
+
+    const value = binding.uri || binding.literal || null;
+
+    if (value && typeof value === "object") {
+        return value._ || null;
+    }
+
+    return value;
+};
+
+const parseSparqlXmlResults = async (xml) => {
+    const parsed = await XML_PARSER.parseStringPromise(xml);
+    const results = asArray(parsed.sparql?.results?.result);
+
     return results
-        .filter(r => r.countryLabel?.value)
-        .map(r => {
+        .map(result => {
+            const bindings = result.binding;
+            const gameUri = bindingValue(bindings, "game");
+            const developerUri = bindingValue(bindings, "developer");
+            const country = bindingValue(bindings, "countryLabel");
+
             return {
-                game: r.gameLabel?.value || null,
-                gameId: r.game?.value?.split("/").pop() || null,
-                developer: r.developerLabel?.value || null,
-                developerId: r.developer?.value?.split("/").pop() || null,
-                country: r.countryLabel.value
+                game: bindingValue(bindings, "gameLabel"),
+                gameId: gameUri?.split("/").pop() || null,
+                developer: bindingValue(bindings, "developerLabel"),
+                developerId: developerUri?.split("/").pop() || null,
+                country
             };
-        });
+        })
+        .filter(country => country.country);
 };
 
 const runCountryQuery = async (query) => {
@@ -45,17 +81,17 @@ const runCountryQuery = async (query) => {
     const response = await axios.get(WIKIDATA_URL, {
         params: {
             query,
-            format: "json"
+            format: "xml"
         },
         headers: {
+            "Accept": "application/sparql-results+xml",
             "User-Agent": USER_AGENT
         },
+        responseType: "text",
         timeout: 30000
     });
 
-    const results = response.data.results?.bindings || [];
-
-    return mapCountryResults(results);
+    return parseSparqlXmlResults(response.data);
 };
 
 const getCountriesByExactLabel = async (gameName) => {

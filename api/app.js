@@ -6,6 +6,11 @@ const path = require('path'); // Módulo para rutas
 const cookieParser = require('cookie-parser'); // Middleware para parsear cookies
 const logger = require('morgan'); // Middleware para solicitudes HTTP
 const cors = require('cors'); // Middleware para habilitar CORS
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+
+const openApiPath = path.join(__dirname, '..', 'docs', 'openapi.yaml');
+const openApiDocument = YAML.load(openApiPath);
 
 let app = express();
 
@@ -22,6 +27,11 @@ app.use(logger('dev'));
 
 
 // Rutas
+app.get('/openapi.yaml', (req, res) => {
+  res.type('application/yaml').sendFile(openApiPath);
+});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiDocument));
+
 const index = require('./routes/index');
 app.use('/', index);
 

@@ -34,7 +34,9 @@
     "http-errors": "^2.0.1",
     "mongodb": "^6.6.2",
     "morgan": "^1.10.1",
-    "xml2js": "^0.6.2"
+    "swagger-ui-express": "^5.0.1",
+    "xml2js": "^0.6.2",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "eslint": "^9.2.0",
