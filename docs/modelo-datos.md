@@ -30,26 +30,13 @@ erDiagram
 
     VIDEOGAMES {
         number id
-        string slug
         string name
-        string released
-        string background_image
-        number rating
-        number metacritic
-        number playtime
-        array platforms
-        array genres
-        array stores
-        string esrb_rating
         array developers
     }
 
     DEVELOPERS {
         number id
         string name
-        string slug
-        number games_count
-        string image_background
         array games
     }
 
@@ -59,8 +46,6 @@ erDiagram
         string gameName
         string user
         number rating
-        string comment
-        string createdAt
     }
 
     COUNTRIES {
