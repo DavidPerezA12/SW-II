@@ -10,10 +10,10 @@ El recurso principal es `videogames`. Las demás colecciones se relacionan con l
 |---|---|---|---:|
 | `videogames` | `/games` | RAWG API | 1000 |
 | `developers` | `/developers` | RAWG API | 600 |
-| `reviews` | `/reviews` | Datos propios generados | 3482 |
+| `reviews` | `/reviews` | Datos propios generados | 3504 |
 | `countries` | `/countries` | Wikidata Query Service | 806 |
 
-Estos números corresponden a los archivos incluidos en `api/datasets/`.
+Estos números corresponden a los archivos incluidos actualmente en `api/datasets/`. Si se regenera `reviews.json`, el total puede cambiar porque el script crea entre 2 y 5 reviews por videojuego.
 
 ## Relaciones
 
@@ -41,6 +41,7 @@ erDiagram
         array genres
         array stores
         string esrb_rating
+        array developers
     }
 
     DEVELOPERS {
@@ -88,6 +89,7 @@ Colección principal del proyecto. Contiene 1000 videojuegos importados desde RA
 | `genres` | Array<String> | Géneros del videojuego. |
 | `stores` | Array<String> | Tiendas donde aparece el videojuego. |
 | `esrb_rating` | String/null | Clasificación por edades. |
+| `developers` | Array<String> | Desarrolladores asociados. Es opcional y se usa en videojuegos creados o actualizados desde la API si se envía este campo. |
 
 Ejemplo:
 
@@ -104,7 +106,8 @@ Ejemplo:
   "platforms": ["PlayStation 5", "Xbox Series S/X", "PlayStation 3", "PC", "PlayStation 4", "Xbox 360", "Xbox One"],
   "genres": ["Action"],
   "stores": ["Steam", "PlayStation Store", "Epic Games", "Xbox 360 Store", "Xbox Store"],
-  "esrb_rating": "Mature"
+  "esrb_rating": "Mature",
+  "developers": ["Rockstar North"]
 }
 ```
 
@@ -254,3 +257,9 @@ Los datasets están incluidos para que la API pueda seguir funcionando aunque RA
 - `developers.games[]` mantiene los juegos relacionados porque RAWG ya entrega esa información así y MongoDB trabaja bien con arrays.
 - `countries` es un recurso de consulta en XML. Los recursos modificables son `videogames`, `developers` y `reviews`.
 - `gameName` se repite en `reviews` y `countries` para que las respuestas sean legibles sin hacer consultas adicionales.
+
+## Restricciones de integridad
+
+- `developers.games[].id` debe apuntar a un videojuego existente y `developers.games[].name` debe coincidir con el nombre guardado en `videogames`.
+- `reviews.gameId` debe apuntar a un videojuego existente y `reviews.gameName` debe coincidir con el nombre guardado en `videogames`.
+- No se permite cambiar el nombre ni eliminar un videojuego si tiene reviews, países o desarrolladores relacionados.

@@ -18,6 +18,7 @@
     - [4. Ejecutar la API](#4-ejecutar-la-api)
     - [5. Ejecutar el cliente web](#5-ejecutar-el-cliente-web)
     - [6. Ejecutar las pruebas](#6-ejecutar-las-pruebas)
+  - [Restricciones y validaciones relevantes](#restricciones-y-validaciones-relevantes)
   - [✅ Pruebas](#-pruebas)
   - [📂 Estructura del proyecto](#-estructura-del-proyecto)
 
@@ -45,15 +46,26 @@ La documentación pedida en el enunciado está repartida en estos archivos:
 
 | Requisito | Archivo o carpeta |
 |---|---|
-| Documento de diseño de la interfaz REST | `docs/Diseno_Interfaz_REST.docx` |
+| Documento de diseño de la interfaz REST | `docs/Diseno_Interfaz_REST.pdf` |
 | Especificación OpenAPI del servicio | `docs/openapi.yaml` |
 | Modelo de datos de la base de datos | `docs/modelo-datos.md` |
+| Versión PDF del modelo de datos | `docs/modelo-datos.pdf` |
+| Memoria resumida del proyecto | `docs/Documentacion.pdf` |
 | Schema asociado al XML de países | `docs/countries.xsd` |
 | Datasets para inicializar MongoDB | `api/datasets/` |
 | Scripts de carga de datos | `api/seeds/` |
 | Instrucciones para ejecutar el proyecto | Este `README.md` |
 
 El proyecto integra datos externos de RAWG y Wikidata en datasets locales para que la API pueda ejecutarse aunque esas APIs no estén disponibles. La colección principal, `videogames`, contiene 1000 documentos y permite búsquedas con filtros, ordenación y paginación. Sobre `/games`, `/developers` y `/reviews` se implementan operaciones CRUD, mientras que `/countries` se mantiene como recurso XML de consulta con su schema en `docs/countries.xsd`.
+
+Los datasets incluidos actualmente contienen:
+
+| Dataset | Documentos/entradas |
+|---|---:|
+| `api/datasets/videogames.json` | 1000 |
+| `api/datasets/developers.json` | 600 |
+| `api/datasets/reviews.json` | 3504 |
+| `api/datasets/countries.xml` | 806 |
 
 ## ✨ Funcionalidades
 
@@ -135,7 +147,8 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
 - Axios (para consumir APIs externas)
 - dotenv (para gestionar variables de entorno)
 - OpenAPI (para documentar la API)
-- xml2js (para convertir XML a JSON)
+- Swagger UI (para servir la documentación OpenAPI de forma interactiva en `/api-docs`)
+- xml2js (para parsear XML y generar respuestas XML)
   
 ### APIs externas
 
@@ -146,6 +159,8 @@ Las operaciones CRUD completas se implementan sobre `/games`, `/developers` y `/
 Para la ejecución de la entrega no hace falta consultar RAWG en directo: los datasets necesarios ya están incluidos en `api/datasets`. Wikidata no requiere API key para las consultas usadas en el proyecto.
 
 Los scripts de carga usan los datasets locales para que la API funcione aunque RAWG o Wikidata no estén disponibles durante la ejecución.
+
+RAWG requiere API key si se quieren regenerar los datasets desde la API externa. En los scripts actuales se usa la variable `RAWG_API_KEY`. Wikidata se consulta principalmente con peticiones SPARQL en XML; si no hay resultados por etiqueta exacta, el script usa la API de búsqueda de entidades de Wikidata en JSON solo como apoyo para localizar el identificador del videojuego y volver a consultar los países por SPARQL/XML. Regenerar `countries.xml` puede tardar, por lo que el script permite ajustar el tamaño de lote y la espera entre peticiones.
 
 ## ▶️ Ejecución
 
@@ -158,21 +173,15 @@ Clonar el repositorio y entrar a la carpeta de la API:
    cd SW-II/api
    ```
 
-Crear el archivo `.env` dentro de `api`. Se puede copiar el archivo de ejemplo:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   El ejemplo incluye una clave de RAWG para que la corrección sea más directa. En un proyecto real no subiríamos una clave así al repositorio.
-
-   El contenido debe quedar con estas variables:
+Crear un archivo `.env` dentro de `api` si se quiere cambiar la configuración por defecto o regenerar datasets desde RAWG. El contenido debe quedar con estas variables:
 
    ```env
    MONGODB_URI=mongodb://127.0.0.1:27017/sw2-videogames
    PORT=3001
-   RAWG_API_KEY=ff5b600dc61b4f9aad86ff9dd70b09b9
+   RAWG_API_KEY=<tu_clave_rawg>
    ```
+
+   `RAWG_API_KEY` solo es necesaria si se regeneran los datasets JSON desde RAWG. Para ejecutar la entrega con los datasets incluidos no hace falta consultar RAWG en directo.
 
 Instalar dependencias:
 
@@ -206,6 +215,29 @@ Desde la carpeta `api`:
    npm run seed
    ```
 
+El comando carga los datasets locales incluidos en `api/datasets`. Si se elimina un dataset JSON, el script correspondiente intentará regenerarlo desde RAWG usando `RAWG_API_KEY`. Para regenerar el XML de países desde Wikidata:
+
+```bash
+REGENERATE_COUNTRIES=true npm run seed:countries
+```
+
+Variables opcionales para Wikidata:
+
+```env
+COUNTRIES_BATCH_SIZE=5
+COUNTRIES_DELAY_MS=1000
+```
+
+Regenerar `reviews.json` con `npm run seed:reviews` crea un número aleatorio de reviews por juego, por lo que el total puede cambiar. El dataset incluido actualmente contiene 3504 reviews.
+
+## Restricciones y validaciones relevantes
+
+- `POST /developers` y `PUT /developers/:id` comprueban que cada elemento de `games[]` tenga un `id` de videojuego existente y que el `name` coincida con el guardado en `videogames`.
+- `POST /reviews` y `PATCH /reviews/:id` comprueban que `gameId` exista y que `gameName` coincida con ese videojuego.
+- `PUT /games/:id` no permite cambiar el `name` si el videojuego tiene reviews, países o desarrolladores relacionados.
+- `DELETE /games/:id` no permite borrar videojuegos con reviews, países o desarrolladores relacionados.
+- Los errores de validación usan `400`, los recursos inexistentes usan `404` y los conflictos por duplicados o dependencias usan `409`.
+
 ### 4. Ejecutar la API
 
 Desde la carpeta `api`:
@@ -218,6 +250,13 @@ La API queda disponible en:
 
    ```bash
    http://localhost:3001
+   ```
+
+La documentación OpenAPI también se sirve desde la propia API:
+
+   ```bash
+   http://localhost:3001/api-docs
+   http://localhost:3001/openapi.yaml
    ```
 
 ### 5. Ejecutar el cliente web
@@ -319,6 +358,8 @@ SW-II/
 │   ├── openapi.yaml
 │   ├── countries.xsd
 │   ├── modelo-datos.md
-│   └── Diseno_Interfaz_REST.docx
+│   ├── modelo-datos.pdf
+│   ├── Documentacion.pdf
+│   └── Diseno_Interfaz_REST.pdf
 └── README.md
   ```
