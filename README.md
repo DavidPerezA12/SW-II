@@ -173,12 +173,12 @@ Clonar el repositorio y entrar a la carpeta de la API:
    cd SW-II/api
    ```
 
-Crear un archivo `.env` dentro de `api` si se quiere cambiar la configuración por defecto o regenerar datasets desde RAWG. El contenido debe quedar con estas variables:
+El archivo `.env` dentro de `api` ya está configurado. Si no existe, crearlo con estas variables:
 
    ```env
    MONGODB_URI=mongodb://127.0.0.1:27017/sw2-videogames
    PORT=3001
-   RAWG_API_KEY=<tu_clave_rawg>
+   RAWG_API_KEY=ff5b600dc61b4f9aad86ff9dd70b09b9
    ```
 
    `RAWG_API_KEY` solo es necesaria si se regeneran los datasets JSON desde RAWG. Para ejecutar la entrega con los datasets incluidos no hace falta consultar RAWG en directo.
