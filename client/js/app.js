@@ -22,10 +22,10 @@ async function checkApiStatus() {
   try {
     await api.checkHealth();
     apiStatusDot.className = "status-dot online";
-    apiStatusText.textContent = "API Online";
+    apiStatusText.textContent = "API conectada";
   } catch {
     apiStatusDot.className = "status-dot offline";
-    apiStatusText.textContent = "API Offline";
+    apiStatusText.textContent = "API sin conexión";
   }
 }
 checkApiStatus();
@@ -95,31 +95,51 @@ function parseHash() {
 
 async function router() {
   const { route, params } = parseHash();
-  setActiveNav(route);
-  window.scrollTo(0, 0);
 
-  const handler = routes[route];
-  if (handler) {
-    app.innerHTML =
-      '<div class="empty-state"><div class="skeleton" style="width:120px;height:24px;margin:0 auto 16px;"></div><div class="skeleton" style="width:200px;height:16px;margin:0 auto;"></div></div>';
-    try {
-      await handler(params);
-    } catch (err) {
+  const doUpdate = async () => {
+    setActiveNav(route);
+    window.scrollTo(0, 0);
+
+    const handler = routes[route];
+    if (handler) {
+      app.innerHTML =
+        '<div class="empty-state"><div class="skeleton" style="width:120px;height:24px;margin:0 auto 16px;"></div><div class="skeleton" style="width:200px;height:16px;margin:0 auto;"></div></div>';
+      try {
+        await handler(params);
+      } catch (err) {
+        app.innerHTML = `
+          <div class="empty-state">
+            <h3>Error al cargar</h3>
+            <p>${escapeHtml(err.message || "No se pudo cargar la vista.")}</p>
+          </div>
+        `;
+      }
+    } else {
       app.innerHTML = `
         <div class="empty-state">
-          <h3>Error al cargar</h3>
-          <p>${escapeHtml(err.message || "No se pudo cargar la vista.")}</p>
+          <h3>Página no encontrada</h3>
+          <p>La ruta solicitada no existe en esta aplicación.</p>
+          <a href="#/" class="btn btn-primary mt-2">Volver al inicio</a>
         </div>
       `;
     }
+  };
+
+  if (!document.startViewTransition) {
+    await doUpdate();
   } else {
-    app.innerHTML = `
-      <div class="empty-state">
-        <h3>Página no encontrada</h3>
-        <p>La ruta solicitada no existe en esta aplicación.</p>
-        <a href="#/" class="btn btn-primary mt-2">Volver al inicio</a>
-      </div>
-    `;
+    const transition = document.startViewTransition(() => {
+      doUpdate();
+    });
+
+    transition.finished.finally(() => {
+      const heading = app.querySelector("h1, h2, h3");
+      if (heading) {
+        heading.setAttribute("tabindex", "-1");
+        heading.focus();
+        heading.style.outline = "none";
+      }
+    });
   }
 }
 
@@ -129,8 +149,10 @@ window.addEventListener("load", router);
 
 async function renderHome() {
   app.innerHTML = `
-    <h1 class="page-title">Panel de control</h1>
-    <p class="page-subtitle">Resumen en tiempo real de la base de datos de SW-II.</p>
+    <div class="page-header">
+      <h1 class="page-title">Resumen del proyecto</h1>
+      <p class="page-subtitle">Datos cargados en MongoDB para comprobar la API de videojuegos.</p>
+    </div>
     <div class="stats-grid" id="stats-grid">
       <div class="stat-card"><div class="skeleton" style="height:60px"></div></div>
       <div class="stat-card"><div class="skeleton" style="height:60px"></div></div>
@@ -138,28 +160,28 @@ async function renderHome() {
       <div class="stat-card"><div class="skeleton" style="height:60px"></div></div>
     </div>
     
-    <div class="form-grid" style="margin-top: 48px;">
+    <div class="form-grid" style="margin-top: 40px;">
       <div>
-        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;">
-          <h3 class="section-title" style="margin-bottom:0">Últimos Videojuegos</h3>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;">
+          <h3 class="section-title" style="margin-bottom:0">Videojuegos de muestra</h3>
           <a href="#/games" class="btn btn-ghost btn-sm">Ver todos →</a>
         </div>
-        <div id="latest-games" style="display:flex;flex-direction:column;gap:16px;">
-          <div class="skeleton" style="height:80px;border-radius:0"></div>
-          <div class="skeleton" style="height:80px;border-radius:0"></div>
-          <div class="skeleton" style="height:80px;border-radius:0"></div>
+        <div id="latest-games" style="display:flex;flex-direction:column;gap:12px;">
+          <div class="skeleton" style="height:76px;border-radius:8px"></div>
+          <div class="skeleton" style="height:76px;border-radius:8px"></div>
+          <div class="skeleton" style="height:76px;border-radius:8px"></div>
         </div>
       </div>
       
       <div>
-        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;">
-          <h3 class="section-title" style="margin-bottom:0">Reviews Recientes</h3>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;">
+          <h3 class="section-title" style="margin-bottom:0">Reviews cargadas</h3>
           <a href="#/reviews" class="btn btn-ghost btn-sm">Ver todas →</a>
         </div>
-        <div id="recent-reviews" style="display:flex;flex-direction:column;gap:16px;">
-          <div class="skeleton" style="height:80px;border-radius:0"></div>
-          <div class="skeleton" style="height:80px;border-radius:0"></div>
-          <div class="skeleton" style="height:80px;border-radius:0"></div>
+        <div id="recent-reviews" style="display:flex;flex-direction:column;gap:12px;">
+          <div class="skeleton" style="height:76px;border-radius:8px"></div>
+          <div class="skeleton" style="height:76px;border-radius:8px"></div>
+          <div class="skeleton" style="height:76px;border-radius:8px"></div>
         </div>
       </div>
     </div>

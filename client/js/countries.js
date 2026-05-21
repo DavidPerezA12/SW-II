@@ -5,8 +5,10 @@ export async function renderCountriesList(container, showToast) {
   const state = { country: '', developer: '', gameName: '', loading: false };
 
   container.innerHTML = `
-    <h1 class="page-title">Países</h1>
-    <p class="page-subtitle">Información XML sobre países asociados a desarrolladores y videojuegos. Procedente de Wikidata.</p>
+    <div class="page-header">
+      <h1 class="page-title">Países</h1>
+      <p class="page-subtitle">Información XML sobre países asociados a desarrolladores y videojuegos. Procedente de Wikidata.</p>
+    </div>
 
     <div class="toolbar">
       <div class="toolbar-group">

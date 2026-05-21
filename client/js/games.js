@@ -63,8 +63,10 @@ export async function renderGamesList(container, openModal, closeModal, showToas
   };
 
   container.innerHTML = `
-    <h1 class="page-title">Videojuegos</h1>
-    <p class="page-subtitle">Explora el catálogo completo. Usa los filtros para refinar los resultados.</p>
+    <div class="page-header">
+      <h1 class="page-title">Videojuegos</h1>
+      <p class="page-subtitle">Consulta videojuegos y prueba filtros sobre la colección principal.</p>
+    </div>
 
     <div class="toolbar">
       <div class="toolbar-group">
@@ -161,7 +163,7 @@ export async function renderGamesList(container, openModal, closeModal, showToas
         els.grid.innerHTML = `
           <div class="empty-state" style="grid-column:1/-1">
             <h3>No se encontraron juegos</h3>
-            <p>Prueba a ajustar los filtros o crear uno nuevo.</p>
+            <p>Cambia algún filtro o crea un videojuego nuevo.</p>
           </div>
         `;
       } else {
@@ -387,7 +389,6 @@ export async function renderGameDetail(container, id, openModal, closeModal, sho
       try {
         const xml = await api.getGameCountry(id);
         
-        // Parse the XML
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xml, 'application/xml');
         const parseError = xmlDoc.querySelector('parsererror');

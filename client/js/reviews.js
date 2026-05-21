@@ -27,8 +27,10 @@ export async function renderReviewsList(container, openModal, closeModal, showTo
   const state = { page: 1, limit: DEFAULT_LIMIT, id: '', gameId: '', rating: '', loading: false };
 
   container.innerHTML = `
-    <h1 class="page-title">Reviews</h1>
-    <p class="page-subtitle">Opiniones y valoraciones de los usuarios.</p>
+    <div class="page-header">
+      <h1 class="page-title">Reviews</h1>
+      <p class="page-subtitle">Opiniones y valoraciones de los usuarios.</p>
+    </div>
 
     <div class="toolbar">
       <div class="toolbar-group" style="min-width:120px">
@@ -100,7 +102,7 @@ export async function renderReviewsList(container, openModal, closeModal, showTo
       const items = state.gameId ? paginate(filteredItems, state.page, state.limit) : filteredItems;
 
       if (!items.length) {
-        els.grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><h3>No se encontraron reviews</h3><p>Prueba con otros filtros o crea una nueva.</p></div>`;
+        els.grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><h3>No se encontraron reviews</h3><p>Cambia el filtro o crea una review nueva.</p></div>`;
       } else {
         els.grid.innerHTML = items.map(r => `
           <article class="card">

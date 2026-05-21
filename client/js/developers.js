@@ -18,8 +18,10 @@ export async function renderDevelopersList(container, openModal, closeModal, sho
   const state = { page: 1, limit: DEFAULT_LIMIT, search: '', gameId: '', sort: '', loading: false };
 
   container.innerHTML = `
-    <h1 class="page-title">Desarrolladores</h1>
-    <p class="page-subtitle">Estudios de desarrollo y sus juegos asociados.</p>
+    <div class="page-header">
+      <h1 class="page-title">Desarrolladores</h1>
+      <p class="page-subtitle">Estudios de desarrollo y sus juegos asociados.</p>
+    </div>
 
     <div class="toolbar">
       <div class="toolbar-group">
@@ -88,7 +90,7 @@ export async function renderDevelopersList(container, openModal, closeModal, sho
       const total = data.total ?? data.developers_length ?? 0;
 
       if (!items.length) {
-        els.grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><h3>No se encontraron desarrolladores</h3><p>Prueba con otros filtros.</p></div>`;
+        els.grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><h3>No se encontraron desarrolladores</h3><p>Cambia la búsqueda o el identificador del juego.</p></div>`;
       } else {
         els.grid.innerHTML = items.map(d => `
           <article class="card">
